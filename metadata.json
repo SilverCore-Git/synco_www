@@ -1,0 +1,6 @@
+{
+  "name": "Sinko Showcase",
+  "description": "Site vitrine interactif pour Sinko, la plateforme collaborative ultra-sécurisée et souveraine (alternative française à Slack et Teams).",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
