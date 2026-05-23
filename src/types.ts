@@ -10,13 +10,11 @@ export interface TranslationSet {
     teamsComparison: string;
   };
   hero: {
-    sovereignBadge: string;
     title: string;
     titleGradient: string;
     description: string;
     primaryCta: string;
     secondaryCta: string;
-    trustedBy: string;
     securityBadge: string;
   };
   liveDemo: {

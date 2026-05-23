@@ -25,18 +25,7 @@ export default function Hero({ t }: HeroProps) {
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-brand/5 rounded-full blur-[120px] -z-10" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-4xl mx-auto">
-          
-          {/* Badge */}
-          <div className="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-full bg-brand/8 text-brand-dark border border-brand/12 mb-6 sm:mb-8 animate-[slideDown_0.3s_ease-out]">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-brand"></span>
-            </span>
-            <span className="text-xs font-semibold uppercase tracking-wider font-display">
-              {t.hero.sovereignBadge}
-            </span>
-          </div>
+        <div className="text-center max-w-5xl mx-auto">
 
           {/* Heading */}
           <h1 className="text-4xl sm:text-6xl font-display font-medium tracking-tight text-slate-900 leading-[1.1] mb-6">
@@ -289,26 +278,7 @@ export default function Hero({ t }: HeroProps) {
           </div>
         </div>
 
-        {/* Short Trusted Badges */}
-        <div className="mt-16 text-center">
-          <p className="text-xs uppercase tracking-widest text-slate-400 font-semibold mb-6">
-            {t.hero.trustedBy}
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-12 sm:gap-16 opacity-75 grayscale contrast-125">
-            <div className="flex items-center space-x-1.5">
-              <span className="font-display font-medium text-slate-800 text-sm tracking-widest">MINISTÈRE DE LA DÉFENSE</span>
-            </div>
-            <div className="flex items-center space-x-1.5">
-              <span className="font-display font-medium text-slate-800 text-sm tracking-wider">AÉROPORT DE PARIS</span>
-            </div>
-            <div className="flex items-center space-x-1.5">
-              <span className="font-display font-bold text-slate-800 text-sm tracking-wider">SANOFI S.A.</span>
-            </div>
-            <div className="flex items-center space-x-1.5">
-              <span className="font-display font-medium text-slate-800 text-sm tracking-widest text-[#16ac77]">ANSSI COMPLIANT</span>
-            </div>
-          </div>
-        </div>
+        {/* ici mettre trusted badges */}
 
       </div>
     </section>
