@@ -1,8 +1,3 @@
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
- */
-
 import React, { useState } from 'react';
 import { Users, Shield, Cpu, Leaf, HelpCircle, HardDrive } from 'lucide-react';
 

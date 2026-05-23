@@ -1,8 +1,3 @@
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
- */
-
 import React, { useState, useEffect } from 'react';
 import { HelpCircle, Clipboard, Check, Lightbulb, TrendingUp, Users } from 'lucide-react';
 
