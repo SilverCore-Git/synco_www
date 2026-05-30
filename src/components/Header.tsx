@@ -26,13 +26,7 @@ export default function Header({ currentLang, setLang, t }: HeaderProps) {
           
           {/* Logo */}
           <div className="flex items-center space-x-2.5 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-            <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-brand bg-opacity-10 text-brand">
-              <Shield className="w-5 h-5 stroke-[2.5]" />
-              <div className="absolute -top-0.5 -right-0.5 w-3 h-3 bg-brand rounded-full border-2 border-white animate-pulse-ring" />
-            </div>
-            <span className="text-2xl font-display font-bold tracking-tight text-slate-900">
-              Sinco<span className="text-brand">.</span>
-            </span>
+            <img src="/banner.svg" alt="Sovereign Logo" className="h-8 w-auto" />
           </div>
 
           {/* Nav items for desktop */}
