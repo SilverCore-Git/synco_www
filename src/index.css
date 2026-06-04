@@ -14,7 +14,7 @@
 
 @layer base {
   body {
-    @apply font-sans antialiased bg-[#fdfdfd] text-slate-800 selection:bg-brand/20 selection:text-brand-dark;
+    @apply font-sans antialiased bg-white text-slate-900 selection:bg-brand/20 selection:text-brand-dark;
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -22,19 +22,132 @@
   }
 }
 
-/* Subtle glassmorphism utilities & keyframes */
-@keyframes slideDown {
-  from { opacity: 0; transform: translateY(-8px); }
-  to { opacity: 1; transform: translateY(0); }
+/* Minimalist animations */
+@keyframes fadeInUp {
+  from { 
+    opacity: 0; 
+    transform: translateY(20px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
 }
 
-@keyframes pulse-ring {
-  0% { transform: scale(0.95); opacity: 0.5; }
-  50% { transform: scale(1.05); opacity: 0.3; }
-  100% { transform: scale(0.95); opacity: 0.5; }
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
 }
 
-.animate-pulse-ring {
-  animation: pulse-ring 3s infinite ease-in-out;
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
 }
 
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 3s ease-in-out infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(22, 172, 119, 0.3);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(22, 172, 119, 0.5);
+}
+
+/* Range slider styling */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+  width: 100%;
+}
+
+input[type="range"]::-webkit-slider-track {
+  background: #e2e8f0;
+  height: 4px;
+  border-radius: 2px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background: #16ac77;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  margin-top: -8px;
+  box-shadow: 0 2px 6px rgba(22, 172, 119, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(22, 172, 119, 0.4);
+}
+
+input[type="range"]::-moz-range-track {
+  background: #e2e8f0;
+  height: 4px;
+  border-radius: 2px;
+}
+
+input[type="range"]::-moz-range-thumb {
+  background: #16ac77;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  border: none;
+  box-shadow: 0 2px 6px rgba(22, 172, 119, 0.3);
+}
+
+/* Number input styling */
+input[type="number"] {
+  -webkit-appearance: none;
+  appearance: none;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 14px;
+  font-family: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input[type="number"]:focus {
+  outline: none;
+  border-color: #16ac77;
+  box-shadow: 0 0 0 3px rgba(22, 172, 119, 0.1);
+}
+
+/* Geometric decorative elements */
+.geo-circle {
+  border-radius: 50%;
+}
+
+.geo-square {
+  border-radius: 2px;
+}
+
+.geo-rounded {
+  border-radius: 4px;
+}

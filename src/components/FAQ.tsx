@@ -7,63 +7,78 @@ interface FAQProps {
 }
 
 export default function FAQ({ t }: FAQProps) {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const toggleIndex = (idx: number) => {
     setOpenIndex(openIndex === idx ? null : idx);
   };
 
   return (
-    <section id="faq" className="py-20 sm:py-24 bg-white border-t border-slate-100">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6">
+    <section id="faq" className="py-24 sm:py-32 bg-slate-50/50">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6">
         
         {/* Section title */}
         <div className="text-center mb-16">
-          <span className="text-xxs font-bold text-brand uppercase tracking-widest bg-brand/10 px-3 py-1.5 rounded-full mb-4 inline-block">
-            DES RÉPONSES PRÉCISES
+          <span className="text-[10px] font-bold text-brand uppercase tracking-[0.2em] mb-6 block">
+            FAQ
           </span>
-          <h2 className="text-3xl sm:text-4xl font-display font-medium text-slate-900 mb-4">
+          <h2 className="text-4xl sm:text-5xl font-display font-light text-slate-900 mb-6 tracking-tight">
             {t.faq.title}
           </h2>
-          <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+          <p className="text-sm text-slate-500 leading-relaxed max-w-lg mx-auto">
             {t.faq.subtitle}
           </p>
         </div>
 
-        {/* Accordion List */}
-        <div className="space-y-4">
+        {/* Accordion */}
+        <div className="space-y-3">
           {t.faq.items.map((item, idx) => {
             const isOpen = openIndex === idx;
             return (
               <div
                 key={idx}
-                className="bg-[#fafcfa] border border-slate-150 rounded-2xl overflow-hidden transition-all duration-300"
+                className={`bg-white rounded-xl border transition-all duration-300 overflow-hidden ${
+                  isOpen 
+                    ? 'border-brand/30 shadow-md shadow-slate-200/50' 
+                    : 'border-slate-100 hover:border-slate-200'
+                }`}
               >
-                {/* Trigger Button */}
+                {/* Question */}
                 <button
-                  id={`faq-trigger-${idx}`}
                   onClick={() => toggleIndex(idx)}
-                  className="w-full text-left p-6 flex justify-between items-center gap-4 focus:outline-none cursor-pointer group"
+                  className="w-full text-left p-5 flex justify-between items-center gap-4 group"
                 >
                   <div className="flex items-center gap-3">
-                    <HelpCircle className="w-4.5 h-4.5 text-brand flex-shrink-0 group-hover:scale-105 transition-transform" />
-                    <span className="text-xs sm:text-sm font-semibold text-slate-800 font-display group-hover:text-brand transition-colors">
+                    <HelpCircle className={`w-4 h-4 flex-shrink-0 transition-colors ${
+                      isOpen ? 'text-brand' : 'text-slate-400 group-hover:text-brand'
+                    }`} />
+                    <span className={`text-sm font-medium transition-colors ${
+                      isOpen ? 'text-brand' : 'text-slate-700 group-hover:text-brand'
+                    }`}>
                       {item.q}
                     </span>
                   </div>
                   
-                  <div className={`p-1.5 rounded-lg bg-white border border-slate-150 text-slate-400 group-hover:text-brand transition-all duration-300 ${isOpen ? 'rotate-180 text-brand' : ''}`}>
+                  <div className={`w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-300 ${
+                    isOpen 
+                      ? 'bg-brand text-white rotate-180' 
+                      : 'bg-slate-50 text-slate-400 group-hover:text-brand'
+                  }`}>
                     <ChevronDown className="w-4 h-4" />
                   </div>
                 </button>
 
-                {/* Answer block with slide-down style animations */}
+                {/* Answer */}
                 {isOpen && (
-                  <div className="px-6 pb-6 pt-1 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 bg-white/40 block animate-[slideDown_0.25s_ease-out]">
-                    <p className="font-normal">{item.a}</p>
+                  <div className="px-5 pb-5 pt-0">
+                    <div className="pl-11">
+                      <div className="h-px bg-slate-100 mb-4" />
+                      <p className="text-sm text-slate-500 leading-relaxed">
+                        {item.a}
+                      </p>
+                    </div>
                   </div>
                 )}
-
               </div>
             );
           })}

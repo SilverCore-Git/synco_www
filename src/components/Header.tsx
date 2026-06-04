@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Shield, Menu, X, Globe, ArrowRight } from 'lucide-react';
+import { Shield, Menu, X, ArrowRight } from 'lucide-react';
 import { Language, TranslationSet } from '../types';
 
 interface HeaderProps {
@@ -10,6 +10,7 @@ interface HeaderProps {
 
 export default function Header({ currentLang, setLang, t }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id);
@@ -19,120 +20,84 @@ export default function Header({ currentLang, setLang, t }: HeaderProps) {
     setMobileMenuOpen(false);
   };
 
+  // Handle scroll for header background
+  if (typeof window !== 'undefined') {
+    window.addEventListener('scroll', () => {
+      setScrolled(window.scrollY > 20);
+    });
+  }
+
   return (
-    <header className="sticky top-0 z-50 bg-[#fdfdfd]/80 backdrop-blur-md border-b border-slate-100">
+    <header className={`sticky top-0 z-50 transition-all duration-300 ${
+      scrolled ? 'bg-white/90 backdrop-blur-md shadow-sm' : 'bg-transparent'
+    }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-16">
           
-          {/* Logo */}
-          <div className="flex items-center space-x-2.5 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-            <img src="/banner.svg" alt="Sovereign Logo" className="h-8 w-auto" />
+          {/* Logo - Minimalist */}
+          <div 
+            className="flex items-center gap-2 cursor-pointer" 
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          >
+            <div className="w-8 h-8 rounded-lg bg-brand flex items-center justify-center">
+              <Shield className="w-4 h-4 text-white" />
+            </div>
+            <span className="text-lg font-display font-semibold text-slate-900 tracking-tight">
+              Sinco
+            </span>
           </div>
 
-          {/* Nav items for desktop */}
+          {/* Nav items for desktop - Clean spacing */}
           <nav className="hidden md:flex items-center space-x-8">
-            <button
-              id="nav-features-btn"
-              onClick={() => scrollToSection('features')}
-              className="text-sm font-medium text-slate-600 hover:text-brand transition-colors cursor-pointer"
-            >
-              {t.nav.features}
-            </button>
-            <button
-              id="nav-demo-btn"
-              onClick={() => scrollToSection('demo')}
-              className="text-sm font-medium text-slate-600 hover:text-brand transition-colors cursor-pointer"
-            >
-              Démo E2EE
-            </button>
-            <button
-              id="nav-comparison-btn"
-              onClick={() => scrollToSection('comparison')}
-              className="text-sm font-medium text-slate-600 hover:text-brand transition-colors cursor-pointer"
-            >
-              {t.nav.teamsComparison}
-            </button>
-            <button
-              id="nav-sovereignty-btn"
-              onClick={() => scrollToSection('sovereignty')}
-              className="text-sm font-medium text-slate-600 hover:text-brand transition-colors cursor-pointer"
-            >
-              {t.nav.security}
-            </button>
-            <button
-              id="nav-pricing-btn"
-              onClick={() => scrollToSection('pricing')}
-              className="text-sm font-medium text-slate-600 hover:text-brand transition-colors cursor-pointer"
-            >
-              {t.nav.pricing}
-            </button>
-            <button
-              id="nav-faq-btn"
-              onClick={() => scrollToSection('faq')}
-              className="text-sm font-medium text-slate-600 hover:text-brand transition-colors cursor-pointer"
-            >
-              {t.nav.faq}
-            </button>
+            {[
+              { id: 'features', label: t.nav.features },
+              { id: 'demo', label: 'Démo' },
+              { id: 'comparison', label: t.nav.teamsComparison },
+              { id: 'sovereignty', label: t.nav.security },
+              { id: 'pricing', label: t.nav.pricing },
+            ].map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className="text-xs font-medium text-slate-500 hover:text-brand transition-colors tracking-wide uppercase"
+              >
+                {item.label}
+              </button>
+            ))}
           </nav>
 
           {/* Language Switcher + CTA */}
-          <div className="hidden md:flex items-center space-x-4">
-            <div className="flex items-center space-x-1.5 bg-slate-100 p-1 rounded-lg">
-              <button
-                id="lang-fr-btn"
-                onClick={() => setLang('FR')}
-                className={`px-2.5 py-1 text-xs font-semibold rounded ${
-                  currentLang === 'FR' ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-500 hover:text-slate-900'
-                } transition-all`}
-              >
-                FR
-              </button>
-              <button
-                id="lang-en-btn"
-                onClick={() => setLang('EN')}
-                className={`px-2.5 py-1 text-xs font-semibold rounded ${
-                  currentLang === 'EN' ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-500 hover:text-slate-900'
-                } transition-all`}
-              >
-                EN
-              </button>
+          <div className="hidden md:flex items-center space-x-6">
+            <div className="flex items-center space-x-1 bg-slate-100 p-0.5 rounded-lg">
+              {(['FR', 'EN'] as const).map((lang) => (
+                <button
+                  key={lang}
+                  onClick={() => setLang(lang)}
+                  className={`px-3 py-1.5 text-[10px] font-bold rounded-md transition-all ${
+                    currentLang === lang 
+                      ? 'bg-white text-slate-900 shadow-sm' 
+                      : 'text-slate-400 hover:text-slate-600'
+                  }`}
+                >
+                  {lang}
+                </button>
+              ))}
             </div>
             
             <button
-              id="header-cta-btn"
               onClick={() => scrollToSection('pricing')}
-              className="inline-flex items-center justify-center px-4 py-2.5 text-xs font-semibold text-white bg-brand hover:bg-brand-dark rounded-xl transition-all shadow-sm shadow-brand/10 cursor-pointer"
+              className="inline-flex items-center gap-2 px-5 py-2 text-xs font-semibold text-white bg-slate-900 hover:bg-slate-800 rounded-lg transition-all hover:shadow-lg hover:shadow-slate-900/20"
             >
               {t.nav.ctaButton}
+              <ArrowRight className="w-3.5 h-3.5" />
             </button>
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden flex items-center space-x-3">
-            <div className="flex items-center space-x-1 bg-slate-100 p-1 rounded-lg">
-              <button
-                id="m-lang-fr-btn"
-                onClick={() => setLang('FR')}
-                className={`px-2 py-0.5 text-xxs font-bold rounded ${
-                  currentLang === 'FR' ? 'bg-white text-slate-950 shadow-sm' : 'text-slate-500'
-                }`}
-              >
-                FR
-              </button>
-              <button
-                id="m-lang-en-btn"
-                onClick={() => setLang('EN')}
-                className={`px-2 py-0.5 text-xxs font-bold rounded ${
-                  currentLang === 'EN' ? 'bg-white text-slate-950 shadow-sm' : 'text-slate-500'
-                }`}
-              >
-                EN
-              </button>
-            </div>
+          <div className="md:hidden flex items-center space-x-2">
             <button
-              id="mobile-menu-toggle"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-slate-600 hover:text-slate-900 focus:outline-none"
+              className="p-2 text-slate-600 hover:text-slate-900"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -141,62 +106,52 @@ export default function Header({ currentLang, setLang, t }: HeaderProps) {
         </div>
       </div>
 
-      {/* Mobile Menu Panel */}
+      {/* Mobile Menu Panel - Full screen overlay */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-[#fdfdfd] border-b border-slate-100 px-4 py-6 space-y-4 animate-[slideDown_0.2s_ease-out]">
-          <div className="grid grid-cols-1 gap-4">
-            <button
-              id="m-nav-features"
-              onClick={() => scrollToSection('features')}
-              className="text-left py-2 font-medium text-slate-700 hover:text-brand border-b border-slate-50"
-            >
-              {t.nav.features}
-            </button>
-            <button
-              id="m-nav-demo"
-              onClick={() => scrollToSection('demo')}
-              className="text-left py-2 font-medium text-slate-700 hover:text-brand border-b border-slate-50"
-            >
-              Démo E2EE
-            </button>
-            <button
-              id="m-nav-comparison"
-              onClick={() => scrollToSection('comparison')}
-              className="text-left py-2 font-medium text-slate-700 hover:text-brand border-b border-slate-50"
-            >
-              {t.nav.teamsComparison}
-            </button>
-            <button
-              id="m-nav-sovereignty"
-              onClick={() => scrollToSection('sovereignty')}
-              className="text-left py-2 font-medium text-slate-700 hover:text-brand border-b border-slate-50"
-            >
-              {t.nav.security}
-            </button>
-            <button
-              id="m-nav-pricing"
-              onClick={() => scrollToSection('pricing')}
-              className="text-left py-2 font-medium text-slate-700 hover:text-brand border-b border-slate-50"
-            >
-              {t.nav.pricing}
-            </button>
-            <button
-              id="m-nav-faq"
-              onClick={() => scrollToSection('faq')}
-              className="text-left py-2 font-medium text-slate-700 hover:text-brand border-b border-slate-50"
-            >
-              {t.nav.faq}
-            </button>
-          </div>
-          <div>
-            <button
-              id="m-cta"
-              onClick={() => scrollToSection('pricing')}
-              className="w-full inline-flex items-center justify-center py-3 px-4 font-semibold text-white bg-brand rounded-xl"
-            >
-              {t.nav.ctaButton}
-              <ArrowRight className="ml-2 w-4 h-4" />
-            </button>
+        <div className="md:hidden fixed inset-0 top-16 z-40 bg-white px-6 py-8 animate-[fadeInUp_0.3s_ease-out]">
+          <div className="flex flex-col space-y-6">
+            {[
+              { id: 'features', label: t.nav.features },
+              { id: 'demo', label: 'Démo E2EE' },
+              { id: 'comparison', label: t.nav.teamsComparison },
+              { id: 'sovereignty', label: t.nav.security },
+              { id: 'pricing', label: t.nav.pricing },
+              { id: 'faq', label: t.nav.faq },
+            ].map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className="text-left text-lg font-medium text-slate-900 hover:text-brand py-2 border-b border-slate-100"
+              >
+                {item.label}
+              </button>
+            ))}
+            
+            <div className="pt-6 space-y-4">
+              <div className="flex items-center space-x-2 bg-slate-100 p-1 rounded-lg w-fit">
+                {(['FR', 'EN'] as const).map((lang) => (
+                  <button
+                    key={lang}
+                    onClick={() => setLang(lang)}
+                    className={`px-4 py-2 text-sm font-bold rounded-md transition-all ${
+                      currentLang === lang 
+                        ? 'bg-white text-slate-900 shadow-sm' 
+                        : 'text-slate-400'
+                    }`}
+                  >
+                    {lang}
+                  </button>
+                ))}
+              </div>
+              
+              <button
+                onClick={() => scrollToSection('pricing')}
+                className="w-full inline-flex items-center justify-center py-4 px-6 font-semibold text-white bg-slate-900 rounded-xl"
+              >
+                {t.nav.ctaButton}
+                <ArrowRight className="ml-2 w-4 h-4" />
+              </button>
+            </div>
           </div>
         </div>
       )}
