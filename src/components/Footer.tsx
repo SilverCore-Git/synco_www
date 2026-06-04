@@ -1,4 +1,4 @@
-import { Shield, Mail, Globe } from 'lucide-react';
+import { Lock, Mail, Globe } from 'lucide-react';
 import { TranslationSet } from '../types';
 
 interface FooterProps {
@@ -7,34 +7,34 @@ interface FooterProps {
 
 export default function Footer({ t }: FooterProps) {
   return (
-    <footer className="bg-slate-900 text-slate-400 pt-20 pb-12">
+    <footer className="bg-white border-t border-border text-text-secondary pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-12 border-b border-slate-800">
-          
+
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-12 border-b border-border">
+
           {/* Brand */}
           <div className="md:col-span-5 space-y-6">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-brand flex items-center justify-center">
-                <Shield className="w-5 h-5 text-white" />
+            <div className="flex items-center gap-2.5">
+              <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
+                <Lock className="w-4 h-4 text-white" />
               </div>
-              <span className="text-xl font-display font-semibold text-white tracking-tight">
-                Sinco<span className="text-brand">.</span>
+              <span className="text-lg font-semibold text-text tracking-tight">
+                Sinco
               </span>
             </div>
-            
-            <p className="text-sm text-slate-400 leading-relaxed max-w-sm">
+
+            <p className="text-sm text-text-secondary leading-relaxed max-w-sm">
               {t.footer.tagline}
             </p>
-            
+
             {/* Status indicator */}
-            <div className="flex items-center gap-3 bg-slate-950 px-4 py-3 rounded-xl border border-slate-800 inline-flex">
+            <div className="flex items-center gap-2 bg-primary/5 px-3 py-2 rounded-lg border border-primary/10 inline-flex">
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-brand" />
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
               </span>
-              <span className="text-[10px] text-slate-400 font-mono">
-                SecNumCloud-Region-Paris • Opérationnel
+              <span className="text-xs text-primary font-mono">
+                Opérationnel • SecNumCloud Paris
               </span>
             </div>
           </div>
@@ -42,42 +42,42 @@ export default function Footer({ t }: FooterProps) {
           {/* Links */}
           <div className="md:col-span-4 grid grid-cols-2 gap-8">
             <div>
-              <h4 className="text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-4">
+              <h4 className="text-xs font-semibold uppercase tracking-wide text-text mb-4">
                 Navigation
               </h4>
-              <ul className="space-y-3 text-sm">
-                <li><a href="#features" className="hover:text-brand transition-colors">Fonctionnalités</a></li>
-                <li><a href="#demo" className="hover:text-brand transition-colors">Démo E2EE</a></li>
-                <li><a href="#comparison" className="hover:text-brand transition-colors">Comparatif</a></li>
-                <li><a href="#pricing" className="hover:text-brand transition-colors">Tarifs</a></li>
+              <ul className="space-y-2.5 text-sm">
+                <li><a href="#features" className="hover:text-primary transition-colors">Fonctionnalités</a></li>
+                <li><a href="#demo" className="hover:text-primary transition-colors">Démo E2EE</a></li>
+                <li><a href="#comparison" className="hover:text-primary transition-colors">Comparatif</a></li>
+                <li><a href="#pricing" className="hover:text-primary transition-colors">Tarifs</a></li>
               </ul>
             </div>
             <div>
-              <h4 className="text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-4">
+              <h4 className="text-xs font-semibold uppercase tracking-wide text-text mb-4">
                 Légal
               </h4>
-              <ul className="space-y-3 text-sm">
-                <li><span className="hover:text-brand transition-colors cursor-pointer">{t.footer.legal}</span></li>
-                <li><span className="hover:text-brand transition-colors cursor-pointer">{t.footer.privacy}</span></li>
-                <li><span className="hover:text-brand transition-colors cursor-pointer">{t.footer.terms}</span></li>
-                <li><span className="hover:text-brand transition-colors cursor-pointer">{t.footer.cookies}</span></li>
+              <ul className="space-y-2.5 text-sm">
+                <li><span className="hover:text-primary transition-colors cursor-pointer">{t.footer.legal}</span></li>
+                <li><span className="hover:text-primary transition-colors cursor-pointer">{t.footer.privacy}</span></li>
+                <li><span className="hover:text-primary transition-colors cursor-pointer">{t.footer.terms}</span></li>
+                <li><span className="hover:text-primary transition-colors cursor-pointer">{t.footer.cookies}</span></li>
               </ul>
             </div>
           </div>
 
           {/* Contact */}
           <div className="md:col-span-3 space-y-4">
-            <h4 className="text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-4">
+            <h4 className="text-xs font-semibold uppercase tracking-wide text-text mb-4">
               Contact
             </h4>
             <div className="space-y-3 text-sm">
-              <a href="mailto:contact@sinco.fr" className="flex items-center gap-2 hover:text-brand transition-colors">
-                <Mail className="w-4 h-4 text-brand" />
+              <a href="mailto:contact@sinco.fr" className="flex items-center gap-2 hover:text-primary transition-colors">
+                <Mail className="w-4 h-4 text-primary" />
                 <span>contact@sinco.fr</span>
               </a>
-              <div className="flex items-center gap-2 text-slate-500">
-                <Globe className="w-4 h-4 text-brand" />
-                <span>Lyon, France 🇫🇷</span>
+              <div className="flex items-center gap-2">
+                <Globe className="w-4 h-4 text-primary" />
+                <span>Lyon, France</span>
               </div>
             </div>
           </div>
@@ -85,15 +85,15 @@ export default function Footer({ t }: FooterProps) {
         </div>
 
         {/* Bottom bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[10px] text-slate-500">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
           <p>{t.footer.rights}</p>
-          <div className="flex items-center gap-4">
-            <span className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-brand" />
+          <div className="flex items-center gap-4 text-text-secondary">
+            <span className="flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary" />
               ANSSI qualified
             </span>
-            <span className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-brand" />
+            <span className="flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary" />
               GDPR Audited 2026
             </span>
           </div>

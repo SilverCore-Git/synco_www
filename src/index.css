@@ -1,24 +1,36 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Space Grotesk", sans-serif;
-  
-  --color-brand: #16ac77;
-  --color-brand-dark: #0f7d56;
-  --color-brand-light: #1ce49f;
-  --color-brand-muted: rgba(22, 172, 119, 0.08);
-  --color-brand-bg: rgba(22, 172, 119, 0.03);
+
+  /* Emerald Green Theme */
+  --color-primary: #108e62;
+  --color-primary-dark: #0d7551;
+  --color-primary-light: #16b373;
+  --color-primary-muted: rgba(16, 142, 98, 0.08);
+  --color-primary-bg: rgba(16, 142, 98, 0.03);
+
+  /* Neutral grays */
+  --color-bg: #ffffff;
+  --color-bg-secondary: #f4f4f5;
+  --color-bg-tertiary: #e4e4e7;
+  --color-text: #27272a;
+  --color-text-secondary: #52525b;
+  --color-border: #e4e4e7;
 }
 
 @layer base {
   body {
-    @apply font-sans antialiased bg-white text-slate-900 selection:bg-brand/20 selection:text-brand-dark;
+    @apply font-sans antialiased bg-white text-text selection:bg-primary/20 selection:text-primary-dark;
   }
-  
+
   h1, h2, h3, h4, h5, h6 {
-    @apply font-display tracking-tight font-medium;
+    @apply font-sans tracking-tight font-semibold text-text;
+  }
+
+  a {
+    @apply transition-colors duration-200;
   }
 }
 
@@ -58,7 +70,7 @@
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -66,12 +78,12 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(22, 172, 119, 0.3);
-  border-radius: 3px;
+  background: rgba(16, 142, 98, 0.2);
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(22, 172, 119, 0.5);
+  background: rgba(16, 142, 98, 0.4);
 }
 
 /* Range slider styling */
@@ -84,7 +96,7 @@ input[type="range"] {
 }
 
 input[type="range"]::-webkit-slider-track {
-  background: #e2e8f0;
+  background: #e4e4e7;
   height: 4px;
   border-radius: 2px;
 }
@@ -92,42 +104,44 @@ input[type="range"]::-webkit-slider-track {
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  background: #16ac77;
-  height: 20px;
-  width: 20px;
+  background: #108e62;
+  height: 18px;
+  width: 18px;
   border-radius: 50%;
-  margin-top: -8px;
-  box-shadow: 0 2px 6px rgba(22, 172, 119, 0.3);
+  margin-top: -7px;
+  box-shadow: 0 2px 6px rgba(16, 142, 98, 0.3);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 input[type="range"]::-webkit-slider-thumb:hover {
-  transform: scale(1.1);
-  box-shadow: 0 4px 12px rgba(22, 172, 119, 0.4);
+  transform: scale(1.15);
+  box-shadow: 0 4px 12px rgba(16, 142, 98, 0.4);
 }
 
 input[type="range"]::-moz-range-track {
-  background: #e2e8f0;
+  background: #e4e4e7;
   height: 4px;
   border-radius: 2px;
 }
 
 input[type="range"]::-moz-range-thumb {
-  background: #16ac77;
-  height: 20px;
-  width: 20px;
+  background: #108e62;
+  height: 18px;
+  width: 18px;
   border-radius: 50%;
   border: none;
-  box-shadow: 0 2px 6px rgba(22, 172, 119, 0.3);
+  box-shadow: 0 2px 6px rgba(16, 142, 98, 0.3);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 /* Number input styling */
 input[type="number"] {
   -webkit-appearance: none;
   appearance: none;
-  border: 1px solid #e2e8f0;
+  border: 1px solid #e4e4e7;
   border-radius: 8px;
-  padding: 8px 12px;
+  padding: 10px 14px;
   font-size: 14px;
   font-family: inherit;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
@@ -135,8 +149,8 @@ input[type="number"] {
 
 input[type="number"]:focus {
   outline: none;
-  border-color: #16ac77;
-  box-shadow: 0 0 0 3px rgba(22, 172, 119, 0.1);
+  border-color: #108e62;
+  box-shadow: 0 0 0 3px rgba(16, 142, 98, 0.1);
 }
 
 /* Geometric decorative elements */

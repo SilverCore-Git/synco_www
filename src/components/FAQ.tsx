@@ -14,18 +14,18 @@ export default function FAQ({ t }: FAQProps) {
   };
 
   return (
-    <section id="faq" className="py-24 sm:py-32 bg-slate-50/50">
+    <section id="faq" className="py-24 sm:py-32 bg-white">
       <div className="max-w-3xl mx-auto px-4 sm:px-6">
-        
+
         {/* Section title */}
         <div className="text-center mb-16">
-          <span className="text-[10px] font-bold text-brand uppercase tracking-[0.2em] mb-6 block">
+          <span className="text-xs font-semibold text-primary uppercase tracking-wide mb-4 block">
             FAQ
           </span>
-          <h2 className="text-4xl sm:text-5xl font-display font-light text-slate-900 mb-6 tracking-tight">
+          <h2 className="text-4xl md:text-5xl font-bold text-text mb-6 tracking-tight">
             {t.faq.title}
           </h2>
-          <p className="text-sm text-slate-500 leading-relaxed max-w-lg mx-auto">
+          <p className="text-base text-text-secondary leading-relaxed">
             {t.faq.subtitle}
           </p>
         </div>
@@ -37,10 +37,10 @@ export default function FAQ({ t }: FAQProps) {
             return (
               <div
                 key={idx}
-                className={`bg-white rounded-xl border transition-all duration-300 overflow-hidden ${
-                  isOpen 
-                    ? 'border-brand/30 shadow-md shadow-slate-200/50' 
-                    : 'border-slate-100 hover:border-slate-200'
+                className={`bg-white rounded-lg border transition-all duration-200 overflow-hidden ${
+                  isOpen
+                    ? 'border-primary/30 bg-primary/3'
+                    : 'border-border hover:border-primary/20'
                 }`}
               >
                 {/* Question */}
@@ -48,21 +48,21 @@ export default function FAQ({ t }: FAQProps) {
                   onClick={() => toggleIndex(idx)}
                   className="w-full text-left p-5 flex justify-between items-center gap-4 group"
                 >
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-3 flex-1">
                     <HelpCircle className={`w-4 h-4 flex-shrink-0 transition-colors ${
-                      isOpen ? 'text-brand' : 'text-slate-400 group-hover:text-brand'
+                      isOpen ? 'text-primary' : 'text-text-secondary group-hover:text-primary'
                     }`} />
-                    <span className={`text-sm font-medium transition-colors ${
-                      isOpen ? 'text-brand' : 'text-slate-700 group-hover:text-brand'
+                    <span className={`text-base font-medium transition-colors ${
+                      isOpen ? 'text-primary' : 'text-text group-hover:text-primary'
                     }`}>
                       {item.q}
                     </span>
                   </div>
-                  
-                  <div className={`w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-300 ${
-                    isOpen 
-                      ? 'bg-brand text-white rotate-180' 
-                      : 'bg-slate-50 text-slate-400 group-hover:text-brand'
+
+                  <div className={`w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-200 flex-shrink-0 ${
+                    isOpen
+                      ? 'bg-primary text-white rotate-180'
+                      : 'bg-bg-secondary text-text-secondary group-hover:text-primary'
                   }`}>
                     <ChevronDown className="w-4 h-4" />
                   </div>
@@ -71,9 +71,8 @@ export default function FAQ({ t }: FAQProps) {
                 {/* Answer */}
                 {isOpen && (
                   <div className="px-5 pb-5 pt-0">
-                    <div className="pl-11">
-                      <div className="h-px bg-slate-100 mb-4" />
-                      <p className="text-sm text-slate-500 leading-relaxed">
+                    <div className="pl-7">
+                      <p className="text-base text-text-secondary leading-relaxed">
                         {item.a}
                       </p>
                     </div>

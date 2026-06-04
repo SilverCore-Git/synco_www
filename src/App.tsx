@@ -17,7 +17,7 @@ export default function App() {
   const t = translations[lang];
 
   return (
-    <div className="relative min-h-screen flex flex-col justify-between selection:bg-brand/10">
+    <div className="relative min-h-screen flex flex-col justify-between selection:bg-primary/10">
       
       {/* Dynamic Header */}
       <Header currentLang={lang} setLang={setLang} t={t} />

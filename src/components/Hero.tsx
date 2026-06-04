@@ -1,4 +1,4 @@
-import { Shield, ArrowRight } from 'lucide-react';
+import { ArrowRight, CheckCircle } from 'lucide-react';
 import { TranslationSet } from '../types';
 
 interface HeroProps {
@@ -14,123 +14,86 @@ export default function Hero({ t }: HeroProps) {
   };
 
   return (
-    <section className="relative min-h-[calc(100vh-4rem)] flex items-center pt-20 pb-16 overflow-hidden">
-      {/* Minimalist background elements */}
+    <section id="hero" className="relative pt-20 pb-32 overflow-hidden">
+      {/* Minimalist background */}
       <div className="absolute inset-0 -z-10">
-        {/* Subtle grid pattern */}
-        <div 
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage: `linear-gradient(#16ac77 1px, transparent 1px), linear-gradient(90deg, #16ac77 1px, transparent 1px)`,
-            backgroundSize: '80px 80px'
-          }}
-        />
-        
-        {/* Soft gradient orbs */}
-        <div className="absolute top-1/4 -right-32 w-[600px] h-[600px] bg-brand/5 rounded-full blur-[120px]" />
-        <div className="absolute bottom-1/4 -left-32 w-[400px] h-[400px] bg-brand/3 rounded-full blur-[100px]" />
+        <div className="absolute top-1/3 -right-1/4 w-[800px] h-[400px] bg-primary/3 rounded-full blur-[150px]" />
+        <div className="absolute -bottom-1/4 -left-1/3 w-[600px] h-[500px] bg-primary/2 rounded-full blur-[120px]" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          
-          {/* Left: Content */}
-          <div className="max-w-xl">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand/5 border border-brand/10 mb-8">
-              <span className="w-2 h-2 rounded-full bg-brand animate-pulse" />
-              <span className="text-[10px] font-bold uppercase tracking-wider text-brand">
-                {t.hero.securityBadge.split('•')[0].trim()}
-              </span>
-            </div>
+        <div className="space-y-8 text-center max-w-3xl mx-auto mb-16">
+          {/* Badge */}
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/5 border border-primary/10">
+            <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+            <span className="text-xs font-semibold text-primary uppercase tracking-wide">
+              Protégé • Souverain • Français
+            </span>
+          </div>
 
-            {/* Headline */}
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-display font-light text-slate-900 leading-[1.1] tracking-tight mb-6">
+          {/* Headline */}
+          <div className="space-y-4">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-text leading-[1.1] tracking-tight">
               {t.hero.title}
-              <span className="block mt-2 font-normal">
-                <span className="bg-gradient-to-r from-brand via-brand to-brand-dark bg-clip-text text-transparent">
+              <span className="block">
+                <span className="bg-gradient-to-r from-primary via-primary-light to-primary-dark bg-clip-text text-transparent">
                   {t.hero.titleGradient}
                 </span>
               </span>
             </h1>
-
-            {/* Description */}
-            <p className="text-lg text-slate-500 leading-relaxed mb-10 max-w-lg">
-              {t.hero.description}
-            </p>
-
-            {/* CTAs */}
-            <div className="flex flex-col sm:flex-row gap-4 mb-12">
-              <button
-                onClick={() => scrollToSection('pricing')}
-                className="inline-flex items-center justify-center gap-3 px-8 py-4 text-sm font-semibold text-white bg-slate-900 hover:bg-slate-800 rounded-xl transition-all hover:shadow-xl hover:shadow-slate-900/20 hover:-translate-y-0.5"
-              >
-                <Shield className="w-4 h-4" />
-                {t.hero.primaryCta}
-                <ArrowRight className="w-4 h-4" />
-              </button>
-              
-              <button
-                onClick={() => scrollToSection('demo')}
-                className="inline-flex items-center justify-center gap-3 px-8 py-4 text-sm font-semibold text-slate-700 bg-white hover:bg-slate-50 border border-slate-200 rounded-xl transition-all hover:border-slate-300 hover:-translate-y-0.5"
-              >
-                {t.hero.secondaryCta}
-              </button>
-            </div>
-
-            {/* Trust indicators */}
-            <div className="flex items-center gap-6 text-xs text-slate-400">
-              <div className="flex items-center gap-2">
-                <div className="w-1 h-1 rounded-full bg-brand" />
-                <span>100% France</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-1 h-1 rounded-full bg-brand" />
-                <span>E2EE</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-1 h-1 rounded-full bg-brand" />
-                <span>RGPD</span>
-              </div>
-            </div>
           </div>
 
-          {/* Right: Visual */}
-          <div className="relative hidden lg:block">
-            {/* Geometric frame */}
-            <div className="relative">
-              {/* Outer decorative frame */}
-              <div className="absolute -inset-8 border border-slate-100 rounded-3xl" />
-              <div className="absolute -inset-4 border border-slate-50 rounded-2xl" />
-              
-              {/* Main image container */}
-              <div className="relative bg-slate-50 rounded-xl p-8 border border-slate-100 shadow-2xl shadow-slate-200/50">
-                <img 
-                  src="/assets/screen.png" 
-                  alt="Sinco Interface" 
-                  className="w-full h-auto rounded-lg"
-                />
-                
-                {/* Floating badge */}
-                <div className="absolute -bottom-6 -right-6 bg-white rounded-xl p-4 border border-slate-100 shadow-lg shadow-slate-200/50">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-lg bg-brand/10 flex items-center justify-center">
-                      <Shield className="w-5 h-5 text-brand" />
-                    </div>
-                    <div>
-                      <p className="text-[10px] font-bold uppercase tracking-wider text-slate-400">
-                        Sécurité
-                      </p>
-                      <p className="text-xs font-semibold text-slate-900">
-                        Chiffré AES-256
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          {/* Description */}
+          <p className="text-lg text-text-secondary leading-relaxed max-w-2xl mx-auto">
+            {t.hero.description}
+          </p>
+
+          {/* CTAs */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
+            <button
+              onClick={() => scrollToSection('pricing')}
+              className="inline-flex items-center justify-center gap-2 px-8 py-3 text-base font-semibold text-white bg-primary hover:bg-primary-dark rounded-lg transition-all"
+            >
+              {t.hero.primaryCta}
+              <ArrowRight className="w-4 h-4" />
+            </button>
+
+            <button
+              onClick={() => scrollToSection('demo')}
+              className="inline-flex items-center justify-center gap-2 px-8 py-3 text-base font-semibold text-primary border border-primary/20 bg-primary/5 hover:bg-primary/10 rounded-lg transition-all"
+            >
+              {t.hero.secondaryCta}
+            </button>
           </div>
 
+          {/* Trust badges */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+            {['RGPD Compliant', 'SecNumCloud', 'Zero Cloud Act'].map((badge, i) => (
+              <div key={i} className="flex items-center gap-1.5 text-xs font-medium text-text-secondary">
+                <CheckCircle className="w-4 h-4 text-primary" />
+                {badge}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Visual Hero - Banner or Screenshot */}
+        <div className="relative w-full">
+          <div className="relative rounded-2xl overflow-hidden border border-border bg-bg-secondary p-1">
+            {/* Use banner SVG if available, fallback to screenshot */}
+            <img
+              src="/banner.svg"
+              alt="Sinco Banner"
+              className="w-full h-auto rounded-xl"
+              onError={(e) => {
+                // Fallback to screenshot if SVG fails
+                e.currentTarget.src = '/assets/screen.png';
+              }}
+            />
+          </div>
+
+          {/* Subtle glow effect behind */}
+          <div className="absolute inset-0 -z-10 rounded-2xl bg-gradient-to-t from-primary/10 to-transparent blur-2xl" />
         </div>
       </div>
     </section>
