@@ -34,7 +34,7 @@ export default function App() {
         {/* Complete Features Suite Grid (Voice, Chat, Locks) */}
         <FeatureGrid t={t} />
 
-        {/* Sovereignty & Defense Laws (SecNumCloud, FISA immunity showcase) */}
+        {/* French Sovereignty & Data Protection guarantees */}
         <SovereigntyDefense t={t} />
 
         {/* Slack, Teams, Sinco Side-by-side Technical comparison block */}

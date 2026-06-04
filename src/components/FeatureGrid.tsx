@@ -96,8 +96,8 @@ export default function FeatureGrid({ t }: FeatureGridProps) {
             <ul className="space-y-3">
               {[
                 'Immunisé contre l\'espionnage industriel',
-                '100% hébergement France IPv6',
-                'Auditable et SecNumCloud Ready'
+                '100% hébergement France',
+                'Architecture Zero-Knowledge'
               ].map((item, idx) => (
                 <li key={idx} className="flex items-start gap-3">
                   <svg className="w-5 h-5 text-white/80 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">

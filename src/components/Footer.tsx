@@ -34,7 +34,7 @@ export default function Footer({ t }: FooterProps) {
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
               </span>
               <span className="text-xs text-primary font-mono">
-                Opérationnel • SecNumCloud Paris
+                Opérationnel • Hébergé en France
               </span>
             </div>
           </div>

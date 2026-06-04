@@ -16,7 +16,7 @@ export const translations: Record<'FR' | 'EN', TranslationSet> = {
       description: "Sinco remplace Slack et Teams pour les organisations exigeantes. Messagerie, appels et documents collaboratifs protégés par un chiffrement de bout en bout et hébergés exclusivement en France.",
       primaryCta: "Démarrer gratuitement",
       secondaryCta: "Voir la démo interactive",
-      securityBadge: "Conforme RGPD • 100% hébergé en France • Zéro Cloud Act", // Certifié SecNumCloud-ready 
+      securityBadge: "Conforme RGPD • 100% hébergé en France • Zéro Cloud Act", 
     },
     liveDemo: {
       title: "Chiffrement de Bout en Bout",
@@ -59,7 +59,7 @@ export const translations: Record<'FR' | 'EN', TranslationSet> = {
       sincoCol: "Sinco",
       rows: [
         { name: "Chiffrement de bout en bout (E2EE) par défaut", sinco: true, teams: "Limité / Option payante", slack: false, highlight: true },
-        { name: "Hébergement certifié SecNumCloud et souverain", sinco: "Oui, France 🇫🇷", teams: "Non (Azure USA/EU)", slack: false },
+        { name: "Hébergement souverain 100% France", sinco: "Oui, France 🇫🇷", teams: "Non (Azure USA/EU)", slack: false },
         { name: "Immunité contre le FISA & Cloud Act américain", sinco: true, teams: false, slack: false, highlight: true },
         { name: "Compatibilité RGPD & Recommandations CNIL", sinco: "Conformité Totale", teams: "Partielle / Avis réservé", slack: "Partielle" },
         { name: "Messagerie, Salons et Fils de discussion", sinco: true, teams: true, slack: true },
@@ -72,7 +72,7 @@ export const translations: Record<'FR' | 'EN', TranslationSet> = {
       badge: "SOUVERAINETÉ ET CONFIANCE",
       title: "Immunisez vos échanges contre l'espionnage industriel",
       desc1: "Les suites collaboratives américaines sont soumises à des lois extraterritoriales (Cloud Act, FISA) permettant aux services de renseignement étrangers d'exiger l'accès à vos secrets d'affaires, plans stratégiques et codes sources.",
-      desc2: "Sinco est une entreprise 100% française, financée par des capitaux européens et hébergée sur des infrastructures qualifiées SecNumCloud par l'ANSSI. Vos secrets de conception restent les vôtres.",
+      desc2: "Sinco est une entreprise 100% française, financée par des capitaux européens et hébergée sur des infrastructures souveraines en France. Vos secrets de conception restent les vôtres.",
       hostTitle: "Infrastructure Française",
       hostDesc: "Serveurs opérant en France au sein de datacenters neutres et géo-redondants.",
       lawTitle: "Conformité CNIL stricte",
@@ -90,7 +90,7 @@ export const translations: Record<'FR' | 'EN', TranslationSet> = {
       popularBadge: "Conseillé",
       tiers: [
         {
-          name: "Souverain Standard",
+          name: "Sinco Standard",
           price: "4.90€",
           period: "/ user / mois",
           desc: "Pour les TPE, PME et startups souhaitant sécuriser immédiatement leurs communications internes.",
@@ -106,34 +106,39 @@ export const translations: Record<'FR' | 'EN', TranslationSet> = {
           popular: false
         },
         {
-          name: "Souverain Pro (Sécurité renforcée)",
+          name: "Sinco Pro with AI",
           price: "8.90€",
           period: "/ user / mois",
-          desc: "Idéal pour les Entreprises de Taille Intermédiaire (ETI) et les secteurs hautement stratégiques.",
+          desc: "Idéal pour les Entreprises de Taille Intermédiaire (ETI) et les secteurs hautement stratégiques. Inclut les capacités d'IA avancées.",
           features: [
             "Tout le forfait Standard",
             "Authentification SSO (SAML v2, OIDC)",
-            "Hébergement exclusif sur cloud qualifié SecNumCloud",
+            "Analyse intelligente de conversations (IA)",
+            "Résumés automatiques de réunions et documents (IA)",
+            "Suggestions contextuelles et assistance IA intégrée",
+            "Hébergement exclusif sur infrastructure souveraine France",
             "Journal d'audit de sécurité et de conformité",
             "Support prioritaire français 24/7",
             "Intégration Active Directory/LDAP",
-            "Rétention de données configurable",
+            "Rétention de données configurable"
           ],
           cta: "Démarrer l'essai Pro",
           popular: true
         },
         {
-          name: "Secteur Public & Défense",
+          name: "Custom Solutions",
           price: "Sur Devis",
           period: "",
-          desc: "Pour les Ministères, collectivités territoriales, OIV, mairies et organisations de santé.",
+          desc: "Pour les besoins custom sans limite. Ministères, collectivités territoriales, OIV, organisations de santé et défense.",
           features: [
             "Déploiement possible sur vos propres serveurs (On-Premise)",
             "Support de chiffrement physique par HSM tiers",
             "Marque blanche et nom de domaine personnalisé",
             "Homologation de sécurité spécifique",
+            "Fonctionnalités IA custom et illimitées",
             "Tarification préférentielle pour l'administration publique",
-            "Disponibilité garantie par SLA contractuel"
+            "Disponibilité garantie par SLA contractuel",
+            "Support technique dédié 24/7"
           ],
           cta: "Contacter nos ingénieurs",
           popular: false
@@ -158,11 +163,11 @@ export const translations: Record<'FR' | 'EN', TranslationSet> = {
         },
         {
           q: "Sinco propose-t-il une option d'auto-hébergement (On-Premise) ?",
-          a: "Oui, notre offre 'Secteur Public & Défense' permet d'installer Sinco directement sur vos propres serveurs physiques, de façon totalement déconnectée d'Internet si nécessaire (Air-Gapped), ou au sein d'un cloud privé étatique."
+          a: "Oui, notre offre 'Custom Solutions' permet d'installer Sinco directement sur vos propres serveurs physiques, de façon totalement déconnectée d'Internet si nécessaire (Air-Gapped), ou au sein d'un cloud privé étatique."
         },
         {
           q: "Où se situent précisément vos serveurs s'ils sont souverains ?",
-          a: "Nos serveurs sont répartis au sein de datacenters certifiés ISO 27001 et qualifiés SecNumCloud situés exclusivement en Île-de-France (notamment chez Equinix et Scaleway), offrant une redondance géographique complète."
+          a: "Nos serveurs sont répartis au sein de datacenters certifiés ISO 27001 situés exclusivement en Île-de-France (notamment chez Equinix et Scaleway), offrant une redondance géographique complète."
         }
       ]
     },
@@ -192,7 +197,7 @@ export const translations: Record<'FR' | 'EN', TranslationSet> = {
       primaryCta: "Start Free Trial",
       secondaryCta: "Interactive Encryption Demo",
       trustedBy: "Empowering strategic industries, critical national infrastructure, and public sectors",
-      securityBadge: "GDPR Compliant • SecNumCloud-ready infra • Zero US Cloud Act exposure",
+      securityBadge: "GDPR Compliant • French sovereign infrastructure • Zero US Cloud Act exposure",
     },
     liveDemo: {
       title: "End-to-End Encryption Simulator",
@@ -235,7 +240,7 @@ export const translations: Record<'FR' | 'EN', TranslationSet> = {
       sincoCol: "Sinco",
       rows: [
         { name: "Default End-to-End Encryption (E2EE)", sinco: true, teams: "Incomplete / Paid Opt-In", slack: false, highlight: true },
-        { name: "Sovereign & SecNumCloud hosting infrastructure", sinco: "Yes, France 🇫🇷", teams: "No (US/EU Azure)", slack: false },
+        { name: "Sovereign French hosting infrastructure", sinco: "Yes, France 🇫🇷", teams: "No (US/EU Azure)", slack: false },
         { name: "Immunity to FISA & US Cloud Act spying warrants", sinco: true, teams: false, slack: false, highlight: true },
         { name: "Full GDPR & European Data Protection alignment", sinco: "Complete Compliance", teams: "Partial Compliance / Flagged", slack: "Partial" },
         { name: "Modern Channel Chat & Threads", sinco: true, teams: true, slack: true },
@@ -266,7 +271,7 @@ export const translations: Record<'FR' | 'EN', TranslationSet> = {
       popularBadge: "Recommended",
       tiers: [
         {
-          name: "Sovereign Standard",
+          name: "Sinco Standard",
           price: "$4.90",
           period: "/ user / month",
           desc: "For small business and startups to shield proprietary communication lines and chat rooms.",
@@ -282,34 +287,39 @@ export const translations: Record<'FR' | 'EN', TranslationSet> = {
           popular: false
         },
         {
-          name: "Sovereign Pro (Maximum Privacy)",
+          name: "Sinco Pro with AI",
           price: "$8.90",
           period: "/ user / month",
-          desc: "Engineered for medium enterprises, strategic research grids, and security-centric companies.",
+          desc: "Engineered for medium enterprises, strategic research grids, and security-centric companies. Includes advanced AI capabilities.",
           features: [
             "Everything included in Standard plan",
             "SSO identity gateways (SAML v2, OIDC)",
-            "SecNumCloud-compliant cloud hosting servers",
+            "Intelligent conversation analysis (AI)",
+            "Automatic meeting & document summaries (AI)",
+            "Contextual suggestions and integrated AI assistance",
+            "Sovereign French infrastructure hosting",
             "Real-time corporate security audit trails & logs",
             "Full French-expert 24/7 priority response assistance",
             "Active Directory & LDAP integration parameters",
-            "Flexible metadata retention protocols",
+            "Flexible metadata retention protocols"
           ],
           cta: "Start Pro Trial",
           popular: true
         },
         {
-          name: "Public Sector & On-Premise",
+          name: "Custom Solutions",
           price: "Custom quote",
           period: "",
-          desc: "Tailored to ministries, city councils, vital industries (OIV), health grids, and defense commands.",
+          desc: "Tailored to custom requirements without limits. Ministries, city councils, vital industries (OIV), health grids, and defense commands.",
           features: [
             "Self-managed bare-metal setup (On-Prem On-Site)",
             "Air-gapped local system compatibility",
             "HSM hardware token cryptographic encryption bounds",
             "White-labeled customization & custom target subdomains",
+            "Unlimited custom AI features and capabilities",
             "Preferential tariffs for EU government units",
-            "Contractual priority uptime guarantees"
+            "Contractual priority uptime guarantees",
+            "Dedicated 24/7 technical support"
           ],
           cta: "Contact Engineers",
           popular: false
@@ -334,7 +344,7 @@ export const translations: Record<'FR' | 'EN', TranslationSet> = {
         },
         {
           q: "Can we install Sinco inside completely offline networks?",
-          a: "Yes. Our Public Sector and Defense package explicitly provides standalone distribution binaries. These configure seamlessly without online dependencies, preserving network isolation."
+          a: "Yes. Our Custom Solutions package explicitly provides standalone distribution binaries. These configure seamlessly without online dependencies, preserving network isolation."
         },
         {
           q: "Where exactly are scale logs and files physically saved?",

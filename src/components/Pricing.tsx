@@ -423,7 +423,7 @@ export default function Pricing({ t }: PricingProps) {
               </li>
               <li className="flex items-start gap-3 text-xs" style={{ color: colors.bg }}>
                 <Check className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: colors.primary }} />
-                <span>Cloud SecNumCloud qualifié</span>
+                <span>Infrastructure souveraine France 100%</span>
               </li>
               <li className="flex items-start gap-3 text-xs" style={{ color: colors.bg }}>
                 <Check className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: colors.primary }} />

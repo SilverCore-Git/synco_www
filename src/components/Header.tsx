@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Lock, Menu, X, ArrowRight } from 'lucide-react';
+import { Menu, X, ArrowRight } from 'lucide-react';
 import { Language, TranslationSet } from '../types';
 
 interface HeaderProps {
@@ -36,17 +36,16 @@ export default function Header({ currentLang, setLang, t }: HeaderProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-14">
 
-          {/* Logo - Minimal */}
+          {/* Logo - Banner */}
           <div
-            className="flex items-center gap-2.5 cursor-pointer"
+            className="flex items-center cursor-pointer h-10"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
-            <div className="w-7 h-7 rounded-md bg-primary flex items-center justify-center">
-              <Lock className="w-3.5 h-3.5 text-white" />
-            </div>
-            <span className="text-base font-semibold text-text tracking-tight">
-              Sinco
-            </span>
+            <img
+              src="/assets/synco_icons/light_banner_h1000_synco.png"
+              alt="Sinco"
+              className="h-full w-auto"
+            />
           </div>
 
           {/* Nav items for desktop */}

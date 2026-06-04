@@ -68,7 +68,7 @@ export default function Hero({ t }: HeroProps) {
 
           {/* Trust badges */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-            {['RGPD Compliant', 'SecNumCloud', 'Zero Cloud Act'].map((badge, i) => (
+            {['RGPD Compliant', '100% France', 'Zero Cloud Act'].map((badge, i) => (
               <div key={i} className="flex items-center gap-1.5 text-xs font-medium text-text-secondary">
                 <CheckCircle className="w-4 h-4 text-primary" />
                 {badge}
@@ -82,7 +82,7 @@ export default function Hero({ t }: HeroProps) {
           <div className="relative rounded-2xl overflow-hidden border border-border bg-bg-secondary p-1">
             {/* Use banner SVG if available, fallback to screenshot */}
             <img
-              src="/banner.svg"
+              src="/assets/screen.png"
               alt="Sinco Banner"
               className="w-full h-auto rounded-xl"
               onError={(e) => {

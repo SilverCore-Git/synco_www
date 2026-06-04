@@ -124,7 +124,7 @@ export default function SovereigntyDefense({ t }: SovereigntyDefenseProps) {
                 </div>
                 <div>
                   <span className="block text-3xl font-bold text-primary">100%</span>
-                  <span className="text-xs text-text-secondary uppercase tracking-wide">SecNumCloud Ready</span>
+                  <span className="text-xs text-text-secondary uppercase tracking-wide">Infrastructure Souveraine</span>
                 </div>
               </div>
 
