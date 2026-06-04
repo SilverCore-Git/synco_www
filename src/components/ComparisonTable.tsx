@@ -24,7 +24,7 @@ export default function ComparisonTable({ t }: ComparisonTableProps) {
         </div>
 
         {/* Comparison table */}
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto animate-fade-in-up" style={{ animationDelay: '100ms' }}>
           <div className="min-w-[700px] bg-white rounded-xl border border-border overflow-hidden">
             <table className="w-full">
               <thead>
@@ -58,11 +58,11 @@ export default function ComparisonTable({ t }: ComparisonTableProps) {
                 {t.comparison.rows.map((row, idx) => (
                   <tr
                     key={idx}
-                    className={`hover:bg-bg-secondary/50 transition-colors ${row.highlight ? 'bg-primary/2' : ''}`}
+                    className={`hover:bg-primary/5 transition-all duration-300 transform hover:scale-x-100 ${row.highlight ? 'bg-primary/2' : ''}`}
                   >
                     {/* Feature name */}
                     <td className="p-4">
-                      <span className={`text-sm ${row.highlight ? 'font-semibold text-text' : 'text-text-secondary'}`}>
+                      <span className={`text-sm transition-all duration-300 ${row.highlight ? 'font-semibold text-text' : 'text-text-secondary'}`}>
                         {row.name}
                       </span>
                     </td>
@@ -71,7 +71,7 @@ export default function ComparisonTable({ t }: ComparisonTableProps) {
                     <td className="p-4 text-center">
                       {typeof row.slack === 'boolean' ? (
                         row.slack ? (
-                          <Check className="w-5 h-5 text-text-secondary mx-auto" />
+                          <Check className="w-5 h-5 text-text-secondary mx-auto transition-transform duration-300" />
                         ) : (
                           <X className="w-5 h-5 text-border mx-auto" />
                         )
@@ -84,7 +84,7 @@ export default function ComparisonTable({ t }: ComparisonTableProps) {
                     <td className="p-4 text-center">
                       {typeof row.teams === 'boolean' ? (
                         row.teams ? (
-                          <Check className="w-5 h-5 text-text-secondary mx-auto" />
+                          <Check className="w-5 h-5 text-text-secondary mx-auto transition-transform duration-300" />
                         ) : (
                           <X className="w-5 h-5 text-border mx-auto" />
                         )
@@ -97,12 +97,12 @@ export default function ComparisonTable({ t }: ComparisonTableProps) {
                     <td className="p-4 text-center bg-primary/3">
                       {typeof row.sinco === 'boolean' ? (
                         row.sinco ? (
-                          <Check className="w-5 h-5 text-primary mx-auto font-bold" />
+                          <Check className="w-5 h-5 text-primary mx-auto font-bold transition-transform duration-300" />
                         ) : (
                           <X className="w-5 h-5 text-border mx-auto" />
                         )
                       ) : (
-                        <span className="text-sm font-semibold text-primary">{row.sinco}</span>
+                        <span className="text-sm font-semibold text-primary transition-all duration-300">{row.sinco}</span>
                       )}
                     </td>
                   </tr>

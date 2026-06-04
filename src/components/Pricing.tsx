@@ -273,22 +273,23 @@ export default function Pricing({ t }: PricingProps) {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {/* Standard Tier */}
           <div
-            className="group rounded-2xl border p-8 transition-all duration-300 hover:shadow-lg"
+            className="group rounded-2xl border p-8 transition-all duration-300 hover:shadow-lg hover:scale-105 animate-fade-in-up"
             style={{
               backgroundColor: colors.bg,
               borderColor: colors.border,
+              animationDelay: '100ms'
             }}
           >
             <div className="mb-6">
               <h3
-                className="text-sm font-semibold uppercase tracking-wider mb-2"
+                className="text-sm font-semibold uppercase tracking-wider mb-2 transition-colors duration-300 group-hover:text-primary"
                 style={{ color: colors.textSecondary }}
               >
                 Souverain Standard
               </h3>
               <div className="flex items-baseline gap-2">
                 <span
-                  className="text-4xl font-display font-semibold"
+                  className="text-4xl font-display font-semibold transition-colors duration-300 group-hover:text-primary"
                   style={{ color: colors.text }}
                 >
                   {standardTotal}€
@@ -314,30 +315,30 @@ export default function Pricing({ t }: PricingProps) {
             />
 
             <ul className="space-y-3 mb-8">
-              <li className="flex items-start gap-3 text-xs" style={{ color: colors.text }}>
+              <li className="flex items-start gap-3 text-xs transition-all duration-300 group-hover:translate-x-1" style={{ color: colors.text }}>
                 <Check className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: colors.primary }} />
                 <span>Chiffrement de bout en bout (E2EE)</span>
               </li>
-              <li className="flex items-start gap-3 text-xs" style={{ color: colors.text }}>
+              <li className="flex items-start gap-3 text-xs transition-all duration-300 group-hover:translate-x-1" style={{ color: colors.text }}>
                 <Check className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: colors.primary }} />
                 <span>Salons privés illimités</span>
               </li>
-              <li className="flex items-start gap-3 text-xs" style={{ color: colors.text }}>
+              <li className="flex items-start gap-3 text-xs transition-all duration-300 group-hover:translate-x-1" style={{ color: colors.text }}>
                 <Check className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: colors.primary }} />
                 <span>Visioconférences jusqu'à 50 participants</span>
               </li>
-              <li className="flex items-start gap-3 text-xs" style={{ color: colors.text }}>
+              <li className="flex items-start gap-3 text-xs transition-all duration-300 group-hover:translate-x-1" style={{ color: colors.text }}>
                 <Check className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: colors.primary }} />
                 <span>{effectiveStoragePerUser} Go de stockage par utilisateur</span>
               </li>
-              <li className="flex items-start gap-3 text-xs" style={{ color: colors.text }}>
+              <li className="flex items-start gap-3 text-xs transition-all duration-300 group-hover:translate-x-1" style={{ color: colors.text }}>
                 <Check className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: colors.primary }} />
                 <span>Hébergement France standard</span>
               </li>
             </ul>
 
             <button
-              className="w-full py-3 px-4 rounded-lg text-xs font-semibold transition-all"
+              className="w-full py-3 px-4 rounded-lg text-xs font-semibold transition-all duration-300 hover:shadow-md hover:scale-105"
               style={{
                 backgroundColor: colors.lightBg,
                 color: colors.text,
@@ -352,23 +353,24 @@ export default function Pricing({ t }: PricingProps) {
             >
               <span className="flex items-center justify-center gap-2">
                 Essai gratuit 30 jours
-                <ArrowRight className="w-3.5 h-3.5" />
+                <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
               </span>
             </button>
           </div>
 
           {/* Pro Tier - Featured */}
           <div
-            className="group md:scale-105 rounded-2xl border p-8 transition-all duration-300 hover:shadow-xl"
+            className="group md:scale-105 rounded-2xl border p-8 transition-all duration-300 hover:shadow-2xl hover:scale-110 animate-fade-in-up animate-glow"
             style={{
               backgroundColor: colors.darkBg,
               borderColor: colors.primary,
               boxShadow: `0 0 24px ${colors.primary}15`,
+              animationDelay: '200ms'
             }}
           >
             <div className="mb-1">
               <span
-                className="text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full inline-block"
+                className="text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full inline-block transition-all duration-300"
                 style={{
                   backgroundColor: colors.primary + '20',
                   color: colors.primary,
@@ -380,14 +382,14 @@ export default function Pricing({ t }: PricingProps) {
 
             <div className="mb-6 mt-4">
               <h3
-                className="text-sm font-semibold uppercase tracking-wider mb-2"
+                className="text-sm font-semibold uppercase tracking-wider mb-2 transition-colors duration-300"
                 style={{ color: colors.primary }}
               >
                 Souverain Pro
               </h3>
               <div className="flex items-baseline gap-2">
                 <span
-                  className="text-4xl font-display font-semibold"
+                  className="text-4xl font-display font-semibold transition-colors duration-300"
                   style={{ color: colors.bg }}
                 >
                   {proTotal}€
@@ -413,34 +415,34 @@ export default function Pricing({ t }: PricingProps) {
             />
 
             <ul className="space-y-3 mb-8">
-              <li className="flex items-start gap-3 text-xs" style={{ color: colors.bg }}>
+              <li className="flex items-start gap-3 text-xs transition-all duration-300 group-hover:translate-x-1" style={{ color: colors.bg }}>
                 <Check className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: colors.primary }} />
                 <span>Tout le forfait Standard</span>
               </li>
-              <li className="flex items-start gap-3 text-xs" style={{ color: colors.bg }}>
+              <li className="flex items-start gap-3 text-xs transition-all duration-300 group-hover:translate-x-1" style={{ color: colors.bg }}>
                 <Check className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: colors.primary }} />
                 <span>Authentification SSO (SAML v2, OIDC)</span>
               </li>
-              <li className="flex items-start gap-3 text-xs" style={{ color: colors.bg }}>
+              <li className="flex items-start gap-3 text-xs transition-all duration-300 group-hover:translate-x-1" style={{ color: colors.bg }}>
                 <Check className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: colors.primary }} />
                 <span>Infrastructure souveraine France 100%</span>
               </li>
-              <li className="flex items-start gap-3 text-xs" style={{ color: colors.bg }}>
+              <li className="flex items-start gap-3 text-xs transition-all duration-300 group-hover:translate-x-1" style={{ color: colors.bg }}>
                 <Check className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: colors.primary }} />
                 <span>Journal d'audit de sécurité</span>
               </li>
-              <li className="flex items-start gap-3 text-xs" style={{ color: colors.bg }}>
+              <li className="flex items-start gap-3 text-xs transition-all duration-300 group-hover:translate-x-1" style={{ color: colors.bg }}>
                 <Check className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: colors.primary }} />
                 <span>Support prioritaire 24/7</span>
               </li>
-              <li className="flex items-start gap-3 text-xs" style={{ color: colors.bg }}>
+              <li className="flex items-start gap-3 text-xs transition-all duration-300 group-hover:translate-x-1" style={{ color: colors.bg }}>
                 <Check className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: colors.primary }} />
                 <span>Intégration Active Directory</span>
               </li>
             </ul>
 
             <button
-              className="w-full py-3 px-4 rounded-lg text-xs font-semibold transition-all"
+              className="w-full py-3 px-4 rounded-lg text-xs font-semibold transition-all duration-300 hover:shadow-lg hover:scale-105"
               style={{
                 backgroundColor: colors.primary,
                 color: colors.bg,
@@ -454,31 +456,32 @@ export default function Pricing({ t }: PricingProps) {
               onClick={() => alert('Essai Pro démarré')}
             >
               <span className="flex items-center justify-center gap-2">
-                <ShieldCheck className="w-4 h-4" />
+                <ShieldCheck className="w-4 h-4 transition-transform duration-300" />
                 Démarrer l'essai Pro
-                <ArrowRight className="w-3.5 h-3.5" />
+                <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300" />
               </span>
             </button>
           </div>
 
           {/* Public Sector Tier */}
           <div
-            className="group rounded-2xl border p-8 transition-all duration-300 hover:shadow-lg"
+            className="group rounded-2xl border p-8 transition-all duration-300 hover:shadow-lg hover:scale-105 animate-fade-in-up"
             style={{
               backgroundColor: colors.bg,
               borderColor: colors.border,
+              animationDelay: '300ms'
             }}
           >
             <div className="mb-6">
               <h3
-                className="text-sm font-semibold uppercase tracking-wider mb-2"
+                className="text-sm font-semibold uppercase tracking-wider mb-2 transition-colors duration-300 group-hover:text-primary"
                 style={{ color: colors.textSecondary }}
               >
                 Secteur Public
               </h3>
               <div className="flex items-baseline gap-2">
                 <span
-                  className="text-4xl font-display font-semibold"
+                  className="text-4xl font-display font-semibold transition-colors duration-300 group-hover:text-primary"
                   style={{ color: colors.text }}
                 >
                   Sur devis
@@ -498,34 +501,34 @@ export default function Pricing({ t }: PricingProps) {
             />
 
             <ul className="space-y-3 mb-8">
-              <li className="flex items-start gap-3 text-xs" style={{ color: colors.text }}>
+              <li className="flex items-start gap-3 text-xs transition-all duration-300 group-hover:translate-x-1" style={{ color: colors.text }}>
                 <Check className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: colors.primary }} />
                 <span>Déploiement On-Premise possible</span>
               </li>
-              <li className="flex items-start gap-3 text-xs" style={{ color: colors.text }}>
+              <li className="flex items-start gap-3 text-xs transition-all duration-300 group-hover:translate-x-1" style={{ color: colors.text }}>
                 <Check className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: colors.primary }} />
                 <span>Chiffrement HSM physique</span>
               </li>
-              <li className="flex items-start gap-3 text-xs" style={{ color: colors.text }}>
+              <li className="flex items-start gap-3 text-xs transition-all duration-300 group-hover:translate-x-1" style={{ color: colors.text }}>
                 <Check className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: colors.primary }} />
                 <span>Marque blanche personnalisée</span>
               </li>
-              <li className="flex items-start gap-3 text-xs" style={{ color: colors.text }}>
+              <li className="flex items-start gap-3 text-xs transition-all duration-300 group-hover:translate-x-1" style={{ color: colors.text }}>
                 <Check className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: colors.primary }} />
                 <span>Homologation de sécurité</span>
               </li>
-              <li className="flex items-start gap-3 text-xs" style={{ color: colors.text }}>
+              <li className="flex items-start gap-3 text-xs transition-all duration-300 group-hover:translate-x-1" style={{ color: colors.text }}>
                 <Check className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: colors.primary }} />
                 <span>Tarification administration</span>
               </li>
-              <li className="flex items-start gap-3 text-xs" style={{ color: colors.text }}>
+              <li className="flex items-start gap-3 text-xs transition-all duration-300 group-hover:translate-x-1" style={{ color: colors.text }}>
                 <Check className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: colors.primary }} />
                 <span>SLA contractuel garanti</span>
               </li>
             </ul>
 
             <button
-              className="w-full py-3 px-4 rounded-lg text-xs font-semibold transition-all"
+              className="w-full py-3 px-4 rounded-lg text-xs font-semibold transition-all duration-300 hover:shadow-md hover:scale-105"
               style={{
                 backgroundColor: colors.lightBg,
                 color: colors.text,
@@ -541,7 +544,7 @@ export default function Pricing({ t }: PricingProps) {
               <span className="flex items-center justify-center gap-2">
                 <Mail className="w-4 h-4" />
                 Contactez-nous
-                <ArrowRight className="w-3.5 h-3.5" />
+                <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" />
               </span>
             </button>
           </div>

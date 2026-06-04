@@ -37,32 +37,55 @@ export default function FAQ({ t }: FAQProps) {
             return (
               <div
                 key={idx}
-                className={`bg-white rounded-lg border transition-all duration-200 overflow-hidden ${
-                  isOpen
-                    ? 'border-primary/30 bg-primary/3'
-                    : 'border-border hover:border-primary/20'
-                }`}
+                className={`bg-white rounded-lg border transition-all duration-300 overflow-hidden animate-fade-in-up`}
+                style={{ animationDelay: `${idx * 80}ms` }}
               >
+                {isOpen && (
+                  <style>
+                    {`
+                      @keyframes slideDown {
+                        from {
+                          opacity: 0;
+                          max-height: 0;
+                        }
+                        to {
+                          opacity: 1;
+                          max-height: 500px;
+                        }
+                      }
+                      .faq-answer {
+                        animation: slideDown 0.3s ease-out forwards;
+                      }
+                    `}
+                  </style>
+                )}
                 {/* Question */}
                 <button
                   onClick={() => toggleIndex(idx)}
-                  className="w-full text-left p-5 flex justify-between items-center gap-4 group"
+                  className={`w-full text-left p-5 flex justify-between items-center gap-4 group transition-all duration-300 ${
+                    isOpen
+                      ? 'border-primary/30 bg-primary/3'
+                      : 'border-border hover:border-primary/20 hover:bg-primary/1'
+                  }`}
+                  style={{
+                    borderColor: isOpen ? '#108e62' : '#e4e4e7'
+                  }}
                 >
                   <div className="flex items-center gap-3 flex-1">
-                    <HelpCircle className={`w-4 h-4 flex-shrink-0 transition-colors ${
-                      isOpen ? 'text-primary' : 'text-text-secondary group-hover:text-primary'
+                    <HelpCircle className={`w-4 h-4 flex-shrink-0 transition-all duration-300 ${
+                      isOpen ? 'text-primary scale-110' : 'text-text-secondary group-hover:text-primary'
                     }`} />
-                    <span className={`text-base font-medium transition-colors ${
+                    <span className={`text-base font-medium transition-all duration-300 ${
                       isOpen ? 'text-primary' : 'text-text group-hover:text-primary'
                     }`}>
                       {item.q}
                     </span>
                   </div>
 
-                  <div className={`w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-200 flex-shrink-0 ${
+                  <div className={`w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-300 flex-shrink-0 ${
                     isOpen
                       ? 'bg-primary text-white rotate-180'
-                      : 'bg-bg-secondary text-text-secondary group-hover:text-primary'
+                      : 'bg-bg-secondary text-text-secondary group-hover:text-primary group-hover:bg-primary/10'
                   }`}>
                     <ChevronDown className="w-4 h-4" />
                   </div>
@@ -70,8 +93,8 @@ export default function FAQ({ t }: FAQProps) {
 
                 {/* Answer */}
                 {isOpen && (
-                  <div className="px-5 pb-5 pt-0">
-                    <div className="pl-7">
+                  <div className="px-5 pb-5 pt-0 faq-answer">
+                    <div className="pl-7 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
                       <p className="text-base text-text-secondary leading-relaxed">
                         {item.a}
                       </p>

@@ -28,17 +28,17 @@ export default function Header({ currentLang, setLang, t }: HeaderProps) {
   }
 
   return (
-    <header className={`sticky top-0 z-50 transition-all duration-200 ${
+    <header className={`sticky top-0 z-50 transition-all duration-300 ${
       scrolled
-        ? 'bg-white/80 backdrop-blur-sm border-b border-primary/5'
+        ? 'bg-white/95 backdrop-blur-md border-b border-primary/10 shadow-sm'
         : 'bg-white/50 backdrop-blur-sm'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-14">
+        <div className="flex items-center justify-between h-16">
 
           {/* Logo - Banner */}
           <div
-            className="flex items-center cursor-pointer h-10"
+            className="flex items-center cursor-pointer h-10 hover:opacity-80 transition-opacity duration-200"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
             <img
@@ -49,7 +49,7 @@ export default function Header({ currentLang, setLang, t }: HeaderProps) {
           </div>
 
           {/* Nav items for desktop */}
-          <nav className="hidden md:flex items-center space-x-6">
+          <nav className="hidden md:flex items-center space-x-1">
             {[
               { id: 'features', label: t.nav.features },
               { id: 'demo', label: 'Démo' },
@@ -60,23 +60,24 @@ export default function Header({ currentLang, setLang, t }: HeaderProps) {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="text-sm font-medium text-text-secondary hover:text-primary transition-colors"
+                className="px-4 py-2 text-sm font-medium text-text-secondary hover:text-primary transition-all duration-300 relative group"
               >
                 {item.label}
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
               </button>
             ))}
           </nav>
 
           {/* Language Switcher + CTA */}
           <div className="hidden md:flex items-center space-x-4">
-            <div className="flex items-center space-x-1 bg-bg-secondary rounded-lg p-0.5">
+            <div className="flex items-center space-x-1 bg-bg-secondary rounded-lg p-1 border border-border hover:border-primary/30 transition-colors duration-300">
               {(['FR', 'EN'] as const).map((lang) => (
                 <button
                   key={lang}
                   onClick={() => setLang(lang)}
-                  className={`px-2.5 py-1 text-xs font-semibold rounded transition-colors ${
+                  className={`px-3 py-1.5 text-xs font-semibold rounded transition-all duration-300 ${
                     currentLang === lang
-                      ? 'bg-white text-primary'
+                      ? 'bg-white text-primary shadow-sm'
                       : 'text-text-secondary hover:text-text'
                   }`}
                 >
@@ -87,10 +88,10 @@ export default function Header({ currentLang, setLang, t }: HeaderProps) {
 
             <button
               onClick={() => scrollToSection('pricing')}
-              className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold text-white bg-primary hover:bg-primary-dark rounded-lg transition-all"
+              className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-white bg-primary hover:bg-primary-dark rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-0.5 group"
             >
               {t.nav.ctaButton}
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
             </button>
           </div>
 
@@ -98,7 +99,7 @@ export default function Header({ currentLang, setLang, t }: HeaderProps) {
           <div className="md:hidden">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-text-secondary hover:text-text"
+              className="p-2 text-text-secondary hover:text-text transition-colors duration-200"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -109,20 +110,19 @@ export default function Header({ currentLang, setLang, t }: HeaderProps) {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden fixed inset-0 top-14 z-40 bg-white px-4 py-6">
+        <div className="md:hidden fixed inset-0 top-16 z-40 bg-white px-4 py-6 animate-fade-in">
           <div className="flex flex-col space-y-4">
             {[
               { id: 'features', label: t.nav.features },
               { id: 'demo', label: 'Démo E2EE' },
               { id: 'comparison', label: t.nav.teamsComparison },
-              { id: 'sovereignty', label: t.nav.security },
               { id: 'pricing', label: t.nav.pricing },
               { id: 'faq', label: t.nav.faq },
             ].map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="text-left text-base font-medium text-text hover:text-primary py-2"
+                className="text-left text-base font-medium text-text hover:text-primary py-2 transition-colors duration-200"
               >
                 {item.label}
               </button>
@@ -134,7 +134,7 @@ export default function Header({ currentLang, setLang, t }: HeaderProps) {
                   <button
                     key={lang}
                     onClick={() => setLang(lang)}
-                    className={`px-3 py-1.5 text-xs font-semibold rounded transition-colors ${
+                    className={`px-3 py-1.5 text-xs font-semibold rounded transition-all ${
                       currentLang === lang
                         ? 'bg-white text-primary'
                         : 'text-text-secondary'
@@ -147,7 +147,7 @@ export default function Header({ currentLang, setLang, t }: HeaderProps) {
 
               <button
                 onClick={() => scrollToSection('pricing')}
-                className="w-full px-4 py-2 font-semibold text-white bg-primary rounded-lg"
+                className="w-full px-4 py-3 font-semibold text-white bg-primary hover:bg-primary-dark rounded-lg transition-all duration-300"
               >
                 {t.nav.ctaButton}
               </button>

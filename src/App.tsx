@@ -3,7 +3,6 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import E2EEDemo from './components/E2EEDemo';
 import FeatureGrid from './components/FeatureGrid';
-import SovereigntyDefense from './components/SovereigntyDefense';
 import ComparisonTable from './components/ComparisonTable';
 import Pricing from './components/Pricing';
 import FAQ from './components/FAQ';
@@ -33,9 +32,6 @@ export default function App() {
 
         {/* Complete Features Suite Grid (Voice, Chat, Locks) */}
         <FeatureGrid t={t} />
-
-        {/* French Sovereignty & Data Protection guarantees */}
-        <SovereigntyDefense t={t} />
 
         {/* Slack, Teams, Sinco Side-by-side Technical comparison block */}
         <ComparisonTable t={t} />

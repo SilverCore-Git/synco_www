@@ -61,18 +61,19 @@ export default function FeatureGrid({ t }: FeatureGridProps) {
           {cards.map((card, idx) => (
             <div
               key={idx}
-              className="group p-6 rounded-xl border border-border bg-white hover:border-primary/30 hover:shadow-md transition-all duration-200"
+              className="group p-6 rounded-xl border border-border bg-white hover:border-primary/30 hover:shadow-lg hover:scale-105 transition-all duration-300 animate-fade-in-up"
+              style={{ animationDelay: `${idx * 100}ms` }}
             >
               {/* Icon container */}
-              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4 text-primary group-hover:bg-primary/20 transition-colors">
+              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4 text-primary group-hover:bg-primary/20 transition-colors duration-300">
                 {card.icon}
               </div>
 
               {/* Content */}
-              <h3 className="text-lg font-semibold text-text mb-2">
+              <h3 className="text-lg font-semibold text-text mb-2 transition-colors duration-300 group-hover:text-primary">
                 {card.title}
               </h3>
-              <p className="text-sm text-text-secondary leading-relaxed">
+              <p className="text-sm text-text-secondary leading-relaxed transition-colors duration-300 group-hover:text-text">
                 {card.desc}
               </p>
             </div>
@@ -80,7 +81,7 @@ export default function FeatureGrid({ t }: FeatureGridProps) {
         </div>
 
         {/* Highlight section */}
-        <div className="bg-primary rounded-2xl p-8 md:p-12">
+        <div className="bg-primary rounded-2xl p-8 md:p-12 animate-fade-in-up animate-glow" style={{ animationDelay: '500ms' }}>
           <div className="max-w-3xl">
             <div className="flex items-center gap-2 text-white/80 text-xs font-semibold uppercase tracking-wide mb-4">
               <div className="w-2 h-2 rounded-full bg-white/60" />
@@ -99,7 +100,7 @@ export default function FeatureGrid({ t }: FeatureGridProps) {
                 '100% hébergement France',
                 'Architecture Zero-Knowledge'
               ].map((item, idx) => (
-                <li key={idx} className="flex items-start gap-3">
+                <li key={idx} className="flex items-start gap-3 animate-fade-in-up transition-all duration-300" style={{ animationDelay: `${600 + idx * 100}ms` }}>
                   <svg className="w-5 h-5 text-white/80 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>

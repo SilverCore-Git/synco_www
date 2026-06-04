@@ -1,4 +1,5 @@
 import { ArrowRight, CheckCircle } from 'lucide-react';
+import { useState, useEffect } from 'react';
 import { TranslationSet } from '../types';
 
 interface HeroProps {
@@ -6,6 +7,16 @@ interface HeroProps {
 }
 
 export default function Hero({ t }: HeroProps) {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const scrollToSection = (id: string) => {
     const el = document.getElementById(id);
     if (el) {
@@ -79,12 +90,17 @@ export default function Hero({ t }: HeroProps) {
 
         {/* Visual Hero - Banner or Screenshot */}
         <div className="relative w-full">
-          <div className="relative rounded-2xl overflow-hidden border border-border bg-bg-secondary p-1">
+          <div
+            className="relative rounded-2xl overflow-hidden border border-border bg-bg-secondary p-1 transition-transform duration-300"
+            style={{
+              transform: `translateY(${scrollY * 0.3}px)`,
+            }}
+          >
             {/* Use banner SVG if available, fallback to screenshot */}
             <img
               src="/assets/screen.png"
               alt="Sinco Banner"
-              className="w-full h-auto rounded-xl"
+              className="w-full h-auto rounded-xl animate-fade-in"
               onError={(e) => {
                 // Fallback to screenshot if SVG fails
                 e.currentTarget.src = '/assets/screen.png';
@@ -93,7 +109,7 @@ export default function Hero({ t }: HeroProps) {
           </div>
 
           {/* Subtle glow effect behind */}
-          <div className="absolute inset-0 -z-10 rounded-2xl bg-gradient-to-t from-primary/10 to-transparent blur-2xl" />
+          <div className="absolute inset-0 -z-10 rounded-2xl bg-gradient-to-t from-primary/10 to-transparent blur-2xl animate-pulse-soft" />
         </div>
       </div>
     </section>
