@@ -1,10 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: [],
+    domains: ['images.unsplash.com'],
   },
-  assetPrefix: './',
-  basePath: '',
 }
 
 module.exports = nextConfig

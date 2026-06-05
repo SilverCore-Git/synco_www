@@ -1,3 +1,6 @@
+'use client';
+
+import { useState } from 'react';
 import Button from './Button';
 import Section from './Section';
 
@@ -110,7 +113,7 @@ export default function SolutionsSection() {
     },
   ];
 
-  const [activeTab, setActiveTab] = React.useState<string>('enterprise');
+  const [activeTab, setActiveTab] = useState<string>('enterprise');
   const activeSolution = solutions.find(s => s.id === activeTab) || solutions[0];
 
   return (
