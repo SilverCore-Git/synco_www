@@ -15,8 +15,8 @@ export default function Footer({ t }: FooterProps) {
           {/* Brand */}
           <div className="md:col-span-5 space-y-6">
             <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-                <Lock className="w-4 h-4 text-white" />
+              <div className="w-8 h-8 rounded-lg flex items-center justify-center">
+                <img src="/assets/synco_icons/favicon_100x100_synco.png" alt=""/>
               </div>
               <span className="text-lg font-semibold text-text tracking-tight">
                 Synco
