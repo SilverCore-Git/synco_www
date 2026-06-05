@@ -338,7 +338,7 @@ export default function Pricing({ t }: PricingProps) {
             </ul>
 
             <button
-              className="w-full py-3 px-4 rounded-lg text-xs font-semibold transition-all duration-300 hover:shadow-md hover:scale-105 cursor-pointer"
+              className="w-full py-3 px-4 rounded-lg text-xs font-semibold transition-all duration-300 hover:shadow-md cursor-pointer"
               style={{
                 backgroundColor: colors.lightBg,
                 color: colors.text,
@@ -442,7 +442,7 @@ export default function Pricing({ t }: PricingProps) {
             </ul>
 
             <button
-              className="w-full py-3 px-4 rounded-lg text-xs font-semibold transition-all duration-300 hover:shadow-lg hover:scale-105 cursor-pointer"
+              className="w-full py-3 px-4 rounded-lg text-xs font-semibold transition-all duration-300 hover:shadow-lg cursor-pointer"
               style={{
                 backgroundColor: colors.primary,
                 color: colors.bg,
@@ -528,7 +528,7 @@ export default function Pricing({ t }: PricingProps) {
             </ul>
 
             <button
-              className="w-full py-3 px-4 rounded-lg text-xs font-semibold transition-all duration-300 hover:shadow-md hover:scale-105 cursor-pointer"
+              className="w-full py-3 px-4 rounded-lg text-xs font-semibold transition-all duration-300 hover:shadow-md cursor-pointer"
               style={{
                 backgroundColor: colors.lightBg,
                 color: colors.text,
