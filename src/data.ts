@@ -8,12 +8,12 @@ export const translations: Record<'FR' | 'EN', TranslationSet> = {
       pricing: "Tarifs",
       faq: "FAQ",
       teamsComparison: "Comparatif",
-      ctaButton: "Essayer Sinco",
+      ctaButton: "Essayer Synco",
     },
     hero: {
       title: "La collaboration d'équipe,",
       titleGradient: "sans compromis sur la sécuritée.",
-      description: "Sinco remplace Slack et Teams pour les organisations exigeantes. Messagerie, appels et documents collaboratifs protégés par un chiffrement de bout en bout et hébergés exclusivement en France.",
+      description: "Synco remplace Slack et Teams pour les organisations exigeantes. Messagerie, appels et documents collaboratifs protégés par un chiffrement de bout en bout et hébergés exclusivement en France.",
       primaryCta: "Démarrer gratuitement",
       secondaryCta: "Voir la démo interactive",
       securityBadge: "Conforme RGPD • 100% hébergé en France • Zéro Cloud Act", 
@@ -51,28 +51,28 @@ export const translations: Record<'FR' | 'EN', TranslationSet> = {
       integrationDesc: "Importez vos historiques de canaux, utilisateurs et fichiers en un clic. Vos équipes ne perdront pas leurs habitudes.",
     },
     comparison: {
-      title: "Pourquoi choisir Sinco face aux géants américains ?",
+      title: "Pourquoi choisir Synco face aux géants américains ?",
       subtitle: "Une comparaison objective de la sécurité, de la souveraineté et des fonctionnalités.",
       featureCol: "Critère de comparaison",
       slackCol: "Slack",
       teamsCol: "Microsoft Teams",
-      sincoCol: "Sinco",
+      SyncoCol: "Synco",
       rows: [
-        { name: "Chiffrement de bout en bout (E2EE) par défaut", sinco: true, teams: "Limité / Option payante", slack: false, highlight: true },
-        { name: "Hébergement souverain 100% France", sinco: "Oui, France 🇫🇷", teams: "Non (Azure USA/EU)", slack: false },
-        { name: "Immunité contre le FISA & Cloud Act américain", sinco: true, teams: false, slack: false, highlight: true },
-        { name: "Compatibilité RGPD & Recommandations CNIL", sinco: "Conformité Totale", teams: "Partielle / Avis réservé", slack: "Partielle" },
-        { name: "Messagerie, Salons et Fils de discussion", sinco: true, teams: true, slack: true },
-        { name: "Appels Audio/Vidéo Haute Définition", sinco: "Oui (P2P E2EE)", teams: "Oui (Non E2EE par défaut)", slack: "Oui" },
-        { name: "Éditeur collaboratif de documents intégrés", sinco: true, teams: "Oui (SharePoint)", slack: "Limité" },
-        { name: "Architecture Zero-Knowledge (Aucun accès éditeur)", sinco: true, teams: false, slack: false, highlight: true }
+        { name: "Chiffrement de bout en bout (E2EE) par défaut", Synco: true, teams: "Limité / Option payante", slack: false, highlight: true },
+        { name: "Hébergement souverain 100% France", Synco: "Oui, France 🇫🇷", teams: "Non (Azure USA/EU)", slack: false },
+        { name: "Immunité contre le FISA & Cloud Act américain", Synco: true, teams: false, slack: false, highlight: true },
+        { name: "Compatibilité RGPD & Recommandations CNIL", Synco: "Conformité Totale", teams: "Partielle / Avis réservé", slack: "Partielle" },
+        { name: "Messagerie, Salons et Fils de discussion", Synco: true, teams: true, slack: true },
+        { name: "Appels Audio/Vidéo Haute Définition", Synco: "Oui (P2P E2EE)", teams: "Oui (Non E2EE par défaut)", slack: "Oui" },
+        { name: "Éditeur collaboratif de documents intégrés", Synco: true, teams: "Oui (SharePoint)", slack: "Limité" },
+        { name: "Architecture Zero-Knowledge (Aucun accès éditeur)", Synco: true, teams: false, slack: false, highlight: true }
       ]
     },
     sovereignty: {
       badge: "SOUVERAINETÉ ET CONFIANCE",
       title: "Immunisez vos échanges contre l'espionnage industriel",
       desc1: "Les suites collaboratives américaines sont soumises à des lois extraterritoriales (Cloud Act, FISA) permettant aux services de renseignement étrangers d'exiger l'accès à vos secrets d'affaires, plans stratégiques et codes sources.",
-      desc2: "Sinco est une entreprise 100% française, financée par des capitaux européens et hébergée sur des infrastructures souveraines en France. Vos secrets de conception restent les vôtres.",
+      desc2: "Synco est une entreprise 100% française, financée par des capitaux européens et hébergée sur des infrastructures souveraines en France. Vos secrets de conception restent les vôtres.",
       hostTitle: "Infrastructure Française",
       hostDesc: "Serveurs opérant en France au sein de datacenters neutres et géo-redondants.",
       lawTitle: "Conformité CNIL stricte",
@@ -82,7 +82,7 @@ export const translations: Record<'FR' | 'EN', TranslationSet> = {
     },
     pricing: {
       title: "Des tarifs transparents pour toutes les exigences",
-      subtitle: "Hébergé par Sinco ou déployé dans vos propres infrastructures (On-Premise).",
+      subtitle: "Hébergé par Synco ou déployé dans vos propres infrastructures (On-Premise).",
       monthly: "mois",
       perUser: "par utilisateur",
       startBtn: "Commencer l'essai",
@@ -90,7 +90,7 @@ export const translations: Record<'FR' | 'EN', TranslationSet> = {
       popularBadge: "Conseillé",
       tiers: [
         {
-          name: "Sinco Standard",
+          name: "Synco Standard",
           price: "4.90€",
           period: "/ user / mois",
           desc: "Pour les TPE, PME et startups souhaitant sécuriser immédiatement leurs communications internes.",
@@ -106,7 +106,7 @@ export const translations: Record<'FR' | 'EN', TranslationSet> = {
           popular: false
         },
         {
-          name: "Sinco Pro with AI",
+          name: "Synco Pro with AI",
           price: "8.90€",
           period: "/ user / mois",
           desc: "Idéal pour les Entreprises de Taille Intermédiaire (ETI) et les secteurs hautement stratégiques. Inclut les capacités d'IA avancées.",
@@ -147,23 +147,23 @@ export const translations: Record<'FR' | 'EN', TranslationSet> = {
     },
     faq: {
       title: "Vos questions sur la sécurité et le chiffrement",
-      subtitle: "Tout comprendre sur l'alternative souveraine Sinco.",
+      subtitle: "Tout comprendre sur l'alternative souveraine Synco.",
       items: [
         {
-          q: "Qu'est-ce que le chiffrement de bout en bout de Sinco ?",
+          q: "Qu'est-ce que le chiffrement de bout en bout de Synco ?",
           a: "Le chiffrement de bout en bout (E2EE) signifie que vos messages de groupe, photos, documents et appels téléphoniques sont cryptés sur votre appareil avant d'être envoyés. Seul le destinataire ciblé dispose de la clé cryptographique pour déchiffrer la donnée. De ce fait, même nos administrateurs système ne peuvent pas lire vos conversations."
         },
         {
           q: "Pourquoi la souveraineté française est-elle importante face à Teams ou Slack ?",
-          a: "Les outils américains comme Slack ou Microsoft Teams sont assujettis aux lois extraterritoriales comme le Cloud Act ou la section 702 du FISA. Ces lois permettent aux autorités américaines d'accéder à vos documents confidentiels stockés chez eux, sans vous en informer. Sinco étant une entité française hébergée en France, nous sommes protégés de ces requêtes."
+          a: "Les outils américains comme Slack ou Microsoft Teams sont assujettis aux lois extraterritoriales comme le Cloud Act ou la section 702 du FISA. Ces lois permettent aux autorités américaines d'accéder à vos documents confidentiels stockés chez eux, sans vous en informer. Synco étant une entité française hébergée en France, nous sommes protégés de ces requêtes."
         },
         {
           q: "Peut-on facilement migrer depuis Slack ou Microsoft Teams ?",
-          a: "Oui absolument. Sinco propose un assistant d'importation automatique. Vous pouvez charger vos exports de canaux, vos listes d'utilisateurs et vos documents historiques. Vos collaborateurs retrouveront une interface familière avec des performances et une réactivité largement supérieures."
+          a: "Oui absolument. Synco propose un assistant d'importation automatique. Vous pouvez charger vos exports de canaux, vos listes d'utilisateurs et vos documents historiques. Vos collaborateurs retrouveront une interface familière avec des performances et une réactivité largement supérieures."
         },
         {
-          q: "Sinco propose-t-il une option d'auto-hébergement (On-Premise) ?",
-          a: "Oui, notre offre 'Custom Solutions' permet d'installer Sinco directement sur vos propres serveurs physiques, de façon totalement déconnectée d'Internet si nécessaire (Air-Gapped), ou au sein d'un cloud privé étatique."
+          q: "Synco propose-t-il une option d'auto-hébergement (On-Premise) ?",
+          a: "Oui, notre offre 'Custom Solutions' permet d'installer Synco directement sur vos propres serveurs physiques, de façon totalement déconnectée d'Internet si nécessaire (Air-Gapped), ou au sein d'un cloud privé étatique."
         },
         {
           q: "Où se situent précisément vos serveurs s'ils sont souverains ?",
@@ -172,12 +172,12 @@ export const translations: Record<'FR' | 'EN', TranslationSet> = {
       ]
     },
     footer: {
-      tagline: "Sinco - Reprenez le contrôle de vos secrets industriels et de vos communications d'équipe.",
+      tagline: "Synco - Reprenez le contrôle de vos secrets industriels et de vos communications d'équipe.",
       legal: "Mentions Légales",
       privacy: "Politique de Confidentialité",
       terms: "CGU / CGV",
       cookies: "Gestion des cookies",
-      rights: "© 2026 Sinco. Tous droits réservés. Conçu et hébergé en France 🇫🇷"
+      rights: "© 2026 Synco. Tous droits réservés. Conçu et hébergé en France 🇫🇷"
     }
   },
   EN: {
@@ -187,13 +187,13 @@ export const translations: Record<'FR' | 'EN', TranslationSet> = {
       pricing: "Pricing",
       faq: "FAQ",
       teamsComparison: "Comparison",
-      ctaButton: "Try Sinco",
+      ctaButton: "Try Synco",
     },
     hero: {
       sovereignBadge: "Sovereign & Encrypted Alternative 🇪🇺 🇫🇷",
       title: "Team collaboration,",
       titleGradient: "completely confidential.",
-      description: "Sinco replaces Slack and Teams for security-minded organizations. Chat, voice calls, and collaborative docs protected by end-to-end encryption and hosted exclusively in France.",
+      description: "Synco replaces Slack and Teams for security-minded organizations. Chat, voice calls, and collaborative docs protected by end-to-end encryption and hosted exclusively in France.",
       primaryCta: "Start Free Trial",
       secondaryCta: "Interactive Encryption Demo",
       trustedBy: "Empowering strategic industries, critical national infrastructure, and public sectors",
@@ -207,7 +207,7 @@ export const translations: Record<'FR' | 'EN', TranslationSet> = {
       placeholder: "Write a highly confidential note...",
       encryptButton: "Encrypt Locally",
       decryptButton: "Decrypt Locally",
-      networkNode: "Sinco Transit Node (Paris)",
+      networkNode: "Synco Transit Node (Paris)",
       networkWarning: "⚠️ Without the session key, the host network only sees random noise, which is impossible to crack.",
       cipherTextLabel: "AES-256 Encrypted Ciphertext (Network Payload)",
       keyLabel: "Local Session Secret Key (Never leaves user device)",
@@ -232,28 +232,28 @@ export const translations: Record<'FR' | 'EN', TranslationSet> = {
       integrationDesc: "Import slack dump data and teams rosters instantly. Retain habits while boosting safety levels.",
     },
     comparison: {
-      title: "Why switch to Sinco from Big Tech platforms?",
+      title: "Why switch to Synco from Big Tech platforms?",
       subtitle: "An objective feature-by-feature layout of security and sovereignty metrics.",
       featureCol: "Key Evaluation",
       slackCol: "Slack",
       teamsCol: "Microsoft Teams",
-      sincoCol: "Sinco",
+      SyncoCol: "Synco",
       rows: [
-        { name: "Default End-to-End Encryption (E2EE)", sinco: true, teams: "Incomplete / Paid Opt-In", slack: false, highlight: true },
-        { name: "Sovereign French hosting infrastructure", sinco: "Yes, France 🇫🇷", teams: "No (US/EU Azure)", slack: false },
-        { name: "Immunity to FISA & US Cloud Act spying warrants", sinco: true, teams: false, slack: false, highlight: true },
-        { name: "Full GDPR & European Data Protection alignment", sinco: "Complete Compliance", teams: "Partial Compliance / Flagged", slack: "Partial" },
-        { name: "Modern Channel Chat & Threads", sinco: true, teams: true, slack: true },
-        { name: "High Definition Audio/Video Conferencing", sinco: "Yes (E2EE P2P)", teams: "Yes (Plain Server)", slack: "Yes" },
-        { name: "Collaborative Real-time Document Writing", sinco: true, teams: "Yes (SharePoint Integrations)", slack: "Minimal" },
-        { name: "Zero-Knowledge Server Infrastructure", sinco: true, teams: false, slack: false, highlight: true }
+        { name: "Default End-to-End Encryption (E2EE)", Synco: true, teams: "Incomplete / Paid Opt-In", slack: false, highlight: true },
+        { name: "Sovereign French hosting infrastructure", Synco: "Yes, France 🇫🇷", teams: "No (US/EU Azure)", slack: false },
+        { name: "Immunity to FISA & US Cloud Act spying warrants", Synco: true, teams: false, slack: false, highlight: true },
+        { name: "Full GDPR & European Data Protection alignment", Synco: "Complete Compliance", teams: "Partial Compliance / Flagged", slack: "Partial" },
+        { name: "Modern Channel Chat & Threads", Synco: true, teams: true, slack: true },
+        { name: "High Definition Audio/Video Conferencing", Synco: "Yes (E2EE P2P)", teams: "Yes (Plain Server)", slack: "Yes" },
+        { name: "Collaborative Real-time Document Writing", Synco: true, teams: "Yes (SharePoint Integrations)", slack: "Minimal" },
+        { name: "Zero-Knowledge Server Infrastructure", Synco: true, teams: false, slack: false, highlight: true }
       ]
     },
     sovereignty: {
       badge: "DATA SOVEREIGNTY",
       title: "Insulate your core blueprints from foreign espionage",
       desc1: "SaaS suites hosted by American tech giants fall under extraterritorial laws (Cloud Act, FISA Section 702), giving foreign authorities legislative channels to review your strategy, design specs, or contract logs.",
-      desc2: "Sinco is 100% incorporated in France, backed by European capitals, and operates on French state-regulated hardware levels. Protect your secrets from corporate lookups.",
+      desc2: "Synco is 100% incorporated in France, backed by European capitals, and operates on French state-regulated hardware levels. Protect your secrets from corporate lookups.",
       hostTitle: "French Server Cluster",
       hostDesc: "Redundantly clustered systems hosted within neutral French secure facilities.",
       lawTitle: "Zero Foreign Transfers",
@@ -271,7 +271,7 @@ export const translations: Record<'FR' | 'EN', TranslationSet> = {
       popularBadge: "Recommended",
       tiers: [
         {
-          name: "Sinco Standard",
+          name: "Synco Standard",
           price: "$4.90",
           period: "/ user / month",
           desc: "For small business and startups to shield proprietary communication lines and chat rooms.",
@@ -287,7 +287,7 @@ export const translations: Record<'FR' | 'EN', TranslationSet> = {
           popular: false
         },
         {
-          name: "Sinco Pro with AI",
+          name: "Synco Pro with AI",
           price: "$8.90",
           period: "/ user / month",
           desc: "Engineered for medium enterprises, strategic research grids, and security-centric companies. Includes advanced AI capabilities.",
@@ -328,11 +328,11 @@ export const translations: Record<'FR' | 'EN', TranslationSet> = {
     },
     faq: {
       title: "Frequently Asked Questions",
-      subtitle: "Get transparent insights about Sinco's cryptographic and legal architecture.",
+      subtitle: "Get transparent insights about Synco's cryptographic and legal architecture.",
       items: [
         {
-          q: "What defines Sinco's End-to-End Encryption?",
-          a: "End-to-end encryption means that keys are generated locally. Messages and files are ciphered prior to leaving your laptop or phone. Because we utilize true zero-knowledge systems, not even Sinco admins hold mechanical keys to decipher the active database payloads."
+          q: "What defines Synco's End-to-End Encryption?",
+          a: "End-to-end encryption means that keys are generated locally. Messages and files are ciphered prior to leaving your laptop or phone. Because we utilize true zero-knowledge systems, not even Synco admins hold mechanical keys to decipher the active database payloads."
         },
         {
           q: "Why is France-based hosting crucial for corporate strategic security?",
@@ -343,7 +343,7 @@ export const translations: Record<'FR' | 'EN', TranslationSet> = {
           a: "Definitely. We provide custom migration upload modules. Drag and drop your archive json/zips to populate channel histories, user list directories, and media galleries in minutes."
         },
         {
-          q: "Can we install Sinco inside completely offline networks?",
+          q: "Can we install Synco inside completely offline networks?",
           a: "Yes. Our Custom Solutions package explicitly provides standalone distribution binaries. These configure seamlessly without online dependencies, preserving network isolation."
         },
         {
@@ -353,12 +353,12 @@ export const translations: Record<'FR' | 'EN', TranslationSet> = {
       ]
     },
     footer: {
-      tagline: "Sinco - Regain control of your corporate intel, project blueprints, and operational streams.",
+      tagline: "Synco - Regain control of your corporate intel, project blueprints, and operational streams.",
       legal: "Legal Notice",
       privacy: "Privacy Policy",
       terms: "Terms of Service",
       cookies: "Cookie Administration",
-      rights: "© 2026 Sinco. All rights reserved. Made under strict French & EU sovereignty guidelines 🇫🇷"
+      rights: "© 2026 Synco. All rights reserved. Made under strict French & EU sovereignty guidelines 🇫🇷"
     }
   }
 };

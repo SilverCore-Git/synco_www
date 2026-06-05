@@ -33,7 +33,7 @@ export default function App() {
         {/* Complete Features Suite Grid (Voice, Chat, Locks) */}
         <FeatureGrid t={t} />
 
-        {/* Slack, Teams, Sinco Side-by-side Technical comparison block */}
+        {/* Slack, Teams, Synco Side-by-side Technical comparison block */}
         <ComparisonTable t={t} />
 
         {/* Pricing Matrix (Standard, Pro, Dedicated Sector / On-Premise option) */}

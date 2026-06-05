@@ -43,7 +43,7 @@ export default function Header({ currentLang, setLang, t }: HeaderProps) {
           >
             <img
               src="/assets/synco_icons/light_banner_h1000_synco.png"
-              alt="Sinco"
+              alt="Synco"
               className="h-full w-auto"
             />
           </div>

@@ -55,10 +55,10 @@ export interface TranslationSet {
     featureCol: string;
     slackCol: string;
     teamsCol: string;
-    sincoCol: string;
+    SyncoCol: string;
     rows: Array<{
       name: string;
-      sinco: boolean | string;
+      Synco: boolean | string;
       teams: boolean | string;
       slack: boolean | string;
       highlight?: boolean;

@@ -99,7 +99,7 @@ export default function Hero({ t }: HeroProps) {
             {/* Use banner SVG if available, fallback to screenshot */}
             <img
               src="/assets/screen.png"
-              alt="Sinco Banner"
+              alt="Synco Banner"
               className="w-full h-auto rounded-xl animate-fade-in"
               onError={(e) => {
                 // Fallback to screenshot if SVG fails

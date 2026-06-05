@@ -116,7 +116,7 @@ export default function E2EEDemo({ t }: E2EEDemoProps) {
                 Architecture Zero-Knowledge
               </h4>
               <p className="text-sm text-text-secondary leading-relaxed">
-                Contrairement aux solutions centralisées où l'éditeur possède les clés, l'échange de clés de Sinco s'effectue directement via des protocoles cryptographiques décentralisés. Même nos administrateurs ne peuvent pas accéder à vos données.
+                Contrairement aux solutions centralisées où l'éditeur possède les clés, l'échange de clés de Synco s'effectue directement via des protocoles cryptographiques décentralisés. Même nos administrateurs ne peuvent pas accéder à vos données.
               </p>
             </div>
           </div>

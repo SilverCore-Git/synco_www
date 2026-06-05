@@ -556,7 +556,7 @@ export default function Pricing({ t }: PricingProps) {
             className="text-[10px] leading-relaxed max-w-lg mx-auto"
             style={{ color: colors.textSecondary }}
           >
-            Les serveurs Sinco opèrent à 100% sur de l'énergie décarbonée d'origine hydraulique et nucléaire française.
+            Les serveurs Synco opèrent à 100% sur de l'énergie décarbonée d'origine hydraulique et nucléaire française.
           </p>
         </div>
 

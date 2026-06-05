@@ -48,7 +48,7 @@ export default function ComparisonTable({ t }: ComparisonTableProps) {
                     <div className="flex items-center justify-center gap-1.5">
                       <Shield className="w-4 h-4 text-primary" />
                       <span className="text-xs font-semibold text-primary uppercase tracking-wide">
-                        {t.comparison.sincoCol}
+                        {t.comparison.SyncoCol}
                       </span>
                     </div>
                   </th>
@@ -93,16 +93,16 @@ export default function ComparisonTable({ t }: ComparisonTableProps) {
                       )}
                     </td>
 
-                    {/* Sinco */}
+                    {/* Synco */}
                     <td className="p-4 text-center bg-primary/3">
-                      {typeof row.sinco === 'boolean' ? (
-                        row.sinco ? (
+                      {typeof row.Synco === 'boolean' ? (
+                        row.Synco ? (
                           <Check className="w-5 h-5 text-primary mx-auto font-bold transition-transform duration-300" />
                         ) : (
                           <X className="w-5 h-5 text-border mx-auto" />
                         )
                       ) : (
-                        <span className="text-sm font-semibold text-primary transition-all duration-300">{row.sinco}</span>
+                        <span className="text-sm font-semibold text-primary transition-all duration-300">{row.Synco}</span>
                       )}
                     </td>
                   </tr>

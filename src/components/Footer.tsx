@@ -19,7 +19,7 @@ export default function Footer({ t }: FooterProps) {
                 <Lock className="w-4 h-4 text-white" />
               </div>
               <span className="text-lg font-semibold text-text tracking-tight">
-                Sinco
+                Synco
               </span>
             </div>
 
@@ -71,9 +71,9 @@ export default function Footer({ t }: FooterProps) {
               Contact
             </h4>
             <div className="space-y-3 text-sm">
-              <a href="mailto:contact@sinco.fr" className="flex items-center gap-2 hover:text-primary transition-colors">
+              <a href="mailto:contact@Synco.fr" className="flex items-center gap-2 hover:text-primary transition-colors">
                 <Mail className="w-4 h-4 text-primary" />
-                <span>contact@sinco.fr</span>
+                <span>contact@Synco.fr</span>
               </a>
               <div className="flex items-center gap-2">
                 <Globe className="w-4 h-4 text-primary" />
