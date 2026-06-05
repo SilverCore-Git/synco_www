@@ -63,7 +63,7 @@ export default function Hero({ t }: HeroProps) {
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6">
             <button
               onClick={() => scrollToSection('pricing')}
-              className="inline-flex items-center justify-center gap-2 px-8 py-3 text-base font-semibold text-white bg-primary hover:bg-primary-dark rounded-lg transition-all"
+              className="inline-flex items-center justify-center gap-2 px-8 py-3 text-base font-semibold text-white bg-primary hover:bg-primary-dark rounded-lg transition-all cursor-pointer"
             >
               {t.hero.primaryCta}
               <ArrowRight className="w-4 h-4" />
@@ -71,7 +71,7 @@ export default function Hero({ t }: HeroProps) {
 
             <button
               onClick={() => scrollToSection('demo')}
-              className="inline-flex items-center justify-center gap-2 px-8 py-3 text-base font-semibold text-primary border border-primary/20 bg-primary/5 hover:bg-primary/10 rounded-lg transition-all"
+              className="inline-flex items-center justify-center gap-2 px-8 py-3 text-base font-semibold text-primary border border-primary/20 bg-primary/5 hover:bg-primary/10 rounded-lg transition-all cursor-pointer"
             >
               {t.hero.secondaryCta}
             </button>

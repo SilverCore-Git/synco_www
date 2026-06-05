@@ -62,7 +62,7 @@ export default function FAQ({ t }: FAQProps) {
                 {/* Question */}
                 <button
                   onClick={() => toggleIndex(idx)}
-                  className={`w-full text-left p-5 flex justify-between items-center gap-4 group transition-all duration-300 ${
+                  className={`w-full text-left p-5 flex justify-between items-center gap-4 group transition-all duration-300 cursor-pointer ${
                     isOpen
                       ? 'border-primary/30 bg-primary/3'
                       : 'border-border hover:border-primary/20 hover:bg-primary/1'

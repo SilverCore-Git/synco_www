@@ -60,7 +60,7 @@ export default function Header({ currentLang, setLang, t }: HeaderProps) {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="px-4 py-2 text-sm font-medium text-text-secondary hover:text-primary transition-all duration-300 relative group"
+                className="px-4 py-2 text-sm font-medium text-text-secondary hover:text-primary transition-all duration-300 relative group cursor-pointer"
               >
                 {item.label}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
@@ -78,7 +78,7 @@ export default function Header({ currentLang, setLang, t }: HeaderProps) {
                   className={`px-3 py-1.5 text-xs font-semibold rounded transition-all duration-300 ${
                     currentLang === lang
                       ? 'bg-white text-primary shadow-sm'
-                      : 'text-text-secondary hover:text-text'
+                      : 'text-text-secondary hover:text-text cursor-pointer'
                   }`}
                 >
                   {lang}
@@ -88,7 +88,7 @@ export default function Header({ currentLang, setLang, t }: HeaderProps) {
 
             <button
               onClick={() => scrollToSection('pricing')}
-              className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-white bg-primary hover:bg-primary-dark rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-0.5 group"
+              className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-white bg-primary hover:bg-primary-dark rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-0.5 group cursor-pointer"
             >
               {t.nav.ctaButton}
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
@@ -99,7 +99,7 @@ export default function Header({ currentLang, setLang, t }: HeaderProps) {
           <div className="md:hidden">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-text-secondary hover:text-text transition-colors duration-200"
+              className="p-2 text-text-secondary hover:text-text transition-colors duration-200 "
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -147,7 +147,7 @@ export default function Header({ currentLang, setLang, t }: HeaderProps) {
 
               <button
                 onClick={() => scrollToSection('pricing')}
-                className="w-full px-4 py-3 font-semibold text-white bg-primary hover:bg-primary-dark rounded-lg transition-all duration-300"
+                className="w-full px-4 py-3 font-semibold text-white bg-primary hover:bg-primary-dark rounded-lg transition-all duration-300 cursor-pointer"
               >
                 {t.nav.ctaButton}
               </button>
