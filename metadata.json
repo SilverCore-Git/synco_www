@@ -1,6 +1,6 @@
 {
-  "name": "Sinco",
-  "description": "Site vitrine de Sinco, l'alternative souveraine et ultra-sécurisée à Slack et Teams.",
+  "name": "Synco",
+  "description": "Enterprise-grade synchronous intelligence & context synchronization platform designed for ultra-low latency team orchestration.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

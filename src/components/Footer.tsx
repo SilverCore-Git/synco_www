@@ -1,93 +1,147 @@
-import { Shield, Mail, Globe, Cpu } from 'lucide-react';
-import { TranslationSet } from '../types';
+import { useState, FormEvent } from "react";
+import { Mail, Check, ArrowRight, ArrowUpRight, Terminal } from "lucide-react";
 
-interface FooterProps {
-  t: TranslationSet;
-}
+export default function Footer() {
+  const [email, setEmail] = useState("");
+  const [subscribed, setSubscribed] = useState(false);
 
-export default function Footer({ t }: FooterProps) {
+  const handleSubscribe = (e: FormEvent) => {
+    e.preventDefault();
+    if (email.trim()) {
+      setSubscribed(true);
+      setEmail("");
+    }
+  };
+
   return (
-    <footer className="bg-slate-900 text-slate-400 pt-16 pb-12 border-t border-slate-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <footer className="bg-[#faf9f5] border-t border-mistral-border-light pt-12 pb-8 transition-colors duration-205 dark:bg-[#050505] dark:border-mistral-border-dark font-sans">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 pb-12 border-b border-slate-800">
+        {/* Core links grid */}
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-8 pb-10 border-b border-mistral-border-light/60 dark:border-mistral-border-dark/40">
           
-          {/* Brand/Slogan - 5 cols */}
-          <div className="md:col-span-5 space-y-4">
-            <div className="flex items-center space-x-2.5">
-              <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-brand text-white">
-                <Shield className="w-4 h-4" />
+          {/* Logo brand card (2 columns wide on large screen) */}
+          <div className="col-span-2 flex flex-col space-y-4">
+            <div className="flex items-center space-x-2">
+              <div className="flex h-7 w-7 items-center justify-center rounded-sm border border-primary-brand/35 bg-primary-brand/10">
+                <div className="h-2.5 w-2.5 rounded-sm bg-primary-brand" />
               </div>
-              <span className="text-xl font-display font-bold text-white tracking-tight">
-                Sinco<span className="text-brand">.</span>
+              <span className="font-display text-lg font-extrabold tracking-tight text-zinc-900 dark:text-zinc-50">
+                synco<span className="text-primary-brand">.</span>
               </span>
             </div>
             
-            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-sm">
-              {t.footer.tagline}
+            <p className="text-xs text-zinc-600 dark:text-zinc-400 max-w-sm leading-relaxed">
+              La plateforme souveraine de synchronisation de contextes d'entreprise pour les systèmes multi-agents en temps réel.
             </p>
-            
-            <div className="flex items-center space-x-2 bg-slate-950 p-2.5 rounded-xl border border-slate-800 inline-block">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-brand"></span>
+
+            {/* Newsletter input */}
+            <form onSubmit={handleSubscribe} className="space-y-2 pt-2 max-w-xs">
+              <span className="font-mono text-[9px] text-zinc-450 dark:text-zinc-550 uppercase tracking-widest block font-bold">
+                SOUSCRIRE AUX RAPPORTS DE RECHERCHE
               </span>
-              <p className="text-[10px] text-slate-400 font-mono">
-                Heures d&apos;activité : SecNumCloud-Region-Paris
-              </p>
-            </div>
+              <div className="flex space-x-1">
+                <input
+                  type="email"
+                  value={email}
+                  disabled={subscribed}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder={subscribed ? "Merci !" : "Entrez votre email"}
+                  className="flex-1 bg-white border border-neutral-200 rounded-sm px-2.5 py-1.5 text-xs text-zinc-800 placeholder-zinc-400 focus:outline-none focus:border-primary-brand focus:ring-1 focus:ring-primary-brand/20 dark:bg-[#080808] dark:border-zinc-800 dark:text-zinc-100 disabled:opacity-80"
+                  required
+                />
+                <button
+                  type="submit"
+                  disabled={subscribed}
+                  className="flex h-8 w-8 items-center justify-center rounded-sm bg-primary-brand text-white hover:bg-primary-brand-dark transition-all shrink-0 active:scale-95 disabled:bg-emerald-600 cursor-pointer"
+                >
+                  {subscribed ? <Check className="h-3.5 w-3.5" /> : <ArrowRight className="h-3.5 w-3.5" />}
+                </button>
+              </div>
+              {subscribed && (
+                <p className="font-mono text-[9px] text-[#108e62] animate-bounce">
+                  ⚡ Inscription au rapport mensuel effectuée.
+                </p>
+              )}
+            </form>
           </div>
 
-          {/* Links - 4 cols */}
-          <div className="md:col-span-4 grid grid-cols-2 gap-8 text-xs sm:text-sm">
-            <div>
-              <span className="block font-semibold text-white uppercase tracking-wider text-xxs mb-4">Navigation</span>
-              <ul className="space-y-2.5">
-                <li><a href="#features" className="hover:text-brand transition-colors">Fonctionnalités</a></li>
-                <li><a href="#demo" className="hover:text-brand transition-colors">Démo E2EE</a></li>
-                <li><a href="#comparison" className="hover:text-brand transition-colors">Comparatif</a></li>
-                <li><a href="#pricing" className="hover:text-brand transition-colors">Tarifs</a></li>
-              </ul>
-            </div>
-            <div>
-              <span className="block font-semibold text-white uppercase tracking-wider text-xxs mb-4">Légal & Contact</span>
-              <ul className="space-y-2.5">
-                <li><span className="hover:text-brand transition-colors cursor-pointer">{t.footer.legal}</span></li>
-                <li><span className="hover:text-brand transition-colors cursor-pointer">{t.footer.privacy}</span></li>
-                <li><span className="hover:text-brand transition-colors cursor-pointer">{t.footer.terms}</span></li>
-                <li><span className="hover:text-brand transition-colors cursor-pointer">{t.footer.cookies}</span></li>
-              </ul>
-            </div>
+          {/* Column 1: Models */}
+          <div className="flex flex-col space-y-3 text-left">
+            <span className="font-mono text-[10px] font-bold text-zinc-450 dark:text-zinc-550 uppercase tracking-widest">
+              MOTEURS
+            </span>
+            <ul className="space-y-1.5 text-xs">
+              {["Orchestrator v3.2", "Sync-Medium v1", "Code-Align Enterprise", "Embed Omni v2"].map((link) => (
+                <li key={link}>
+                  <a href="#models" className="text-zinc-600 hover:text-primary-brand dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors">
+                    {link}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          {/* Contact Details - 3 cols */}
-          <div className="md:col-span-3 space-y-4">
-            <span className="block font-semibold text-white uppercase tracking-wider text-xxs mb-2">Support Sinco</span>
-            <div className="space-y-2 text-xs">
-              <p className="flex items-center gap-2">
-                <Mail className="w-4 h-4 text-brand" />
-                <span>contact@sinco.fr</span>
-              </p>
-              <p className="flex items-center gap-2">
-                <Cpu className="w-4 h-4 text-brand" />
-                <span>Assistance État : etp@sinco.fr</span>
-              </p>
-              <p className="text-[10px] text-slate-500 italic mt-4 leading-normal">
-                Notre assistance est qualifiée en protection de secrets industriels. Nos bureaux sont basés à Lyon, France.
-              </p>
-            </div>
+          {/* Column 2: Resources */}
+          <div className="flex flex-col space-y-3 text-left">
+            <span className="font-mono text-[10px] font-bold text-zinc-450 dark:text-zinc-550 uppercase tracking-widest">
+              DÉVELOPPEURS
+            </span>
+            <ul className="space-y-1.5 text-xs">
+              {["Documentation API", "Node.js SDK", "Python Client", "Workspace Webhooks", "Status des Services"].map((link) => (
+                <li key={link}>
+                  <a href="#developers" className="text-zinc-600 hover:text-primary-brand dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors">
+                    {link}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Column 3: Legal & Company */}
+          <div className="flex flex-col space-y-3 text-left">
+            <span className="font-mono text-[10px] font-bold text-zinc-450 dark:text-zinc-550 uppercase tracking-widest">
+              SOCIÉTÉ
+            </span>
+            <ul className="space-y-1.5 text-xs">
+              {["À propos", "Blog de Recherche", "Garanties SecOps", "RGPD & Souveraineté", "Carrières", "Contact"].map((link) => (
+                <li key={link} className="flex items-center space-x-0.5">
+                  <a href="#" className="text-zinc-600 hover:text-primary-brand dark:text-zinc-400 dark:hover:text-zinc-100 transition-colors">
+                    {link}
+                  </a>
+                  {link === "Carrières" && (
+                    <span className="text-[8px] bg-primary-brand-light text-primary-brand dark:bg-[#108e6215] dark:text-[#108e62] px-1 rounded-sm scale-90 font-mono">
+                      RECRUTE
+                    </span>
+                  )}
+                </li>
+              ))}
+            </ul>
           </div>
 
         </div>
 
-        {/* Rights reserved */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xxs text-slate-500 gap-4 text-center">
-          <p>{t.footer.rights}</p>
-          <div className="flex items-center space-x-4">
-            <span>ANSSI qualified stack</span>
+        {/* Bottom meta footer info block */}
+        <div className="pt-8 flex flex-col md:flex-row md:items-center md:justify-between space-y-4 md:space-y-0 text-left font-mono text-[10px] text-zinc-450 dark:text-zinc-550 select-none">
+          
+          <div className="flex flex-wrap items-center gap-4">
+            <span>© 2026 Synco SAS.</span>
             <span>•</span>
-            <span>GDPR Audited 2026</span>
+            <span className="flex items-center space-x-1">
+              <span>Hébergé en Europe</span>
+              <span className="h-1.5 w-1.5 rounded-sm bg-emerald-550 dark:bg-[#108e62]" />
+            </span>
+            <span>•</span>
+            <a href="#" className="hover:text-zinc-700 dark:hover:text-zinc-300">Conditions d'Utilisation</a>
+            <span>•</span>
+            <a href="#" className="hover:text-zinc-700 dark:hover:text-zinc-300">Confidentialité</a>
           </div>
+
+          <div className="flex items-center space-x-2">
+            <Terminal className="h-3 w-3 text-primary-brand" />
+            <span>Même design épuré que Mistral. AI-Enhanced platform.</span>
+          </div>
+
         </div>
 
       </div>
