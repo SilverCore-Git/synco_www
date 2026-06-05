@@ -27,12 +27,12 @@ export default function App() {
         {/* Hero Section with custom product preview & E2EE simulation switch */}
         <Hero t={t} />
 
-        {/* E2EE Live Code/Interactive Encryptor Simulator */}
-        <E2EEDemo t={t} />
-
         {/* Complete Features Suite Grid (Voice, Chat, Locks) */}
         <FeatureGrid t={t} />
 
+        {/* E2EE Live Code/Interactive Encryptor Simulator */}
+        <E2EEDemo t={t} />
+        
         {/* Slack, Teams, Synco Side-by-side Technical comparison block */}
         <ComparisonTable t={t} />
 

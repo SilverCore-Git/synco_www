@@ -47,7 +47,7 @@ export default function Hero({ t }: HeroProps) {
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-text leading-[1.1] tracking-tight">
               {t.hero.title}
               <span className="block">
-                <span className="bg-gradient-to-r from-primary via-primary-light to-primary-dark bg-clip-text text-transparent">
+                <span className="text-primary">
                   {t.hero.titleGradient}
                 </span>
               </span>
@@ -88,29 +88,6 @@ export default function Hero({ t }: HeroProps) {
           </div>
         </div>
 
-        {/* Visual Hero - Banner or Screenshot */}
-        <div className="relative w-full">
-          <div
-            className="relative rounded-2xl overflow-hidden border border-border bg-bg-secondary p-1 transition-transform duration-300"
-            style={{
-              transform: `translateY(${scrollY * 0.3}px)`,
-            }}
-          >
-            {/* Use banner SVG if available, fallback to screenshot */}
-            <img
-              src="/assets/screen.png"
-              alt="Synco Banner"
-              className="w-full h-auto rounded-xl animate-fade-in"
-              onError={(e) => {
-                // Fallback to screenshot if SVG fails
-                e.currentTarget.src = '/assets/screen.png';
-              }}
-            />
-          </div>
-
-          {/* Subtle glow effect behind */}
-          <div className="absolute inset-0 -z-10 rounded-2xl bg-gradient-to-t from-primary/10 to-transparent blur-2xl animate-pulse-soft" />
-        </div>
       </div>
     </section>
   );
