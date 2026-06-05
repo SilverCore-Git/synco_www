@@ -1,0 +1,45 @@
+{
+  "name": "Synco - Solutions Technologiques Innovantes",
+  "short_name": "Synco",
+  "description": "Synco fournit des solutions technologiques de pointe pour transformer votre business. Conseil, développement, intégration et support.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#108e62",
+  "icons": [
+    {
+      "src": "/synco_icons/favicon_100x100_synco.png",
+      "sizes": "100x100",
+      "type": "image/png"
+    },
+    {
+      "src": "/synco_icons/favicon_500x500_synco.png",
+      "sizes": "500x500",
+      "type": "image/png"
+    },
+    {
+      "src": "/synco_icons/favicon_1000x1000_synco.png",
+      "sizes": "1000x1000",
+      "type": "image/png"
+    },
+    {
+      "src": "/synco_icons/favicon_synco.ico",
+      "sizes": "48x48 96x96 128x128 256x256",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/synco_icons/favicon_synco.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/synco_icons/banner_h1000_synco.png",
+      "sizes": "1000x600",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Synco Homepage"
+    }
+  ]
+}
