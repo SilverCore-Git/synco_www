@@ -52,10 +52,10 @@ export default function Header({ currentLang, setLang, t }: HeaderProps) {
           <nav className="hidden md:flex items-center space-x-1">
             {[
               { id: 'features', label: t.nav.features },
-              { id: 'demo', label: 'Démo' },
+              { id: 'demo', label: 'Chiffrement' },
               { id: 'comparison', label: t.nav.teamsComparison },
-              { id: 'sovereignty', label: t.nav.security },
               { id: 'pricing', label: t.nav.pricing },
+              { id: 'faq', label: t.nav.faq },
             ].map((item) => (
               <button
                 key={item.id}
@@ -114,7 +114,7 @@ export default function Header({ currentLang, setLang, t }: HeaderProps) {
           <div className="flex flex-col space-y-4">
             {[
               { id: 'features', label: t.nav.features },
-              { id: 'demo', label: 'Démo E2EE' },
+              { id: 'demo', label: 'Chiffrement' },
               { id: 'comparison', label: t.nav.teamsComparison },
               { id: 'pricing', label: t.nav.pricing },
               { id: 'faq', label: t.nav.faq },

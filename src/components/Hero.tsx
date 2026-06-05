@@ -34,11 +34,15 @@ export default function Hero({ t }: HeroProps) {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="space-y-8 text-center max-w-3xl mx-auto mb-16">
+          
           {/* Badge */}
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/5 border border-primary/10">
-            <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+            <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
+              </span>
             <span className="text-xs font-semibold text-primary uppercase tracking-wide">
-              Protégé • Souverain • Français
+              Synco est Opérationnel
             </span>
           </div>
 

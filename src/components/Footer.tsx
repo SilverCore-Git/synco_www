@@ -28,13 +28,13 @@ export default function Footer({ t }: FooterProps) {
             </p>
 
             {/* Status indicator */}
-            <div className="flex items-center gap-2 bg-primary/5 px-3 py-2 rounded-lg border border-primary/10 inline-flex">
+            <div className="flex items-center gap-2 px-3 py-2 inline-flex">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
               </span>
               <span className="text-xs text-primary font-mono">
-                Opérationnel • Hébergé en France
+                Synco est opérationnel
               </span>
             </div>
           </div>
@@ -75,10 +75,6 @@ export default function Footer({ t }: FooterProps) {
                 <Mail className="w-4 h-4 text-primary" />
                 <span>contact@Synco.fr</span>
               </a>
-              <div className="flex items-center gap-2">
-                <Globe className="w-4 h-4 text-primary" />
-                <span>Lyon, France</span>
-              </div>
             </div>
           </div>
 
@@ -90,11 +86,7 @@ export default function Footer({ t }: FooterProps) {
           <div className="flex items-center gap-4 text-text-secondary">
             <span className="flex items-center gap-1.5">
               <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-              ANSSI qualified
-            </span>
-            <span className="flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-              GDPR Audited 2026
+              Hébergé en France
             </span>
           </div>
         </div>

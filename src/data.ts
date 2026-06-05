@@ -12,10 +12,10 @@ export const translations: Record<'FR' | 'EN', TranslationSet> = {
     },
     hero: {
       title: "La collaboration d'équipe,",
-      titleGradient: "sans compromis sur la sécuritée.",
+      titleGradient: "sans compromis sur la sécurité.",
       description: "Synco remplace Slack et Teams pour les organisations exigeantes. Messagerie, appels et documents collaboratifs protégés par un chiffrement de bout en bout et hébergés exclusivement en France.",
-      primaryCta: "Démarrer gratuitement",
-      secondaryCta: "Voir la démo interactive",
+      primaryCta: "Voir tarifs",
+      secondaryCta: "Chiffrement de Bout en Bout",
       securityBadge: "Conforme RGPD • 100% hébergé en France • Zéro Cloud Act", 
     },
     liveDemo: {
@@ -177,7 +177,7 @@ export const translations: Record<'FR' | 'EN', TranslationSet> = {
       privacy: "Politique de Confidentialité",
       terms: "CGU / CGV",
       cookies: "Gestion des cookies",
-      rights: "© 2026 Synco. Tous droits réservés. Conçu et hébergé en France 🇫🇷"
+      rights: "© 2026 Silvercore. Tous droits réservés"
     }
   },
   EN: {
@@ -194,7 +194,7 @@ export const translations: Record<'FR' | 'EN', TranslationSet> = {
       title: "Team collaboration,",
       titleGradient: "completely confidential.",
       description: "Synco replaces Slack and Teams for security-minded organizations. Chat, voice calls, and collaborative docs protected by end-to-end encryption and hosted exclusively in France.",
-      primaryCta: "Start Free Trial",
+      primaryCta: "See pricing",
       secondaryCta: "Interactive Encryption Demo",
       trustedBy: "Empowering strategic industries, critical national infrastructure, and public sectors",
       securityBadge: "GDPR Compliant • French sovereign infrastructure • Zero US Cloud Act exposure",
