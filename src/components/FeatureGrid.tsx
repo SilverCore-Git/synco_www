@@ -1,116 +1,50 @@
-import { MessageSquare, Video, HardDrive, RefreshCw, Landmark, Key } from 'lucide-react';
+import { Lock, Video, FileText, Hash, Shield, Users, Zap, ArrowRight } from 'lucide-react';
 import { TranslationSet } from '../types';
 
-interface FeatureGridProps {
-  t: TranslationSet;
-}
+interface FeatureGridProps { t: TranslationSet; }
 
 export default function FeatureGrid({ t }: FeatureGridProps) {
-  const cards = [
-    {
-      icon: <Key className="w-5 h-5" />,
-      title: t.features.e2eeTitle,
-      desc: t.features.e2eeDesc,
-    },
-    {
-      icon: <Video className="w-5 h-5" />,
-      title: t.features.voiceTitle,
-      desc: t.features.voiceDesc,
-    },
-    {
-      icon: <HardDrive className="w-5 h-5" />,
-      title: t.features.fileTitle,
-      desc: t.features.fileDesc,
-    },
-    {
-      icon: <MessageSquare className="w-5 h-5" />,
-      title: t.features.channelsTitle,
-      desc: t.features.channelsDesc,
-    },
-    {
-      icon: <Landmark className="w-5 h-5" />,
-      title: t.features.sovereignTitle,
-      desc: t.features.sovereignDesc,
-    },
-    {
-      icon: <RefreshCw className="w-5 h-5" />,
-      title: t.features.integrationTitle,
-      desc: t.features.integrationDesc,
-    }
+  const features = [
+    { icon: <Lock className="w-6 h-6 text-primary" />, title: t.features.e2eeTitle, description: t.features.e2eeDesc, badge: 'E2EE' },
+    { icon: <Video className="w-6 h-6 text-primary" />, title: t.features.voiceTitle, description: t.features.voiceDesc, badge: 'P2P' },
+    { icon: <FileText className="w-6 h-6 text-primary" />, title: t.features.fileTitle, description: t.features.fileDesc, badge: 'Sécurisé' },
+    { icon: <Hash className="w-6 h-6 text-primary" />, title: t.features.channelsTitle, description: t.features.channelsDesc },
+    { icon: <Shield className="w-6 h-6 text-primary" />, title: t.features.sovereignTitle, description: t.features.sovereignDesc, badge: '🇫🇷' },
+    { icon: <Users className="w-6 h-6 text-primary" />, title: t.features.integrationTitle, description: t.features.integrationDesc },
   ];
 
   return (
-    <section id="features" className="py-24 sm:py-32">
+    <section id="features" className="py-20 md:py-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-        {/* Section header */}
-        <div className="text-center max-w-2xl mx-auto mb-20">
-          <span className="text-xs font-semibold text-primary uppercase tracking-wide mb-4 block">
-            Fonctionnalités
+        <div className="text-center mb-16">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold uppercase tracking-wider border border-primary/20 mb-4">
+            <Zap className="w-4 h-4" /> Fonctionnalités
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-text mb-6 tracking-tight">
-            {t.features.title}
-          </h2>
-          <p className="text-base text-text-secondary leading-relaxed">
-            {t.features.subtitle}
-          </p>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-sans font-bold text-text tracking-tight mb-6">{t.features.title}</h2>
+          <p className="text-base sm:text-lg leading-relaxed text-text-secondary max-w-3xl mx-auto">{t.features.subtitle}</p>
         </div>
-
-        {/* Feature Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
-          {cards.map((card, idx) => (
-            <div
-              key={idx}
-              className="group p-6 rounded-xl border border-border bg-white hover:border-primary/30 hover:shadow-lg hover:scale-105 transition-all duration-300 animate-fade-in-up"
-              style={{ animationDelay: `${idx * 100}ms` }}
-            >
-              {/* Icon container */}
-              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-4 text-primary group-hover:bg-primary/20 transition-colors duration-300">
-                {card.icon}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          {features.map((feature, index) => (
+            <div key={index} className="bg-white rounded-2xl border border-border/50 shadow-sm hover:shadow-md hover:border-primary/30 hover:shadow-primary/15 transition-all duration-300 ease-out overflow-hidden group relative">
+              <div className="absolute top-0 right-0 w-40 h-40 bg-primary/5 rounded-full -translate-y-1/2 translate-x-1/2 group-hover:scale-110 transition-transform duration-500" />
+              <div className="relative w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mt-8 mb-6 group-hover:bg-primary/20 transition-colors duration-300">
+                {feature.badge && <span className="absolute -top-2 -right-2 px-2 py-0.5 text-[10px] font-bold text-white bg-primary rounded-full uppercase">{feature.badge}</span>}
+                {feature.icon}
               </div>
-
-              {/* Content */}
-              <h3 className="text-lg font-semibold text-text mb-2 transition-colors duration-300 group-hover:text-primary">
-                {card.title}
-              </h3>
-              <p className="text-sm text-text-secondary leading-relaxed transition-colors duration-300 group-hover:text-text">
-                {card.desc}
-              </p>
+              <div className="px-8 pb-8">
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-sans font-bold text-text mb-3 group-hover:text-primary transition-colors">{feature.title}</h3>
+                <p className="text-base sm:text-lg leading-relaxed text-text-secondary">{feature.description}</p>
+              </div>
+              <div className="absolute bottom-0 left-4 right-4 h-0.5 bg-gradient-to-r from-transparent via-primary/20 to-transparent rounded-full" />
             </div>
           ))}
         </div>
-
-        {/* Highlight section */}
-        <div className="bg-primary rounded-2xl p-8 md:p-12 animate-fade-in-up animate-glow" style={{ animationDelay: '500ms' }}>
-          <div className="max-w-3xl">
-            <div className="flex items-center gap-2 text-white/80 text-xs font-semibold uppercase tracking-wide mb-4">
-              <div className="w-2 h-2 rounded-full bg-white/60" />
-              Conformité & Réglementation
-            </div>
-            <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Déjà conforme à toutes les directives françaises & européennes
-            </h3>
-            <p className="text-white/90 leading-relaxed mb-8">
-              Notre solution aide les Établissements Publics de Santé, les banques régulées, et les administrations d'État à aligner leur outillage de travail quotidien avec la directive NIS 2 et les recommandations d'hébergement de la CNIL.
-            </p>
-
-            <ul className="space-y-3">
-              {[
-                'Immunisé contre l\'espionnage industriel',
-                '100% hébergement France',
-                'Architecture Zero-Knowledge'
-              ].map((item, idx) => (
-                <li key={idx} className="flex items-start gap-3 animate-fade-in-up transition-all duration-300" style={{ animationDelay: `${600 + idx * 100}ms` }}>
-                  <svg className="w-5 h-5 text-white/80 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
-                  <span className="text-white/90">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+        <div className="mt-16 text-center">
+          <button onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })} className="inline-flex items-center justify-center gap-2 px-8 py-4 text-lg font-semibold text-white bg-primary hover:bg-primary-dark active:bg-primary-darker rounded-lg transition-all duration-300 ease-out shadow-primary hover:shadow-primary-lg hover:-translate-y-0.5 active:translate-y-0 cursor-pointer group">
+            Découvrir tous les avantages
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          </button>
         </div>
-
       </div>
     </section>
   );
