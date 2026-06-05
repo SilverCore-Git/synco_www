@@ -15,7 +15,7 @@ const MAX_TOTAL_STORAGE_GB = 10240; // 10 To = 10240 Go max per account
 
 // Theme colors
 const colors = {
-  primary: '#108e62',
+  primary: '#1DD796',
   text: '#27272a',
   textSecondary: '#52525b',
   bg: '#ffffff',
@@ -455,7 +455,7 @@ export default function Pricing({ t }: PricingProps) {
               }}
               onClick={() => alert('Essai Pro démarré')}
             >
-              <span className="flex items-center justify-center gap-2">
+              <span className="flex items-center justify-center gap-2 text-black">
                 <ShieldCheck className="w-4 h-4 transition-transform duration-300" />
                 Démarrer l'essai Pro
                 <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300" />
