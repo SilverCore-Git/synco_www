@@ -5,31 +5,52 @@ import { CheckCircle2, XCircle, AlertCircle } from "lucide-react";
 
 const comparisonData = [
   {
-    feature: "Chiffrement de bout en bout (Défaut)",
+    feature: "Chiffrement de bout en bout",
     synco: "yes",
     teams: "no",
     slack: "no",
   },
   {
-    feature: "Modules activables (Fichiers, Tâches)",
+    feature: "Module Todo / Kanban natif",
     synco: "yes",
     teams: "partial",
-    slack: "partial", // represented as "Via Apps tiers" in markdown
+    teamsLabel: "Microsoft Planner",
+    slack: "partial",
+    slackLabel: "Applications tiers",
   },
   {
-    feature: "Salons Vocaux permanents (Drop-in)",
+    feature: "Gestionnaire de fichiers par projet",
+    synco: "yes",
+    teams: "partial",
+    teamsLabel: "Complexe (SharePoint)",
+    slack: "partial",
+    slackLabel: "Désorganisé",
+  },
+  {
+    feature: "Simplicité extrême de l'interface",
     synco: "yes",
     teams: "no",
-    slack: "partial", // Huddles
+    teamsLabel: "Usine à gaz",
+    slack: "partial",
+    slackLabel: "Moyenne",
   },
   {
-    feature: "Interface Ultra-Rapide et Allégée",
+    feature: "Sessions Vocales et textuelles Éphémères",
     synco: "yes",
-    teams: "no", // Lourd
-    slack: "partial", // Moyen
+    teams: "no",
+    slack: "partial",
+    slackLabel: "Huddles",
   },
   {
-    feature: "Sessions Éphémères P2P",
+    feature: "Hébergement 100% Européen (RGPD)",
+    synco: "yes",
+    teams: "partial",
+    teamsLabel: "Transferts vers US",
+    slack: "partial",
+    slackLabel: "Transferts vers US",
+  },
+  {
+    feature: "Immunité au CLOUD Act américain",
     synco: "yes",
     teams: "no",
     slack: "no",
@@ -50,14 +71,14 @@ export function Comparison() {
       return (
         <div className="flex items-center justify-center gap-2 text-red-500/80 font-medium">
           <XCircle className="w-5 h-5" />
-          <span className="hidden sm:inline">Non</span>
+          <span className="hidden sm:inline">{label || "Non"}</span>
         </div>
       );
     }
     return (
       <div className="flex items-center justify-center gap-2 text-yellow-500/80 font-medium">
         <AlertCircle className="w-5 h-5" />
-        <span className="hidden sm:inline text-sm">{label}</span>
+        <span className="hidden sm:inline text-sm">{label || "Partiel"}</span>
       </div>
     );
   };
@@ -68,9 +89,9 @@ export function Comparison() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-primary/5 blur-[120px] rounded-full pointer-events-none" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-4xl mx-auto mb-16">
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
-            Les Forces de Synco
+            Les Forces de Synco.
           </h2>
           <p className="text-muted-foreground text-lg">
             Découvrez pourquoi les équipes exigeantes délaissent les outils traditionnels pour passer sur Synco.
@@ -89,7 +110,7 @@ export function Comparison() {
               <thead>
                 <tr className="border-b border-border bg-muted">
                   <th className="p-6 font-semibold text-lg">Fonctionnalité</th>
-                  <th className="p-6 font-semibold text-lg text-center text-primary">Synco</th>
+                  <th className="p-6 font-semibold text-lg text-center text-primary">Synco.</th>
                   <th className="p-6 font-semibold text-lg text-center text-muted-foreground">Microsoft Teams</th>
                   <th className="p-6 font-semibold text-lg text-center text-muted-foreground">Slack</th>
                 </tr>
@@ -102,11 +123,10 @@ export function Comparison() {
                       {getIcon(row.synco, "")}
                     </td>
                     <td className="p-6 text-center">
-                      {getIcon(row.teams, "Difficile")}
+                      {getIcon(row.teams, (row as any).teamsLabel)}
                     </td>
                     <td className="p-6 text-center">
-                      {getIcon(row.slack, row.feature.includes("Vocaux") ? "Huddles" : row.feature.includes("Modules") ? "Apps Tiers" : "Moyen")}
-                    </td>
+                      {getIcon(row.slack, (row as any).slackLabel)}                    </td>
                   </tr>
                 ))}
               </tbody>
@@ -114,23 +134,6 @@ export function Comparison() {
           </div>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="mt-8 glass p-6 rounded-xl max-w-3xl mx-auto border-l-4 border-l-primary flex gap-4"
-        >
-          <div className="text-primary mt-1">
-            <AlertCircle className="w-6 h-6" />
-          </div>
-          <div>
-            <h4 className="font-semibold text-foreground mb-1">Le saviez-vous ?</h4>
-            <p className="text-muted-foreground text-sm leading-relaxed">
-              Les administrateurs peuvent activer ou désactiver les modules de Fichiers et de Tâches d'un simple clic dans les paramètres. Vous gardez ainsi une interface qui correspond exactement à la complexité de votre équipe.
-            </p>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

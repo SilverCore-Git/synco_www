@@ -26,7 +26,7 @@ export function Cta() {
             de vos données.
           </h2>
           <p className="text-xl sm:text-2xl text-white/90 mb-10 max-w-3xl mx-auto leading-relaxed">
-            Rejoignez les équipes exigeantes qui ont choisi Synco pour allier rapidité, modularité et confidentialité absolue. Protégez vos données du CLOUD Act américain et de l'ingérence étrangère grâce à notre infrastructure 100% souveraine.
+            Rejoignez les équipes exigeantes qui ont choisi <strong>Synco.</strong> pour allier rapidité, modularité et confidentialité absolue. Protégez vos données du CLOUD Act américain et de l'ingérence étrangère grâce à notre infrastructure 100% souveraine.
           </p>
 
           <div className="flex flex-col sm:flex-row justify-center gap-4">
