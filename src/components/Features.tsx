@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 const features = [
   {
     title: "Sécurité Inégalée",
-    description: "Vos échanges, documents sensibles et mots de passe ne regardent que vous. Grâce à notre technologie de chiffrement de bout en bout (E2EE) et nos communications P2P, même nous ne pouvons pas lire vos messages.",
+    description: "Vos échanges, documents sensibles et mots de passe ne regardent que vous. Grâce à notre technologie de chiffrement de bout en bout et nos communications P2P, même nous ne pouvons pas lire vos messages.",
     icon: ShieldCheck,
     color: "bg-white text-foreground border border-border",
     bgIcon: Lock,
@@ -15,7 +15,7 @@ const features = [
   },
   {
     title: "Interface Premium",
-    description: "Fini les menus complexes. Synco offre un design épuré, moderne et dynamique qui rend le travail quotidien agréable, que vous soyez sur votre ordinateur ou votre smartphone.",
+    description: "Fini les menus complexes. Synco offre un design épuré, moderne et dynamique basé sur l'architecture de discord, qui rend le travail quotidien agréable, que vous soyez sur votre ordinateur ou votre smartphone.",
     icon: Sparkles,
     color: "bg-white text-foreground border border-border",
     bgIcon: Sparkles,
@@ -51,7 +51,7 @@ export function Features() {
             const stickyTop = 120 + (index * 40);
 
             return (
-              <div 
+              <div
                 key={index}
                 className="sticky"
                 style={{ top: `${stickyTop}px` }}
@@ -68,15 +68,15 @@ export function Features() {
                 >
                   {/* Decorative background pattern/icon */}
                   <feature.bgIcon className="absolute -bottom-16 -right-16 w-96 h-96 opacity-[0.03] pointer-events-none" />
-  
+
                   <div className="relative z-10">
-                     <div className={cn("w-20 h-20 rounded-3xl flex items-center justify-center mb-10 shadow-sm", feature.iconBg)}>
-                       <feature.icon className="w-10 h-10" />
-                     </div>
-                     <h3 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-8 tracking-tight">{feature.title}</h3>
-                     <p className="text-xl sm:text-2xl opacity-90 leading-relaxed max-w-3xl font-medium">
-                       {feature.description}
-                     </p>
+                    <div className={cn("w-20 h-20 rounded-3xl flex items-center justify-center mb-10 shadow-sm", feature.iconBg)}>
+                      <feature.icon className="w-10 h-10" />
+                    </div>
+                    <h3 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-8 tracking-tight">{feature.title}</h3>
+                    <p className="text-xl sm:text-2xl opacity-90 leading-relaxed max-w-3xl font-medium">
+                      {feature.description}
+                    </p>
                   </div>
                 </motion.div>
               </div>
