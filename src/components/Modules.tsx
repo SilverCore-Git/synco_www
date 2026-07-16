@@ -76,7 +76,7 @@ export function Modules() {
 
   return (
     // Outer container is very tall to allow scrolling (100vh per module)
-    <section ref={containerRef} className="relative bg-background border-t border-border/50" style={{ height: `${modules.length * 80}vh` }}>
+    <section id="modules" ref={containerRef} className="relative bg-background border-t border-border/50" style={{ height: `${modules.length * 80}vh` }}>
       
       {/* Sticky wrapper that stays glued to the screen while scrolling through the section */}
       <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden">

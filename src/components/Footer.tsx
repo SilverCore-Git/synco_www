@@ -28,10 +28,10 @@ export function Footer() {
           <div>
             <h4 className="font-bold text-foreground mb-6">Produit</h4>
             <ul className="space-y-4 text-sm text-muted-foreground font-medium">
-              <li><a href="#" className="hover:text-primary transition-colors">Accueil</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Avantages</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Modules</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Comparaison</a></li>
+              <li><a href="#accueil" className="hover:text-primary transition-colors">Accueil</a></li>
+              <li><a href="#avantages" className="hover:text-primary transition-colors">Avantages</a></li>
+              <li><a href="#modules" className="hover:text-primary transition-colors">Modules</a></li>
+              <li><a href="#comparaison" className="hover:text-primary transition-colors">Comparaison</a></li>
             </ul>
           </div>
 

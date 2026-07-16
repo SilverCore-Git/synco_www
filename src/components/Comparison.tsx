@@ -84,7 +84,7 @@ export function Comparison() {
   };
 
   return (
-    <section className="py-24 relative overflow-hidden bg-background">
+    <section id="comparaison" className="py-24 relative overflow-hidden bg-background">
       {/* Decorative bg */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-primary/5 blur-[120px] rounded-full pointer-events-none" />
 
