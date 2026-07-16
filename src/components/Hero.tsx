@@ -5,7 +5,7 @@ import { ArrowRight, Lock, ShieldCheck, Globe, ServerOff } from "lucide-react";
 
 export function Hero() {
   return (
-    <section className="relative min-h-[95vh] flex items-center justify-center p-4 sm:p-6 lg:p-8 bg-grid">
+    <section id="accueil" className="relative min-h-[95vh] flex items-center justify-center p-4 sm:p-6 lg:p-8 bg-grid">
       {/* Top subtle fade out for grid if needed */}
       <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-background to-transparent pointer-events-none" />
 
@@ -47,10 +47,10 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
           >
-            <button className="active:scale-95 transition-all duration-100 ease-in-out cursor-pointer inline-flex items-center justify-center px-8 py-4 rounded-full bg-white text-primary font-bold text-lg hover:bg-slate-50 gap-2 group shadow-xl">
-              Commencez gratuitement
+            <a href="/contact"><button className="active:scale-95 transition-all duration-100 ease-in-out cursor-pointer inline-flex items-center justify-center px-8 py-4 rounded-full bg-white text-primary font-bold text-lg hover:bg-slate-50 gap-2 group shadow-xl">
+              Nous contacter
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </button>
+            </button></a>
           </motion.div>
 
           {/* Trust badges */}

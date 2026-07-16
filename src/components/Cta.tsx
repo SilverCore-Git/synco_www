@@ -30,10 +30,10 @@ export function Cta() {
           </p>
 
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <button className="group cursor-pointer inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-white text-primary font-bold text-lg hover:bg-slate-50 transition-all shadow-lg hover:shadow-xl active:scale-95">
+            <a href="/contact" className="group cursor-pointer inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-white text-primary font-bold text-lg hover:bg-slate-50 transition-all shadow-lg hover:shadow-xl active:scale-95">
               Nous contacter
               <Mail className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-            </button>
+            </a>
           </div>
         </div>
       </motion.div>

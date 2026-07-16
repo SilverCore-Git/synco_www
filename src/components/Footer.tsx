@@ -47,10 +47,10 @@ export function Footer() {
           <div>
             <h4 className="font-bold text-foreground mb-6">Légal</h4>
             <ul className="space-y-4 text-sm text-muted-foreground font-medium">
-              <li><a href="#" className="hover:text-primary transition-colors">Confidentialité</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Conditions Générales</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Mentions Légales</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Conformité RGPD</a></li>
+              <li><a href="/legal/privacy" className="hover:text-primary transition-colors">Confidentialité</a></li>
+              <li><a href="/legal/terms" className="hover:text-primary transition-colors">Conditions Générales</a></li>
+              <li><a href="/legal/mentions" className="hover:text-primary transition-colors">Mentions Légales</a></li>
+              <li><a href="/legal/rgpd" className="hover:text-primary transition-colors">Conformité RGPD</a></li>
             </ul>
           </div>
 

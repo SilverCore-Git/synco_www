@@ -29,16 +29,16 @@ export function Navbar() {
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8 font-medium text-sm text-foreground/80">
-          <a href="#accueil" className="hover:text-primary transition-colors">Accueil</a>
-          <a href="#avantages" className="hover:text-primary transition-colors">Avantages</a>
-          <a href="#modules" className="hover:text-primary transition-colors">Modules</a>
-          <a href="#comparaison" className="hover:text-primary transition-colors">Comparaison</a>
+          <a href="/#accueil" className="hover:text-primary transition-colors">Accueil</a>
+          <a href="/#avantages" className="hover:text-primary transition-colors">Avantages</a>
+          <a href="/#modules" className="hover:text-primary transition-colors">Modules</a>
+          <a href="/#comparaison" className="hover:text-primary transition-colors">Comparaison</a>
         </div>
 
         <div className="hidden md:flex items-center gap-6">
-          <button className="px-5 py-2.5 rounded-full bg-primary text-white text-sm font-bold hover:bg-primary/90 transition-colors shadow-sm active:scale-95">
+          <a href="/contact" className="px-5 py-2.5 rounded-full bg-primary text-white text-sm font-bold hover:bg-primary/90 transition-colors shadow-sm active:scale-95 inline-block text-center">
             Nous contacter
-          </button>
+          </a>
         </div>
 
         {/* Mobile Menu Toggle */}
@@ -58,9 +58,9 @@ export function Navbar() {
           <a href="#modules" className="font-medium hover:text-primary hover:bg-slate-50 p-3 rounded-lg transition-colors">Modules</a>
           <a href="#comparaison" className="font-medium hover:text-primary hover:bg-slate-50 p-3 rounded-lg transition-colors">Comparaison</a>
           <hr className="my-2 border-border" />
-          <button className="w-full mt-2 px-5 py-4 rounded-xl bg-primary text-white font-bold hover:bg-primary/90 active:scale-95 transition-all">
+          <a href="/contact" className="w-full mt-2 px-5 py-4 rounded-xl bg-primary text-white font-bold hover:bg-primary/90 active:scale-95 transition-all text-center inline-block">
             Nous contacter
-          </button>
+          </a>
         </div>
       )}
     </header>
