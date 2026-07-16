@@ -5,60 +5,64 @@ import { ArrowRight, Lock } from "lucide-react";
 
 export function Hero() {
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden pt-20 pb-16">
-      {/* Background gradients */}
-      <div className="absolute inset-0 w-full h-full bg-background z-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-primary/20 blur-[120px] rounded-full" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-primary-dark/50 blur-[120px] rounded-full" />
-      </div>
+    <section className="relative min-h-[95vh] flex items-center justify-center p-4 sm:p-6 lg:p-8 bg-grid">
+      {/* Top subtle fade out for grid if needed */}
+      <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-background to-transparent pointer-events-none" />
 
-      <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass text-primary text-sm font-medium mb-8"
-        >
-          <Lock className="w-4 h-4" />
-          <span>Sécurité E2EE par défaut</span>
-        </motion.div>
+      <motion.div 
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+        className="relative w-full max-w-7xl bg-primary rounded-[2.5rem] sm:rounded-[4rem] overflow-hidden shadow-2xl flex flex-col items-center justify-center text-center p-12 sm:p-24"
+      >
+        {/* Dotted pattern overlay */}
+        <div className="absolute inset-0 bg-dot-white opacity-40 mix-blend-overlay pointer-events-none" />
+        
+        {/* Glow at the bottom like Cloudflare */}
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-[80%] h-[50%] bg-[#4ade80] rounded-[100%] blur-[100px] opacity-60 pointer-events-none" />
 
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-5xl md:text-7xl font-bold tracking-tight text-foreground max-w-4xl mb-6 leading-tight"
-        >
-          L'Avenir de la <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-[#4ade80]">
-            Collaboration Sécurisée
-          </span>
-        </motion.h1>
+        <div className="relative z-10 flex flex-col items-center">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/20 bg-white/10 backdrop-blur-md text-white text-sm font-medium mb-10"
+          >
+            <Lock className="w-4 h-4" />
+            <span>Connect 2026 · The Agentic Conference · Register</span>
+          </motion.div>
 
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-xl text-muted-foreground max-w-2xl mb-10"
-        >
-          Alliant la fluidité de Slack et la puissance de Teams, Synco centralise vos conversations, fichiers et tâches dans un environnement ultra-sécurisé, élégant et intuitif.
-        </motion.p>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="text-5xl sm:text-7xl md:text-8xl font-bold tracking-tight text-white max-w-5xl mb-8 leading-[1.1]"
+          >
+            L'IA de pointe. <br className="hidden sm:block" />
+            Sous votre contrôle.
+          </motion.h1>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
-        >
-          <button className="inline-flex items-center justify-center px-8 py-3.5 rounded-lg bg-primary text-white font-medium hover:bg-primary-hover transition-colors gap-2 group w-full sm:w-auto">
-            Commencer gratuitement
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-          </button>
-          <button className="inline-flex items-center justify-center px-8 py-3.5 rounded-lg glass text-foreground font-medium hover:bg-muted transition-colors w-full sm:w-auto border border-border">
-            Voir la démo
-          </button>
-        </motion.div>
-      </div>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="text-xl sm:text-2xl text-white/90 max-w-2xl mb-12 font-medium"
+          >
+            Une plateforme pour vos applications, agents et équipes. Construisez, sécurisez et scalez sans gérer d'infrastructure.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+          >
+            <button className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-white text-primary font-bold text-lg hover:bg-slate-50 transition-colors gap-2 group shadow-xl">
+              Commencez gratuitement
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </button>
+          </motion.div>
+        </div>
+      </motion.div>
     </section>
   );
 }

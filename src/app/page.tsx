@@ -1,3 +1,4 @@
+import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { Features } from "@/components/Features";
 import { Modules } from "@/components/Modules";
@@ -7,7 +8,8 @@ import { Footer } from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-background text-foreground selection:bg-primary/30">
+    <main className="min-h-screen text-foreground selection:bg-primary/30">
+      <Navbar />
       <Hero />
       <Features />
       <Modules />
