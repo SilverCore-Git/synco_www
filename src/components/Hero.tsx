@@ -47,7 +47,7 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
           >
-            <button className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-white text-primary font-bold text-lg hover:bg-slate-50 transition-colors gap-2 group shadow-xl">
+            <button className="active:scale-95 transition-all duration-100 ease-in-out cursor-pointer inline-flex items-center justify-center px-8 py-4 rounded-full bg-white text-primary font-bold text-lg hover:bg-slate-50 gap-2 group shadow-xl">
               Commencez gratuitement
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>

@@ -1,58 +1,87 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ShieldCheck, Sparkles, Blocks } from "lucide-react";
+import { ShieldCheck, Sparkles, Blocks, Lock } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const features = [
   {
     title: "Sécurité Inégalée",
-    description: "Vos échanges professionnels, documents sensibles et mots de passe ne regardent que vous. Grâce à notre technologie de chiffrement de bout en bout (E2EE) et nos communications P2P, même nous ne pouvons pas lire vos messages.",
+    description: "Vos échanges, documents sensibles et mots de passe ne regardent que vous. Grâce à notre technologie de chiffrement de bout en bout (E2EE) et nos communications P2P, même nous ne pouvons pas lire vos messages.",
     icon: ShieldCheck,
+    color: "bg-white text-foreground border border-border",
+    bgIcon: Lock,
+    iconBg: "bg-primary/10 text-primary"
   },
   {
     title: "Interface Premium",
     description: "Fini les menus complexes. Synco offre un design épuré, moderne et dynamique qui rend le travail quotidien agréable, que vous soyez sur votre ordinateur ou votre smartphone.",
     icon: Sparkles,
+    color: "bg-white text-foreground border border-border",
+    bgIcon: Sparkles,
+    iconBg: "bg-primary/10 text-primary"
   },
   {
     title: "Modularité Unique",
-    description: "Vous n'avez pas besoin du gestionnaire de tâches pour un projet spécifique ? Désactivez-le. Synco s'adapte à votre façon de travailler.",
+    description: "Vous n'avez pas besoin du gestionnaire de tâches pour un projet spécifique ? Désactivez-le. Synco s'adapte à votre façon de travailler sans jamais vous surcharger.",
     icon: Blocks,
+    color: "bg-white text-foreground border border-border",
+    bgIcon: Blocks,
+    iconBg: "bg-primary/10 text-primary"
   },
 ];
 
 export function Features() {
   return (
-    <section className="py-24 relative overflow-hidden bg-background">
+    <section className="py-32 relative bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6">
+        <div className="text-center max-w-3xl mx-auto mb-32">
+          <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">
             Pourquoi choisir Synco ?
           </h2>
-          <p className="text-muted-foreground text-lg">
-            Dans un monde où le télétravail est devenu la norme, les outils de communication traditionnels deviennent brouillons et ne garantissent pas la confidentialité.
+          <p className="text-muted-foreground text-xl">
+            Faites défiler pour découvrir nos trois piliers fondamentaux.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {features.map((feature, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="glass p-8 rounded-2xl flex flex-col items-start hover:border-primary/50 transition-colors duration-300"
-            >
-              <div className="w-12 h-12 rounded-lg bg-primary/20 flex items-center justify-center text-primary mb-6">
-                <feature.icon className="w-6 h-6" />
+        {/* Stacking Sticky Cards Layout */}
+        <div className="relative max-w-5xl mx-auto flex flex-col pb-32" style={{ gap: '20vh' }}>
+          {features.map((feature, index) => {
+            // Offset each card slightly lower so they stack like a deck
+            const stickyTop = 120 + (index * 40);
+
+            return (
+              <div 
+                key={index}
+                className="sticky"
+                style={{ top: `${stickyTop}px` }}
+              >
+                <motion.div
+                  initial={{ opacity: 0.3, scale: 0.9, y: 50 }}
+                  whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                  viewport={{ margin: "-20% 0px -20% 0px", amount: 0.4 }}
+                  transition={{ duration: 0.6, ease: "easeOut" }}
+                  className={cn(
+                    "relative w-full p-10 sm:p-16 lg:p-20 rounded-[2.5rem] sm:rounded-[3rem] shadow-2xl overflow-hidden flex flex-col justify-center min-h-[50vh]",
+                    feature.color
+                  )}
+                >
+                  {/* Decorative background pattern/icon */}
+                  <feature.bgIcon className="absolute -bottom-16 -right-16 w-96 h-96 opacity-[0.03] pointer-events-none" />
+  
+                  <div className="relative z-10">
+                     <div className={cn("w-20 h-20 rounded-3xl flex items-center justify-center mb-10 shadow-sm", feature.iconBg)}>
+                       <feature.icon className="w-10 h-10" />
+                     </div>
+                     <h3 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-8 tracking-tight">{feature.title}</h3>
+                     <p className="text-xl sm:text-2xl opacity-90 leading-relaxed max-w-3xl font-medium">
+                       {feature.description}
+                     </p>
+                  </div>
+                </motion.div>
               </div>
-              <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
-              <p className="text-muted-foreground leading-relaxed">
-                {feature.description}
-              </p>
-            </motion.div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
