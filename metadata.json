@@ -1,6 +1,0 @@
-{
-  "name": "Sinco",
-  "description": "Site vitrine de Sinco, l'alternative souveraine et ultra-sécurisée à Slack et Teams.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}

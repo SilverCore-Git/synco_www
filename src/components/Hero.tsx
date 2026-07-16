@@ -1,82 +1,63 @@
-import { Shield, Sparkles, Server, Check, HelpCircle, Eye, EyeOff } from 'lucide-react';
-import { TranslationSet } from '../types';
-import { useState } from 'react';
+"use client";
 
-interface HeroProps {
-  t: TranslationSet;
-}
+import { motion } from "framer-motion";
+import { ArrowRight, Lock } from "lucide-react";
 
-export default function Hero({ t }: HeroProps) {
-  const [showEncryptedState, setShowEncryptedState] = useState(false);
-
-  const scrollToSection = (id: string) => {
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
+export function Hero() {
   return (
-    <section className="relative overflow-hidden pt-12 pb-20 sm:pt-16 sm:pb-28">
-      {/* Decorative background grid */}
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(rgba(22,172,119,0.03)_1.5px,transparent_1.5px)] [background-size:24px_24px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_60%,transparent_100%)]" />
-      
-      {/* Absolute aura */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-brand/5 rounded-full blur-[120px] -z-10" />
+    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden pt-20 pb-16">
+      {/* Background gradients */}
+      <div className="absolute inset-0 w-full h-full bg-background z-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-primary/20 blur-[120px] rounded-full" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-primary-dark/50 blur-[120px] rounded-full" />
+      </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-5xl mx-auto">
+      <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass text-primary text-sm font-medium mb-8"
+        >
+          <Lock className="w-4 h-4" />
+          <span>Sécurité E2EE par défaut</span>
+        </motion.div>
 
-          {/* Heading */}
-          <h1 className="text-4xl sm:text-6xl font-display font-medium tracking-tight text-slate-900 leading-[1.1] mb-6">
-            {t.hero.title}
-            <span className="block mt-2 bg-gradient-to-r from-brand to-brand-dark bg-clip-text text-transparent">
-              {t.hero.titleGradient}
-            </span>
-          </h1>
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="text-5xl md:text-7xl font-bold tracking-tight text-foreground max-w-4xl mb-6 leading-tight"
+        >
+          L'Avenir de la <br />
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-[#4ade80]">
+            Collaboration Sécurisée
+          </span>
+        </motion.h1>
 
-          {/* Subtitle */}
-          <p className="text-lg sm:text-xl text-slate-600 font-normal leading-relaxed max-w-2xl mx-auto mb-10">
-            {t.hero.description}
-          </p>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="text-xl text-muted-foreground max-w-2xl mb-10"
+        >
+          Alliant la fluidité de Slack et la puissance de Teams, Synco centralise vos conversations, fichiers et tâches dans un environnement ultra-sécurisé, élégant et intuitif.
+        </motion.p>
 
-          {/* Direct Actions */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-            <button
-              id="hero-primary-cta"
-              onClick={() => scrollToSection('pricing')}
-              className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-sm font-semibold text-white bg-brand hover:bg-brand-dark rounded-xl transition-all shadow-md shadow-brand/20 hover:translate-y-[-1px] cursor-pointer"
-            >
-              <Shield className="w-4 h-4 mr-2" />
-              {t.hero.primaryCta}
-            </button>
-            <button
-              id="hero-secondary-cta"
-              onClick={() => scrollToSection('demo')}
-              className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-sm font-semibold text-slate-700 bg-white hover:bg-slate-50 border border-slate-200 rounded-xl transition-all hover:translate-y-[-1px] cursor-pointer"
-            >
-              {t.hero.secondaryCta}
-            </button>
-          </div>
-
-          {/* Compliance items */}
-          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-slate-500 text-xs mb-10">
-            <span className="flex items-center gap-1.5">
-              <Server className="w-4 h-4 text-brand" /> {t.hero.securityBadge}
-            </span>
-          </div>
-        </div>
-
-        <div class=" perspective-distant p-10">
-          <img 
-            src="/assets/screen.png" 
-            alt="Hero Image" 
-            className="mx-auto max-w-full h-auto rounded-2xl rotate-x-12 shadow-2xl" 
-          />
-        </div>
-
-        {/* ici mettre trusted badges */}
-
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto"
+        >
+          <button className="inline-flex items-center justify-center px-8 py-3.5 rounded-lg bg-primary text-white font-medium hover:bg-primary-hover transition-colors gap-2 group w-full sm:w-auto">
+            Commencer gratuitement
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </button>
+          <button className="inline-flex items-center justify-center px-8 py-3.5 rounded-lg glass text-foreground font-medium hover:bg-muted transition-colors w-full sm:w-auto border border-border">
+            Voir la démo
+          </button>
+        </motion.div>
       </div>
     </section>
   );
