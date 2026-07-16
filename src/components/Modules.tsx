@@ -2,8 +2,9 @@
 
 import { useState, useRef } from "react";
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
-import { MessageSquare, Video, FolderLock, Kanban, Network, PlayCircle } from "lucide-react";
+import { MessageSquare, Video, FolderLock, Kanban, Network } from "lucide-react";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 const modules = [
   {
@@ -11,35 +12,40 @@ const modules = [
     description: "Organisez votre entreprise. Salons textuels et vocaux instantanés sans friction.",
     icon: MessageSquare,
     gradient: "from-blue-500/20 to-cyan-500/20",
-    iconColor: "text-blue-500"
+    iconColor: "text-blue-500",
+    image: "/images/chat.png"
   },
   {
     title: "Messagerie Ultra-Sécurisée",
     description: "Échanges en tête-à-tête chiffrés et sessions éphémères P2P pour vos secrets.",
     icon: Network,
     gradient: "from-primary/20 to-[#4ade80]/20",
-    iconColor: "text-primary"
+    iconColor: "text-primary",
+    image: "/images/chat.png"
   },
   {
     title: "Visioconférence",
     description: "Partage d'écran et collaboration en temps réel, intégrés directement dans l'app.",
     icon: Video,
     gradient: "from-purple-500/20 to-pink-500/20",
-    iconColor: "text-purple-500"
+    iconColor: "text-purple-500",
+    image: "/images/video.png"
   },
   {
     title: "Fichiers Cloud",
     description: "Stockage dédié par projet. Fini les recherches interminables dans l'historique.",
     icon: FolderLock,
     gradient: "from-orange-500/20 to-yellow-500/20",
-    iconColor: "text-orange-500"
+    iconColor: "text-orange-500",
+    image: "/images/fichiers.png"
   },
   {
     title: "Kanban Intégré",
     description: "Gérez vos tâches visuellement. À faire, En cours, Terminé. Tout est centralisé.",
     icon: Kanban,
     gradient: "from-indigo-500/20 to-blue-500/20",
-    iconColor: "text-indigo-500"
+    iconColor: "text-indigo-500",
+    image: "/images/kanban.png"
   },
 ];
 
@@ -159,17 +165,16 @@ export function Modules() {
                       exit={{ opacity: 0, scale: 1.05 }}
                       transition={{ duration: 0.4, ease: "easeInOut" }}
                       className={cn(
-                        "absolute inset-0 bg-gradient-to-br flex flex-col items-center justify-center p-8",
-                        modules[activeIdx].gradient
+                        "absolute inset-0 bg-slate-900 flex flex-col items-center justify-center"
                       )}
                     >
-                      <div className="relative group cursor-pointer">
-                        <div className="absolute inset-0 bg-white/50 rounded-full blur-xl group-hover:blur-2xl transition-all duration-300" />
-                        <PlayCircle className={cn("relative z-10 w-24 h-24 drop-shadow-md transition-transform duration-300 group-hover:scale-110", modules[activeIdx].iconColor)} />
-                      </div>
-                      <p className="mt-8 text-foreground/60 font-medium text-lg text-center">
-                        [ Vidéo / Screenshot : {modules[activeIdx].title} ]
-                      </p>
+                      <Image
+                        src={modules[activeIdx].image}
+                        alt={modules[activeIdx].title}
+                        fill
+                        className="object-cover object-left-top"
+                        unoptimized
+                      />
                     </motion.div>
                   </AnimatePresence>
                 </div>
