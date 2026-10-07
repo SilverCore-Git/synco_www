@@ -2,6 +2,7 @@
 
 @theme {
   --color-brand: #1dd796;
+  --color-primary: #16ac77;
   --font-sans: var(--font-inter-tight), ui-sans-serif, system-ui, sans-serif;
 }
 

@@ -1,11 +1,13 @@
+import Nav from "@/components/ui/Nav";
 import Hero from "@/components/sections/Hero";
-import Tagline from "@/components/sections/Tagline";
 
 export default function Home() {
   return (
-    <main>
-      <Hero />
-      <Tagline />
-    </main>
+    <>
+      <Nav />
+      <main>
+        <Hero />
+      </main>
+    </>
   );
 }
