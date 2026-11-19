@@ -26,9 +26,9 @@ export default function Header() {
         </div>
 
         <div className="flex items-stretch">
-          <Link to="/#tarif" className={`hidden items-center px-7 sm:flex ${navText}`}>
+          <a href={links.signup} className={`hidden items-center px-7 sm:flex ${navText}`}>
             Inscription
-          </Link>
+          </a>
           <a
             href={links.login}
             className="flex items-center bg-accent px-6 font-display text-xl font-semibold text-ink hover:text-ink hover:brightness-110"
@@ -55,9 +55,9 @@ export default function Header() {
           {mainNav.map((item) => (
             <NavItem key={item.to} to={item.to} label={item.label} onClick={close} block />
           ))}
-          <Link to="/#tarif" onClick={close} className={`border-b border-line py-3 ${navText} sm:hidden`}>
+          <a href={links.signup} onClick={close} className={`border-b border-line py-3 ${navText} sm:hidden`}>
             Inscription
-          </Link>
+          </a>
         </div>
       )}
     </header>

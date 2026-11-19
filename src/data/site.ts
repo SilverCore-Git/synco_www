@@ -4,8 +4,8 @@
 export const links = {
   /** URL de l'application (bouton « Se connecter ») — à remplacer par la vraie URL. */
   login: '#connexion',
-  /** Création d'organisation (boutons « Créer mon organisation ») — à remplacer par la vraie URL. */
-  signup: '#inscription',
+  /** Inscription : bouton « Inscription » de la nav et boutons « Créer mon organisation ». */
+  signup: 'https://umami.silvercore.fr/q/registresynco',
   instagram: '#instagram',
   discord: '#discord',
   github: '#github',
