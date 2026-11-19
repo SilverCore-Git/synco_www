@@ -1,4 +1,4 @@
-import { useState, type ReactNode } from 'react';
+import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import { ChevronDownIcon, MinusIcon, PathIcon, PlusIcon } from '../components/icons';
@@ -17,6 +17,8 @@ import {
 
 const PRESETS = [1, 5, 10, 25, 50, 100];
 const MAX_SEATS_SHOWN = 60;
+/** Vitesse de défilement de la colonne d'options (1 = vitesse normale du navigateur). */
+const SCROLL_SPEED = 0.6;
 
 const box = 'border border-line-strong';
 const label = 'font-mono text-[11px]';
@@ -27,6 +29,26 @@ export default function Configurateur() {
   const [mods, setMods] = useState([true, true, true, false]);
   const [billing, setBilling] = useState(0);
   const [billingOpen, setBillingOpen] = useState(false);
+  const mainRef = useRef<HTMLElement>(null);
+  const asideRef = useRef<HTMLElement>(null);
+
+  // Sur grand écran, seule la colonne d'options défile. La molette, qu'elle soit au-dessus
+  // de l'illustration (gauche) ou des options (droite), fait défiler les options, ralenties.
+  useEffect(() => {
+    const main = mainRef.current;
+    if (!main) return;
+    const onWheel = (ev: globalThis.WheelEvent) => {
+      const aside = asideRef.current;
+      if (!aside || aside.scrollHeight <= aside.clientHeight) return; // mobile : la page défile normalement
+      if (ev.ctrlKey || Math.abs(ev.deltaX) > Math.abs(ev.deltaY)) return; // zoom / défilement horizontal
+      ev.preventDefault();
+      const unit = ev.deltaMode === 1 ? 16 : ev.deltaMode === 2 ? aside.clientHeight : 1;
+      aside.scrollTop += ev.deltaY * unit * SCROLL_SPEED;
+    };
+    // passive: false pour pouvoir remplacer le défilement natif.
+    main.addEventListener('wheel', onWheel, { passive: false });
+    return () => main.removeEventListener('wheel', onWheel);
+  }, []);
 
   const e = estimate(users, tier, mods, billing);
   const storageTier = STORAGE_TIERS[tier];
@@ -38,9 +60,11 @@ export default function Configurateur() {
     <div className="flex min-h-screen flex-col bg-bg text-fg lg:h-screen lg:overflow-hidden">
       <Header />
 
-      <main className="mx-auto flex min-h-0 w-full max-w-[1440px] flex-auto flex-col lg:flex-row">
+      <main ref={mainRef} className="mx-auto flex min-h-0 w-full max-w-[1440px] flex-auto flex-col lg:flex-row">
         {/* Illustration (3/4) */}
-        <div className="box-border flex min-w-0 flex-[3_1_0] flex-col justify-center overflow-hidden p-6 sm:p-16">
+        <div
+          className="box-border flex min-w-0 flex-[3_1_0] flex-col justify-center overflow-hidden p-6 sm:p-16"
+        >
           <div className={`grid grid-cols-1 sm:grid-cols-2 ${box}`}>
             <section aria-label="Aperçu de l’équipe" className="flex flex-col gap-6 border-b border-line-strong p-8 sm:col-span-2">
               <div className="flex flex-wrap items-baseline justify-between gap-3">
@@ -104,6 +128,7 @@ export default function Configurateur() {
 
         {/* Options (1/4) */}
         <aside
+          ref={asideRef}
           aria-label="Options"
           className="box-border flex flex-[1_0_0] flex-col border-t border-line px-6 pt-12 pb-16 sm:px-8 lg:min-w-[320px] lg:overflow-y-auto lg:border-t-0 lg:border-l"
         >
