@@ -10,17 +10,18 @@ export default function Hero() {
   return (
     <section
       id="accueil"
-      className="mx-auto flex max-w-[1440px] scroll-mt-4 flex-wrap border-b border-line lg:min-h-[843px]"
+      // Occupe toute la hauteur de l'écran, moins l'en-tête (74px + 1px de bordure).
+      className="mx-auto flex min-h-[calc(100svh-75px)] max-w-[1440px] scroll-mt-4 flex-wrap border-b border-line"
     >
       {/* Partenaires */}
       <div
         aria-label="Partenaires"
-        className="order-2 grid min-w-[240px] flex-[1_0_25%] grid-cols-3 border-t border-line lg:order-none lg:grid-cols-1 lg:grid-rows-[repeat(3,minmax(160px,1fr))] lg:border-t-0 lg:border-r"
+        className="order-2 grid min-w-[240px] flex-[1_0_25%] grid-cols-3 border-t border-line lg:order-none lg:grid-cols-1 lg:grid-rows-[repeat(3,minmax(0,1fr))] lg:border-t-0 lg:border-r"
       >
         {partners.map((p, i) => (
           <div
             key={i}
-            className="flex min-h-[120px] items-center justify-center border-line text-xs text-subtle not-last:border-r lg:not-last:border-r-0 lg:not-last:border-b"
+            className="flex min-h-[96px] items-center justify-center border-line text-xs text-subtle not-last:border-r lg:not-last:border-r-0 lg:not-last:border-b"
           >
             {p}
           </div>
@@ -29,8 +30,8 @@ export default function Hero() {
 
       {/* Titre + chiffres clés */}
       <div className="grid min-w-[min(560px,100%)] flex-[1_1_75%] lg:grid-rows-[repeat(3,minmax(0,1fr))]">
-        <div className="flex items-end border-b border-line px-6 pt-24 pb-14 sm:px-16 sm:pt-[120px] sm:pb-[72px] lg:row-span-2">
-          <h1 className="m-0 max-w-[820px] font-display text-[44px] leading-[1.05] font-bold tracking-[-0.035em] sm:text-[72px]">
+        <div className="flex items-end border-b border-line px-6 pt-[clamp(48px,10svh,120px)] pb-[clamp(32px,6svh,72px)] sm:px-16 lg:row-span-2">
+          <h1 className="m-0 max-w-[820px] font-display text-[clamp(2.5rem,min(4vw,7svh)+1rem,4.5rem)] leading-[1.05] font-bold tracking-[-0.035em]">
             La collaboration d’équipe sans compromis sur la sécurité.
           </h1>
         </div>

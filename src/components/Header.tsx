@@ -12,7 +12,7 @@ export default function Header() {
     <header className="shrink-0 border-b border-line bg-bg">
       <nav
         aria-label="Navigation principale"
-        className="mx-auto flex min-h-[74px] max-w-[1440px] items-stretch justify-between"
+        className="flex min-h-[74px] w-full items-stretch justify-between"
       >
         <div className="flex items-center gap-10 pl-4 sm:pl-8">
           <Link to="/#accueil" aria-label="Synco — accueil" className="flex items-center py-2 pr-6" onClick={close}>
