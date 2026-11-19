@@ -5,10 +5,12 @@ construit à partir du design Artifacts « Synco — Landing page ».
 
 ## Démarrer
 
+Le projet utilise [Bun](https://bun.sh).
+
 ```bash
-npm install
-npm run dev      # http://localhost:3000
-npm run build    # vérification TypeScript + build de production dans dist/
+bun install
+bun run dev      # http://localhost:3000
+bun run build    # vérification TypeScript + build de production dans dist/
 ```
 
 ## Pages
