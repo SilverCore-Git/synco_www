@@ -2,8 +2,8 @@
 // Les valeurs entre crochets sont des emplacements à compléter (repris tels quels du design).
 
 export const links = {
-  /** URL de l'application (bouton « Se connecter ») — à remplacer par la vraie URL. */
-  login: '#connexion',
+  /** Bouton « Se connecter » de la nav. */
+  login: 'https://umami.silvercore.fr/q/loginsynco',
   /** Inscription : bouton « Inscription » de la nav et boutons « Créer mon organisation ». */
   signup: 'https://umami.silvercore.fr/q/registresynco',
   instagram: '#instagram',
