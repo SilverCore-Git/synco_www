@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { links, mainNav } from '../data/site';
+import ContactLink from './ContactLink';
 
 const navText = 'font-display text-xl font-medium';
 
@@ -67,6 +68,9 @@ export default function Header() {
 function NavItem({ to, label, onClick, block }: { to: string; label: string; onClick?: () => void; block?: boolean }) {
   const isPage = !to.includes('#');
   const cls = `${navText} py-3 ${block ? 'border-b border-line' : ''}`;
+  if (to === '/#contact') {
+    return <ContactLink className={cls}>{label}</ContactLink>;
+  }
   if (isPage) {
     return (
       <NavLink to={to} onClick={onClick} className={({ isActive }) => `${cls} ${isActive ? 'text-accent' : ''}`}>

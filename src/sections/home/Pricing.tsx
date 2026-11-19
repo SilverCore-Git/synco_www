@@ -1,6 +1,7 @@
 import { useState, type ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { BoltIcon, CalendarIcon } from '../../components/icons';
+import ContactLink from '../../components/ContactLink';
 import { links } from '../../data/site';
 import { BILLING, PRICE_PER_USER, eur } from '../../lib/pricing';
 
@@ -72,11 +73,7 @@ export default function Pricing() {
             name="Dédié"
             price="Sur devis"
             description="Pour du sur-mesure et un accompagnement."
-            cta={
-              <Link to="/#contact" className={ctaClass}>
-                Nous contacter
-              </Link>
-            }
+            cta={<ContactLink className={ctaClass}>Nous contacter</ContactLink>}
           />
         </div>
       </div>

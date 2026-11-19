@@ -11,6 +11,12 @@ export const links = {
   github: '#github',
 };
 
+/**
+ * Partie « Contact » : action désactivée temporairement (pas encore active).
+ * Les liens restent affichés mais grisés et non cliquables. Passer à `true` pour les réactiver.
+ */
+export const CONTACT_ENABLED = false;
+
 export const mainNav = [
   { label: 'Accueil', to: '/#accueil' },
   { label: 'Présentation', to: '/presentation' },

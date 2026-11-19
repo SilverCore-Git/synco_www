@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react';
-import { Link } from 'react-router-dom';
 import Header from '../components/Header';
+import ContactLink from '../components/ContactLink';
 import { ChevronDownIcon, MinusIcon, PathIcon, PlusIcon } from '../components/icons';
 import { links } from '../data/site';
 import {
@@ -213,9 +213,7 @@ export default function Configurateur() {
             </div>
             <Hint>
               Au-delà de 2 To, ou pour un serveur dédié :{' '}
-              <Link to="/#contact" className="text-accent">
-                sur devis
-              </Link>
+              <ContactLink className="text-accent">sur devis</ContactLink>
               .
             </Hint>
           </Step>
@@ -332,12 +330,9 @@ export default function Configurateur() {
             >
               Créer mon organisation
             </a>
-            <Link
-              to="/#contact"
-              className="flex min-h-12 items-center justify-center border border-line-strong text-sm font-medium"
-            >
+            <ContactLink className="flex min-h-12 items-center justify-center border border-line-strong text-sm font-medium">
               Nous contacter
-            </Link>
+            </ContactLink>
           </section>
         </aside>
       </main>
