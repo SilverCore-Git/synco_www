@@ -68,10 +68,3 @@
     -moz-appearance: textfield;
   }
 }
-
-/* Titres du footer : texte « détouré » vert */
-@utility text-outline {
-  color: var(--color-bg-deep);
-  -webkit-text-stroke: 3px var(--color-accent);
-  paint-order: stroke fill;
-}
