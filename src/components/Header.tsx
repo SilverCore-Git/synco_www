@@ -47,13 +47,13 @@ export default function Header() {
         </div>
 
         <div className="flex items-stretch">
-          {/* Sous 640 px, « Inscription » et « Se connecter » passent dans le menu déroulant. */}
-          <a href={links.signup} className={`hidden items-center px-5 sm:flex xl:px-7 ${navText}`}>
+          {/* Sous 1024 px, « Inscription » et « Se connecter » passent dans le menu déroulant. */}
+          <a href={links.signup} className={`hidden items-center px-5 lg:flex xl:px-7 ${navText}`}>
             Inscription
           </a>
           <a
             href={links.login}
-            className="hidden items-center bg-accent px-5 font-display xl:px-6 text-xl font-semibold text-ink hover:text-ink hover:brightness-110 sm:flex"
+            className="hidden items-center bg-accent px-5 font-display xl:px-6 text-xl font-semibold text-ink hover:text-ink hover:brightness-110 lg:flex"
           >
             Se connecter
           </a>
@@ -63,7 +63,7 @@ export default function Header() {
             aria-expanded={open}
             aria-controls="menu-mobile"
             onClick={() => setOpen((v) => !v)}
-            className="flex w-[64px] items-center justify-center border-l border-line bg-transparent text-fg lg:hidden"
+            className="flex w-[64px] items-center justify-center border-0 bg-transparent text-fg lg:hidden"
           >
             <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
               {open ? <path d="M6 6l12 12M18 6 6 18" /> : <path d="M4 7h16M4 12h16M4 17h16" />}
@@ -83,7 +83,7 @@ export default function Header() {
             {mainNav.map((item) => (
               <NavItem key={item.to} to={item.to} label={item.label} onClick={close} block />
             ))}
-            <div className="mt-5 grid grid-cols-2 gap-3 sm:hidden">
+            <div className="mt-5 grid grid-cols-2 gap-3">
               <a
                 href={links.signup}
                 onClick={close}
