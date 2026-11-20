@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { BoltIcon, CalendarIcon } from '../../components/icons';
 import ContactLink from '../../components/ContactLink';
 import { links } from '../../data/site';
-import { BILLING, PRICE_PER_USER, eur } from '../../lib/pricing';
+import { BILLING, PRICE_PER_USER, PRICING_ENABLED, eur } from '../../lib/pricing';
 
 export default function Pricing() {
   const [annual, setAnnual] = useState(false);
@@ -59,9 +59,13 @@ export default function Pricing() {
               </>
             }
             cta={
-              <Link to="/configurateur" className={ctaClass}>
-                Faire une estimation
-              </Link>
+              PRICING_ENABLED ? (
+                <Link to="/configurateur" className={ctaClass}>
+                  Faire une estimation
+                </Link>
+              ) : (
+                <UnavailableCta />
+              )
             }
           >
             <p className="m-0 border-t border-line-strong pt-5 text-sm text-fg">
@@ -73,7 +77,9 @@ export default function Pricing() {
             name="Dédié"
             price="Sur devis"
             description="Pour du sur-mesure et un accompagnement."
-            cta={<ContactLink className={ctaClass}>Nous contacter</ContactLink>}
+            cta={
+              PRICING_ENABLED ? <ContactLink className={ctaClass}>Nous contacter</ContactLink> : <UnavailableCta />
+            }
           />
         </div>
       </div>
@@ -83,6 +89,18 @@ export default function Pricing() {
 
 const ctaClass =
   'mt-auto flex min-h-12 px-3 text-center items-center justify-center border border-line-strong text-sm font-medium';
+
+/** Remplace le bouton d'une offre tant que PRICING_ENABLED est à false : pointillés, gris, non cliquable. */
+function UnavailableCta() {
+  return (
+    <span
+      aria-disabled="true"
+      className="mt-auto flex min-h-12 cursor-not-allowed items-center justify-center border border-dashed border-line-strong px-3 text-center font-mono text-[13px] tracking-[0.02em] text-subtle"
+    >
+      Non disponible
+    </span>
+  );
+}
 
 function CtaLink({ href, children }: { href: string; children: ReactNode }) {
   return (

@@ -1,5 +1,13 @@
 // Grille tarifaire et calcul de l'estimation — logique reprise du configurateur du design.
 
+/**
+ * Offres payantes : pas encore disponibles dans l'application.
+ * Tant que c'est à false, dans la section Tarif, « Faire une estimation » (Équipe) et
+ * « Nous contacter » (Dédié) sont remplacés par un bouton « Non disponible » non cliquable.
+ * Passer à `true` pour les réactiver.
+ */
+export const PRICING_ENABLED = false;
+
 export const PRICE_PER_USER = 4; // € HT / utilisateur / mois
 export const PRICE_PER_MODULE = 1.5; // € HT / module / utilisateur au-delà des 5 premiers
 export const FREE_MODULE_USERS = 5;
