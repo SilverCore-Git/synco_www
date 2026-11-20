@@ -21,6 +21,8 @@ const steps = [
 
 const SCREEN_W = 1440;
 const SCREEN_H = 900;
+/** À partir de cette largeur (lg), scène et texte sont côte à côte. */
+const DESKTOP_QUERY = '(min-width: 1024px)';
 
 type Vars = CSSProperties & Record<`--${string}`, string | number>;
 
@@ -38,7 +40,11 @@ export default function Presentation() {
       const stage = stageRef.current;
       if (!sec || !stage) return;
       const vh = window.innerHeight;
-      const scale = Math.max(0.2, stage.clientWidth / SCREEN_W);
+      // Sous lg, la scène reste fixée en haut au-dessus du texte : elle ne doit pas dépasser la moitié
+      // de l'écran (téléphone à l'horizontale), sinon le texte qui défile dessous n'est jamais visible.
+      const oneColumn = !window.matchMedia(DESKTOP_QUERY).matches;
+      const maxH = (oneColumn ? vh * 0.5 : vh - 32) - 24;
+      const scale = Math.max(0.2, Math.min(stage.clientWidth / SCREEN_W, maxH / SCREEN_H));
       const stageH = SCREEN_H * scale + 24;
       const top = Math.max(16, Math.round((Math.min(vh, 1000) - stageH) / 2));
       let p: number;
@@ -80,7 +86,11 @@ export default function Presentation() {
         style={{ top: view.top }}
         aria-hidden="true"
       >
-        <div className="relative" style={{ height: Math.round(SCREEN_H * view.scale) }}>
+        {/* Largeur = celle de l'application réduite : centrée quand la hauteur limite l'échelle. */}
+        <div
+          className="relative mx-auto max-w-full"
+          style={{ width: Math.round(SCREEN_W * view.scale), height: Math.round(SCREEN_H * view.scale) }}
+        >
           <div
             className="sx sx-fade absolute top-0 left-0"
             style={{ '--s': -0.45, width: SCREEN_W, height: SCREEN_H, zoom: view.scale } as Vars}
