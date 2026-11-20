@@ -3,6 +3,9 @@
 /* Le mock-up HTML a ses propres classes : ne pas le scanner pour générer des utilitaires. */
 @source not "./sections/presentation/app-mockup.html";
 
+/* Écran peu haut (portable 1366×768…) : variante `short:` pour resserrer les mises en page plein écran. */
+@custom-variant short (@media (max-height: 820px));
+
 /* Design tokens — repris du design Artifacts « Synco — Landing page · Dark » */
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
