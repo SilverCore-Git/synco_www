@@ -16,7 +16,8 @@ export default function Hero() {
       {/* Partenaires */}
       <div
         aria-label="Partenaires"
-        className="order-2 grid min-w-[240px] flex-[1_0_25%] grid-cols-3 border-t border-line lg:order-none lg:grid-cols-1 lg:grid-rows-[repeat(3,minmax(0,1fr))] lg:border-t-0 lg:border-r"
+        // Sous lg : pleine largeur, sous le titre (jamais en colonne étroite à droite).
+        className="order-2 grid min-w-[240px] flex-[1_0_100%] grid-cols-3 lg:flex-[1_0_25%] border-t border-line lg:order-none lg:grid-cols-1 lg:grid-rows-[repeat(3,minmax(0,1fr))] lg:border-t-0 lg:border-r"
       >
         {partners.map((p, i) => (
           <div
@@ -35,7 +36,7 @@ export default function Hero() {
             La collaboration d’équipe sans compromis sur la sécurité.
           </h1>
         </div>
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(min(220px,100%),1fr))] content-start gap-8 px-6 pt-8 pb-16 sm:px-16">
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(min(180px,100%),1fr))] content-start gap-8 px-6 pt-8 pb-16 sm:px-16">
           {figures.map((f) => (
             <div key={f.fig} className="flex flex-col gap-3">
               <span className="font-mono text-[11px] text-subtle">{f.fig}</span>

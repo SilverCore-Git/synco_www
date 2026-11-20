@@ -23,7 +23,8 @@ export default function Technology() {
       id="technologie"
       className="mx-auto flex max-w-[1440px] scroll-mt-4 flex-wrap gap-y-8 pt-12 pb-16 sm:gap-y-12 sm:pt-16 sm:pb-28"
     >
-      <div className="box-border flex-[1_1_320px] px-6 sm:px-10 lg:max-w-[320px]">
+      {/* Sous lg : pleine largeur, au-dessus du contenu (les pastilles ne sont jamais dans une colonne étroite). */}
+      <div className="box-border flex-[1_1_100%] px-6 sm:px-10 lg:max-w-[320px] lg:flex-[1_1_320px]">
         {/* Sous lg : rangée de pastilles qui défile horizontalement. À partir de lg : sommaire vertical (design). */}
         <nav
           aria-label="Technologie"
