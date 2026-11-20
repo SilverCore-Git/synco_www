@@ -34,11 +34,12 @@ export default function Header() {
         aria-label="Navigation principale"
         className="relative z-10 flex min-h-[74px] w-full items-stretch justify-between bg-bg"
       >
-        <div className="flex items-center gap-10 pl-4 sm:pl-8">
+        {/* Entre 1024 et 1280 px, espacements resserrés pour que la nav tienne sur une ligne. */}
+        <div className="flex items-center gap-6 pl-4 sm:pl-8 xl:gap-10">
           <Link to="/#accueil" aria-label="Synco — accueil" className="flex items-center py-2 pr-6" onClick={close}>
             <img src="/brand/logo.webp" alt="Synco" className="block h-[30px] w-auto" />
           </Link>
-          <div className="hidden flex-wrap items-center gap-x-10 gap-y-2 lg:flex">
+          <div className="hidden flex-wrap items-center gap-x-7 gap-y-2 lg:flex xl:gap-x-10">
             {mainNav.map((item) => (
               <NavItem key={item.to} to={item.to} label={item.label} />
             ))}
@@ -47,12 +48,12 @@ export default function Header() {
 
         <div className="flex items-stretch">
           {/* Sous 640 px, « Inscription » et « Se connecter » passent dans le menu déroulant. */}
-          <a href={links.signup} className={`hidden items-center px-7 sm:flex ${navText}`}>
+          <a href={links.signup} className={`hidden items-center px-5 sm:flex xl:px-7 ${navText}`}>
             Inscription
           </a>
           <a
             href={links.login}
-            className="hidden items-center bg-accent px-6 font-display text-xl font-semibold text-ink hover:text-ink hover:brightness-110 sm:flex"
+            className="hidden items-center bg-accent px-5 font-display xl:px-6 text-xl font-semibold text-ink hover:text-ink hover:brightness-110 sm:flex"
           >
             Se connecter
           </a>
