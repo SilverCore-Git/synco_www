@@ -10,8 +10,8 @@ const socials = [
 export default function Footer() {
   return (
     <footer id="contact" className="border-t border-line bg-bg-deep text-fg">
-      <div className="mx-auto max-w-[1440px] px-6 pt-[72px] pb-10 sm:px-12 xl:px-28">
-        <div className="mb-24 flex flex-wrap justify-between gap-12">
+      <div className="mx-auto max-w-[1440px] px-6 pt-14 pb-10 sm:px-12 sm:pt-[72px] xl:px-28">
+        <div className="mb-14 flex flex-wrap justify-between gap-12 sm:mb-24">
           <div className="flex max-w-[420px] flex-[1_1_320px] flex-col gap-3">
             <img src="/brand/logo.webp" alt="Synco" className="block h-10 w-auto self-start" />
             <p className="mb-6 text-sm leading-relaxed">{footer.tagline}</p>
@@ -29,7 +29,7 @@ export default function Footer() {
             </div>
           </div>
 
-          <div className="flex flex-wrap gap-x-16 gap-y-8">
+          <div className="grid grid-cols-2 gap-x-10 gap-y-8 md:grid-cols-3 md:gap-x-16">
             {footer.columns.map((col) => (
               <div key={col.title} className="flex flex-col gap-3.5 text-[13px]">
                 <h4 className="text-outline mb-1.5 font-display text-base font-bold">{col.title}</h4>

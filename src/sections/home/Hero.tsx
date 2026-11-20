@@ -31,11 +31,11 @@ export default function Hero() {
       {/* Titre + chiffres clés */}
       <div className="grid min-w-[min(560px,100%)] flex-[1_1_75%] lg:grid-rows-[repeat(3,minmax(0,1fr))]">
         <div className="flex items-end border-b border-line px-6 pt-[clamp(48px,10svh,120px)] pb-[clamp(32px,6svh,72px)] sm:px-16 lg:row-span-2">
-          <h1 className="m-0 max-w-[820px] font-display text-[clamp(2.5rem,min(4vw,7svh)+1rem,4.5rem)] leading-[1.05] font-bold tracking-[-0.035em]">
+          <h1 className="m-0 max-w-[820px] font-display text-[clamp(2.25rem,min(4vw,7svh)+1rem,4.5rem)] leading-[1.05] font-bold tracking-[-0.035em] text-balance hyphens-auto">
             La collaboration d’équipe sans compromis sur la sécurité.
           </h1>
         </div>
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(220px,1fr))] content-start gap-8 px-6 pt-8 pb-16 sm:px-16">
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(min(220px,100%),1fr))] content-start gap-8 px-6 pt-8 pb-16 sm:px-16">
           {figures.map((f) => (
             <div key={f.fig} className="flex flex-col gap-3">
               <span className="font-mono text-[11px] text-subtle">{f.fig}</span>

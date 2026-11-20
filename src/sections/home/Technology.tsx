@@ -21,22 +21,30 @@ export default function Technology() {
   return (
     <section
       id="technologie"
-      className="mx-auto flex max-w-[1440px] scroll-mt-4 flex-wrap gap-y-12 pt-16 pb-28"
+      className="mx-auto flex max-w-[1440px] scroll-mt-4 flex-wrap gap-y-8 pt-12 pb-16 sm:gap-y-12 sm:pt-16 sm:pb-28"
     >
       <div className="box-border flex-[1_1_320px] px-6 sm:px-10 lg:max-w-[320px]">
-        <nav aria-label="Technologie" className="flex flex-col border-t border-line lg:sticky lg:top-6">
+        {/* Sous lg : rangée de pastilles qui défile horizontalement. À partir de lg : sommaire vertical (design). */}
+        <nav
+          aria-label="Technologie"
+          className="-mx-6 flex gap-2 overflow-x-auto px-6 [scrollbar-width:none] sm:-mx-10 sm:px-10 lg:sticky lg:top-6 lg:mx-0 lg:flex-col lg:gap-0 lg:overflow-visible lg:border-t lg:border-line lg:px-0"
+        >
           {tocLinks.map((l) =>
             l.active ? (
               <a
                 key={l.href}
                 href={l.href}
-                className="flex items-center justify-between border-b border-line py-3.5 pl-[18px] text-sm font-medium"
+                className="flex shrink-0 items-center justify-between gap-3 border border-accent px-3.5 py-2 text-sm font-medium text-accent lg:border-0 lg:border-b lg:border-line lg:py-3.5 lg:pr-0 lg:pl-[18px] lg:text-fg"
               >
                 {l.label}
-                <ArrowRightIcon />
+                <ArrowRightIcon className="hidden lg:block" />
               </a>
             ) : (
-              <a key={l.href} href={l.href} className="py-3.5 pl-[18px] text-sm text-muted">
+              <a
+                key={l.href}
+                href={l.href}
+                className="shrink-0 border border-line-strong px-3.5 py-2 text-sm text-muted lg:border-0 lg:py-3.5 lg:pr-0 lg:pl-[18px]"
+              >
                 {l.label}
               </a>
             ),
@@ -48,13 +56,13 @@ export default function Technology() {
         <h2 className="m-0 mb-10 max-w-[1000px] font-display text-[34px] leading-[1.1] font-bold tracking-[-0.03em] sm:text-5xl">
           Nous chiffrons vos messages. <span className="text-[#9a9aa2]">Vous seuls les lisez.</span>
         </h2>
-        <p className="m-0 mb-12 max-w-[640px] text-base leading-[1.75] text-muted">
+        <p className="m-0 mb-10 max-w-[640px] text-base sm:mb-12 leading-[1.75] text-muted">
           Beaucoup de fuites de données commencent sur un serveur qui stocke les messages en clair. Avec le
           chiffrement de bout en bout, vos messages sont chiffrés sur votre appareil : seuls vous et vos
           destinataires peuvent les lire. Même en cas d’intrusion sur nos serveurs, les contenus restent illisibles.
         </p>
 
-        <div id="p2p" className="mb-20 grid scroll-mt-6 grid-cols-[repeat(auto-fit,minmax(240px,1fr))] gap-4">
+        <div id="p2p" className="mb-14 sm:mb-20 grid scroll-mt-6 grid-cols-[repeat(auto-fit,minmax(min(240px,100%),1fr))] gap-4">
           {e2eeCards.map((c) => (
             <div key={c.title} className={`${card} min-h-[166px]`}>
               <h3 className="m-0 mb-3.5 text-lg font-medium">{c.title}</h3>
@@ -69,8 +77,8 @@ export default function Technology() {
         >
           Où sont vos données ?
         </h2>
-        <p className="m-0 mb-12 text-base text-muted">Notre architecture vous laisse le choix de l’hébergement.</p>
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-4">
+        <p className="m-0 mb-8 text-base text-muted sm:mb-12">Notre architecture vous laisse le choix de l’hébergement.</p>
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(min(280px,100%),1fr))] gap-4">
           <div className={`${card} min-h-[172px]`}>
             <h3 className="m-0 mb-3.5 text-lg font-medium">Sur votre serveur</h3>
             <p className="m-0 text-[13px] leading-[1.7] text-muted">

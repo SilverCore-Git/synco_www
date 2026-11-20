@@ -10,19 +10,19 @@ export default function Pricing() {
   const teamPrice = eur(annual ? PRICE_PER_USER * (1 - BILLING[1].rate) : PRICE_PER_USER);
 
   const tab = (on: boolean) =>
-    `flex min-h-[52px] items-center gap-2.5 border-0 border-b border-line bg-transparent px-4 text-left text-sm ${
-      on ? 'font-semibold text-accent' : 'font-normal text-muted'
+    `flex min-h-[52px] items-center justify-center gap-2.5 border-0 bg-transparent px-4 text-sm xl:justify-start xl:border-b xl:border-line xl:text-left ${
+      on ? 'bg-accent/10 font-semibold text-accent xl:bg-transparent' : 'font-normal text-muted'
     }`;
 
   return (
-    <section id="tarif" className="mx-auto box-border max-w-[1440px] scroll-mt-4 px-6 pt-16 pb-24 sm:px-16">
-      <h2 className="m-0 mb-10 font-display text-5xl font-bold tracking-[-0.03em]">Tarif</h2>
+    <section id="tarif" className="mx-auto box-border max-w-[1440px] scroll-mt-4 px-6 pt-12 pb-16 sm:px-16 sm:pt-16 sm:pb-24">
+      <h2 className="m-0 mb-8 font-display text-[40px] sm:mb-10 sm:text-5xl font-bold tracking-[-0.03em]">Tarif</h2>
 
-      <div className="flex flex-wrap items-start gap-10">
+      <div className="flex flex-wrap items-start gap-8 xl:gap-10">
         <div
           role="group"
           aria-label="Période de facturation"
-          className="flex max-w-[360px] flex-[1_1_230px] flex-col border-t border-line"
+          className="grid w-full max-w-[480px] grid-cols-2 border border-line xl:flex xl:w-auto xl:max-w-[360px] xl:flex-[1_1_230px] xl:flex-col xl:border-0 xl:border-t"
         >
           <button type="button" aria-pressed={!annual} onClick={() => setAnnual(false)} className={tab(!annual)}>
             <CalendarIcon />
@@ -34,7 +34,7 @@ export default function Pricing() {
           </button>
         </div>
 
-        <div className="grid min-w-0 flex-[999_1_600px] grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-4">
+        <div className="grid w-full min-w-0 grid-cols-1 gap-4 md:grid-cols-3 xl:w-auto xl:flex-[999_1_600px]">
           <PlanCard
             name="Projetez-vous"
             price="0 €"
@@ -82,7 +82,7 @@ export default function Pricing() {
 }
 
 const ctaClass =
-  'mt-auto flex min-h-12 items-center justify-center border border-line-strong text-sm font-medium';
+  'mt-auto flex min-h-12 px-3 text-center items-center justify-center border border-line-strong text-sm font-medium';
 
 function CtaLink({ href, children }: { href: string; children: ReactNode }) {
   return (
@@ -106,9 +106,9 @@ function PlanCard({
   children?: ReactNode;
 }) {
   return (
-    <article className="box-border flex min-h-[465px] flex-col border border-line-strong p-8">
+    <article className="box-border flex min-w-0 flex-col border border-line-strong p-6 sm:p-8 md:p-6 lg:min-h-[465px] lg:p-8">
       <h3 className="m-0 mb-6 font-display text-[22px] font-semibold text-accent">{name}</h3>
-      <p className="m-0 mb-4 font-display text-[44px] leading-none font-semibold">{price}</p>
+      <p className="m-0 mb-4 font-display text-[40px] leading-none font-semibold md:text-[28px] lg:text-[36px] xl:text-[44px]">{price}</p>
       <p className="m-0 mb-5 text-[13px] leading-[1.6] text-muted">{description}</p>
       <div className="mb-7">{children}</div>
       {cta}

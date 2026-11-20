@@ -8,13 +8,13 @@ export default function Faq() {
   return (
     <section
       id="faq"
-      className="mx-auto box-border flex max-w-[1440px] scroll-mt-4 flex-wrap gap-y-8 px-6 pt-16 pb-[120px] sm:px-16"
+      className="mx-auto box-border flex max-w-[1440px] scroll-mt-4 flex-wrap gap-y-8 px-6 pt-12 pb-20 sm:px-16 sm:pt-16 sm:pb-[120px]"
     >
       <div className="max-w-[357px] flex-[1_1_293px]">
-        <h2 className="m-0 font-display text-5xl leading-none font-bold tracking-[-0.03em]">Questions</h2>
+        <h2 className="m-0 font-display text-[40px] leading-none sm:text-5xl font-bold tracking-[-0.03em]">Questions</h2>
       </div>
 
-      <div className="flex min-w-0 flex-[999_1_560px] flex-col gap-12">
+      <div className="flex min-w-0 flex-[999_1_560px] flex-col gap-8 sm:gap-12">
         {faqs.map((item, i) => {
           const open = openIndex === i;
           const panelId = `${baseId}-${i}`;
