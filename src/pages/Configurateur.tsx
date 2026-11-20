@@ -22,6 +22,8 @@ const MAX_SEATS_SHOWN = 60;
 const SCROLL_SPEED = 0.6;
 /** À partir de cette largeur (lg), mise en page « ordinateur » : illustration + colonne d'options. */
 const DESKTOP_QUERY = '(min-width: 1024px)';
+/** Fenêtre d'ordinateur très basse : illustration en version compacte pour qu'elle tienne en hauteur. */
+const VERY_SHORT_QUERY = '(max-height: 700px)';
 
 const box = 'border border-line-strong';
 const label = 'font-mono text-[11px]';
@@ -74,7 +76,8 @@ export default function Configurateur() {
   const config: Config = { users, setUsers, tier, setTier, mods, setMods, billing, setBilling, e, totalNote };
 
   return (
-    <div className="flex min-h-screen flex-col bg-bg text-fg lg:h-screen lg:overflow-hidden">
+    // dvh plutôt que vh : sur tablette (Safari iPad), 100vh ignore la barre du navigateur et cache le bas des options.
+    <div className="flex min-h-dvh flex-col bg-bg text-fg lg:h-dvh lg:overflow-hidden">
       <Header />
       {isDesktop ? <DesktopLayout {...config} /> : <MobileWizard {...config} />}
     </div>
@@ -89,6 +92,8 @@ function DesktopLayout(c: Config) {
   const [billingOpen, setBillingOpen] = useState(false);
   const mainRef = useRef<HTMLElement>(null);
   const asideRef = useRef<HTMLElement>(null);
+  const illustrationRef = useRef<HTMLDivElement>(null);
+  const veryShort = useMediaQuery(VERY_SHORT_QUERY);
 
   // Seule la colonne d'options défile. La molette, qu'elle soit au-dessus de l'illustration
   // (gauche) ou des options (droite), fait défiler les options, ralenties.
@@ -99,6 +104,9 @@ function DesktopLayout(c: Config) {
       const aside = asideRef.current;
       if (!aside || aside.scrollHeight <= aside.clientHeight) return;
       if (ev.ctrlKey || Math.abs(ev.deltaX) > Math.abs(ev.deltaY)) return; // zoom / défilement horizontal
+      // Illustration plus haute que la fenêtre : la molette au-dessus d'elle la fait défiler normalement.
+      const ill = illustrationRef.current;
+      if (ill && ill.scrollHeight > ill.clientHeight && ill.contains(ev.target as Node)) return;
       ev.preventDefault();
       const unit = ev.deltaMode === 1 ? 16 : ev.deltaMode === 2 ? aside.clientHeight : 1;
       aside.scrollTop += ev.deltaY * unit * SCROLL_SPEED;
@@ -110,9 +118,13 @@ function DesktopLayout(c: Config) {
 
   return (
     <main ref={mainRef} className="mx-auto flex min-h-0 w-full max-w-[1440px] flex-auto flex-row">
-      {/* Illustration (3/4). Écran peu haut : marges réduites pour ne rien couper. */}
-      <div className="box-border flex min-w-0 flex-[3_1_0] flex-col justify-center overflow-hidden p-16 short:p-8">
-        <Illustration users={c.users} tier={c.tier} mods={c.mods} />
+      {/* Illustration (3/4). Écran peu haut : marges réduites, puis version compacte. Si elle dépasse
+          encore, elle s'aligne en haut et défile au lieu d'être coupée (justify-center-safe). */}
+      <div
+        ref={illustrationRef}
+        className="box-border flex min-w-0 flex-[3_1_0] flex-col justify-center-safe overflow-y-auto p-16 short:p-8"
+      >
+        <Illustration users={c.users} tier={c.tier} mods={c.mods} compact={veryShort} />
       </div>
 
       {/* Options (1/4) */}
