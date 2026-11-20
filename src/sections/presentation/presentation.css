@@ -29,7 +29,7 @@ html{scroll-behavior:smooth}
    --sx-step      : distance de défilement pour passer d'une étape à la suivante (01/06 → 02/06…) */
 :root{--sx-dur:1.1s;--sx-fade-dur:.7s;--sx-frame-dur:1.4s;--sx-step:min(150vh, 1350px);--sx-step-mobile:min(110vh, 990px)}
 .scrolly-block{min-height:var(--sx-step)}
-@media (max-width: 960px){.stage{top:0!important}.scrolly-block{min-height:var(--sx-step-mobile)}}
+@media (max-width: 1023px){.stage{top:0!important}.scrolly-block{min-height:var(--sx-step-mobile)}}
 @media (prefers-reduced-motion: reduce){.in-rise,.in-pop,.float,.nudge,.screen .typing .dots i{animation:none!important}.sx{transition:none!important}}
 @font-face{font-display:block;font-family:"bootstrap-icons";src:url("/fonts/bootstrap-icons-subset.woff2") format("woff2")}
 .bi::before{display:inline-block;font-family:bootstrap-icons!important;font-style:normal;font-weight:normal!important;font-variant:normal;text-transform:none;line-height:1;vertical-align:-.125em;-webkit-font-smoothing:antialiased}

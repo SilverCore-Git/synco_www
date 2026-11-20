@@ -76,7 +76,7 @@ export default function Presentation() {
       {/* Scène : l'application qui se construit */}
       <div
         ref={stageRef}
-        className="stage sticky z-[2] flex min-w-0 flex-[999_1_600px] flex-col gap-3.5 bg-bg py-3"
+        className="stage sticky z-[2] flex w-full min-w-0 flex-col gap-3.5 bg-bg py-3 lg:w-auto lg:flex-[999_1_600px]"
         style={{ top: view.top }}
         aria-hidden="true"
       >
@@ -90,7 +90,8 @@ export default function Presentation() {
       </div>
 
       {/* Titres qui défilent */}
-      <div className="min-w-0 max-w-[440px] flex-[1_1_340px]">
+      {/* Sous lg (1024 px) : une seule colonne, le texte défile sous la scène. */}
+      <div className="w-full min-w-0 max-w-[440px] lg:w-auto lg:flex-[1_1_300px]">
         {steps.map((s, i) => {
           const last = i === steps.length - 1;
           const vars: Vars = { '--s': i - 0.3, '--d': 0.25 };
@@ -99,12 +100,12 @@ export default function Presentation() {
             <div
               key={s.kicker}
               ref={i === 0 ? firstBlockRef : undefined}
-              className="scrolly-block sx sx-up box-border flex flex-col justify-center gap-[18px] py-10"
+              className="scrolly-block sx sx-up box-border flex flex-col justify-center gap-3.5 py-10 sm:gap-[18px]"
               style={vars}
             >
               <p className="m-0 font-mono text-[13px] text-accent">{s.kicker}</p>
-              <h2 className="m-0 font-display text-[44px] leading-[1.05] font-bold tracking-[-0.03em]">{s.title}</h2>
-              <p className="m-0 text-[17px] leading-[1.65] text-[#b4b4bc]">{s.text}</p>
+              <h2 className="m-0 font-display text-[30px] leading-[1.05] font-bold tracking-[-0.03em] sm:text-[44px]">{s.title}</h2>
+              <p className="m-0 text-[15px] leading-[1.65] text-[#b4b4bc] sm:text-[17px]">{s.text}</p>
               {last && (
                 <div className="flex flex-wrap gap-3 pt-2">
                   <Link
