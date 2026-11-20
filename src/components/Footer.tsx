@@ -32,7 +32,7 @@ export default function Footer() {
           <div className="grid grid-cols-2 gap-x-10 gap-y-8 md:grid-cols-3 md:gap-x-16">
             {footer.columns.map((col) => (
               <div key={col.title} className="flex flex-col gap-3.5 text-[13px]">
-                <h4 className="text-outline mb-1.5 font-display text-base font-bold">{col.title}</h4>
+                <h4 className="mb-1.5 text-accent font-display text-base font-bold">{col.title}</h4>
                 {col.items.map((item) =>
                   item.href ? (
                     <a key={item.label} href={item.href}>
@@ -48,10 +48,10 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-wrap justify-between gap-3">
-          <span className="text-outline font-display text-base font-bold">
+          <span className="font-display text-base font-bold text-white">
             © {new Date().getFullYear()} Silvercore. Tous droits réservés.
           </span>
-          <span className="text-outline font-display text-base font-bold">Hébergé en France</span>
+          <span className="font-display text-base font-bold text-white">Hébergé en France</span>
         </div>
       </div>
     </footer>
