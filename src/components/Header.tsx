@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { links, mainNav } from '../data/site';
 import ContactLink from './ContactLink';
 
@@ -8,12 +8,31 @@ const navText = 'font-display text-xl font-medium';
 export default function Header() {
   const [open, setOpen] = useState(false);
   const close = () => setOpen(false);
+  const { pathname, hash } = useLocation();
+
+  // Le menu se ferme à chaque navigation (lien, bouton retour du navigateur…).
+  useEffect(() => setOpen(false), [pathname, hash]);
+
+  // Menu ouvert : Échap le ferme, la page derrière ne défile plus.
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (ev: KeyboardEvent) => {
+      if (ev.key === 'Escape') setOpen(false);
+    };
+    const { overflow } = document.body.style;
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', onKey);
+    return () => {
+      document.body.style.overflow = overflow;
+      window.removeEventListener('keydown', onKey);
+    };
+  }, [open]);
 
   return (
-    <header className="shrink-0 border-b border-line bg-bg">
+    <header className="relative z-50 shrink-0 border-b border-line bg-bg">
       <nav
         aria-label="Navigation principale"
-        className="flex min-h-[74px] w-full items-stretch justify-between"
+        className="relative z-10 flex min-h-[74px] w-full items-stretch justify-between bg-bg"
       >
         <div className="flex items-center gap-10 pl-4 sm:pl-8">
           <Link to="/#accueil" aria-label="Synco — accueil" className="flex items-center py-2 pr-6" onClick={close}>
@@ -27,12 +46,13 @@ export default function Header() {
         </div>
 
         <div className="flex items-stretch">
+          {/* Sous 640 px, « Inscription » et « Se connecter » passent dans le menu déroulant. */}
           <a href={links.signup} className={`hidden items-center px-7 sm:flex ${navText}`}>
             Inscription
           </a>
           <a
             href={links.login}
-            className="flex items-center bg-accent px-6 font-display text-xl font-semibold text-ink hover:text-ink hover:brightness-110"
+            className="hidden items-center bg-accent px-6 font-display text-xl font-semibold text-ink hover:text-ink hover:brightness-110 sm:flex"
           >
             Se connecter
           </a>
@@ -52,14 +72,34 @@ export default function Header() {
       </nav>
 
       {open && (
-        <div id="menu-mobile" className="flex flex-col border-t border-line px-4 pb-4 sm:px-8 lg:hidden">
-          {mainNav.map((item) => (
-            <NavItem key={item.to} to={item.to} label={item.label} onClick={close} block />
-          ))}
-          <a href={links.signup} onClick={close} className={`border-b border-line py-3 ${navText} sm:hidden`}>
-            Inscription
-          </a>
-        </div>
+        <>
+          {/* Fond assombri : le menu passe par-dessus la page, sans la faire descendre. */}
+          <div aria-hidden="true" onClick={close} className="fixed inset-0 bg-black/60 lg:hidden" />
+          <div
+            id="menu-mobile"
+            className="absolute inset-x-0 top-full z-10 flex max-h-[calc(100dvh-75px)] flex-col overflow-y-auto border-b border-line-strong bg-bg px-4 pb-5 shadow-[0_24px_48px_-12px_rgba(0,0,0,0.6)] sm:px-8 lg:hidden"
+          >
+            {mainNav.map((item) => (
+              <NavItem key={item.to} to={item.to} label={item.label} onClick={close} block />
+            ))}
+            <div className="mt-5 grid grid-cols-2 gap-3 sm:hidden">
+              <a
+                href={links.signup}
+                onClick={close}
+                className="flex min-h-12 items-center justify-center border border-line-strong font-display text-lg font-medium"
+              >
+                Inscription
+              </a>
+              <a
+                href={links.login}
+                onClick={close}
+                className="flex min-h-12 items-center justify-center bg-accent font-display text-lg font-semibold text-ink hover:text-ink hover:brightness-110"
+              >
+                Se connecter
+              </a>
+            </div>
+          </div>
+        </>
       )}
     </header>
   );
