@@ -11,12 +11,36 @@ import '../sections/presentation/presentation.css';
  */
 
 const steps = [
-  { kicker: '01 / 06 · Workspace', title: '[Présentation workspace]', text: '[Description workspace]' },
-  { kicker: '02 / 06 · Modules', title: '[Présentation module]', text: '[Description module]' },
-  { kicker: '03 / 06 · Salons', title: '[Présentation salon]', text: '[Description salon]' },
-  { kicker: '04 / 06 · Membres actifs', title: '[Présentation Membre Actif]', text: '[Description Membre Actif]' },
-  { kicker: '05 / 06 · Messages privés', title: '[Présentation Message privé]', text: '[Description Message privé]' },
-  { kicker: '06 / 06 · Tableau de bord', title: '[Présentation Tableau de bord]', text: '[Description Tableau de bord]' },
+  {
+    kicker: '01 / 06 · Workspace',
+    title: 'Espaces de travail par projets',
+    text: 'Organisez vos projets par espaces étanches. Chaque workspace regroupe un projets toutes les discusions et ressources dont il a besoin.',
+  },
+  {
+    kicker: '02 / 06 · Modules',
+    title: 'Synco selon vos besoins',
+    text: 'Centralisez votre agent IA, vos tâches, vos fichiers et le suivi de vos projets au même endroit, selon vos besoins.',
+  },
+{
+    kicker: '03 / 06 · Salons',
+    title: 'Discussions textuelles et audio en direct',
+    text: 'Structurez vos échanges par canaux thématiques, qu’il s’agisse de salons textuels fluides ou de salons vocaux instantanés. Tous reste chiffré, nous ne voyons rien.',
+  },
+  {
+    kicker: '04 / 06 · Membres actifs',
+    title: 'Gestion fine des accès et des rôles',
+    text: 'Maîtrisez vos équipes grâce à des permissions hiérarchisé. Suivez la présence en direct, attribuez des rôles sur mesure et sécurisez chaque niveau d’accès.',
+  },
+  {
+    kicker: '05 / 06 · Messages privés',
+    title: 'Messagerie directe confidentielle',
+    text: 'Échangez en un-à-un ou en petits comités en dehors des salons d’équipe. Vos messages privés profitent de la même exigence cryptographique pour une confidentialité absolue.',
+  },
+  {
+    kicker: '06 / 06 · Tableau de bord',
+    title: 'Une page, votre activité',
+    text: 'Pilotez votre activité d’un coup d’œil. Interrogez l’agent IA intégré et sécurisé pour synthétiser vos flux, retrouver une info clé et garder une longueur d’avance.',
+  },
 ];
 
 const SCREEN_W = 1440;
