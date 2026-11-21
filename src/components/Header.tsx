@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { links, mainNav } from '../data/site';
 import ContactLink from './ContactLink';
@@ -9,6 +9,17 @@ export default function Header() {
   const [open, setOpen] = useState(false);
   const close = () => setOpen(false);
   const { pathname, hash } = useLocation();
+  const headerRef = useRef<HTMLElement>(null);
+  const [mini, setMini] = useState(false);
+
+  // Nav compacte (ordinateur) : visible dès que la nav principale a entièrement quitté l'écran.
+  useEffect(() => {
+    const el = headerRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(([entry]) => setMini(!entry.isIntersecting));
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
 
   // Le menu se ferme à chaque navigation (lien, bouton retour du navigateur…).
   useEffect(() => setOpen(false), [pathname, hash]);
@@ -29,7 +40,9 @@ export default function Header() {
   }, [open]);
 
   return (
-    <header className="relative z-50 shrink-0 border-b border-line bg-bg">
+    <>
+    {/* Sur mobile, la nav reste fixée en haut ; sur ordinateur, elle défile et la nav compacte prend le relais. */}
+    <header ref={headerRef} className="sticky top-0 z-50 shrink-0 border-b border-line bg-bg lg:relative">
       <nav
         aria-label="Navigation principale"
         className="relative z-10 flex min-h-[74px] w-full items-stretch justify-between bg-bg"
@@ -103,12 +116,89 @@ export default function Header() {
         </>
       )}
     </header>
+    <MiniNav visible={mini} />
+    </>
   );
 }
 
-function NavItem({ to, label, onClick, block }: { to: string; label: string; onClick?: () => void; block?: boolean }) {
+/**
+ * Nav compacte, sur ordinateur seulement : languette centrée, fixée en haut, avec les seuls liens.
+ * Sa hauteur est --nav-offset (index.css), dont les ancres et les éléments sticky se décalent.
+ */
+function MiniNav({ visible }: { visible: boolean }) {
+  const { pathname } = useLocation();
+  const active = useActiveSection(pathname === '/' && visible);
+
+  return (
+    <nav
+      aria-label="Navigation compacte"
+      inert={!visible}
+      className={`fixed top-0 left-1/2 z-40 hidden max-w-[calc(100vw-32px)] -translate-x-1/2 border border-t-0 border-line-strong bg-bg shadow-[0_18px_40px_-16px_rgba(0,0,0,0.7)] transition-transform duration-300 ease-[cubic-bezier(.2,.7,.2,1)] motion-reduce:transition-none lg:block ${
+        visible ? 'translate-y-0' : '-translate-y-[calc(100%+12px)]'
+      }`}
+    >
+      <div className="flex h-(--nav-offset) items-center gap-4 px-5">
+        {mainNav.map((item) => (
+          <NavItem key={item.to} to={item.to} label={item.label} compact active={item.to === `/#${active}`} />
+        ))}
+      </div>
+    </nav>
+  );
+}
+
+/** Section de l'accueil en cours de lecture : la dernière dont le haut a passé le tiers de l'écran. */
+function useActiveSection(enabled: boolean) {
+  const [active, setActive] = useState('');
+  useEffect(() => {
+    if (!enabled) return;
+    const ids = mainNav.filter((i) => i.to.startsWith('/#')).map((i) => i.to.slice(2));
+    let raf = 0;
+    const update = () => {
+      raf = 0;
+      const line = window.innerHeight / 3;
+      let current = '';
+      for (const id of ids) {
+        const el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top <= line) current = id;
+      }
+      setActive(current);
+    };
+    const schedule = () => {
+      if (!raf) raf = requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener('scroll', schedule, { passive: true });
+    window.addEventListener('resize', schedule);
+    return () => {
+      window.removeEventListener('scroll', schedule);
+      window.removeEventListener('resize', schedule);
+      if (raf) cancelAnimationFrame(raf);
+    };
+  }, [enabled]);
+  return enabled ? active : '';
+}
+
+function NavItem({
+  to,
+  label,
+  onClick,
+  block,
+  compact,
+  active,
+}: {
+  to: string;
+  label: string;
+  onClick?: () => void;
+  block?: boolean;
+  /** Nav compacte : texte plus petit, sur une ligne. */
+  compact?: boolean;
+  /** Section en cours de lecture (lien d'ancre de la nav compacte). */
+  active?: boolean;
+}) {
   const isPage = !to.includes('#');
-  const cls = `${navText} py-3 ${block ? 'border-b border-line' : ''}`;
+  const cls = compact
+    ? 'font-display text-lg font-medium whitespace-nowrap py-1.5'
+    : `${navText} py-3 ${block ? 'border-b border-line' : ''}`;
   if (to === '/#contact') {
     return <ContactLink className={cls}>{label}</ContactLink>;
   }
@@ -120,7 +210,7 @@ function NavItem({ to, label, onClick, block }: { to: string; label: string; onC
     );
   }
   return (
-    <Link to={to} onClick={onClick} className={cls}>
+    <Link to={to} onClick={onClick} className={`${cls} ${active ? 'text-accent' : ''}`}>
       {label}
     </Link>
   );

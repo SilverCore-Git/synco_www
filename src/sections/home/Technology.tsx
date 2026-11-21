@@ -21,14 +21,14 @@ export default function Technology() {
   return (
     <section
       id="technologie"
-      className="mx-auto flex max-w-[1440px] scroll-mt-4 flex-wrap gap-y-8 pt-12 pb-16 sm:gap-y-12 sm:pt-16 sm:pb-28"
+      className="mx-auto flex max-w-[1440px] scroll-mt-[calc(var(--nav-offset)+16px)] flex-wrap gap-y-8 pt-12 pb-16 sm:gap-y-12 sm:pt-16 sm:pb-28"
     >
       {/* Sous lg : pleine largeur, au-dessus du contenu (les pastilles ne sont jamais dans une colonne étroite). */}
       <div className="box-border flex-[1_1_100%] px-6 sm:px-10 lg:max-w-[320px] lg:flex-[1_1_320px]">
         {/* Sous lg : rangée de pastilles qui défile horizontalement. À partir de lg : sommaire vertical (design). */}
         <nav
           aria-label="Technologie"
-          className="-mx-6 flex gap-2 overflow-x-auto px-6 [scrollbar-width:none] sm:-mx-10 sm:px-10 lg:sticky lg:top-6 lg:mx-0 lg:flex-col lg:gap-0 lg:overflow-visible lg:border-t lg:border-line lg:px-0"
+          className="-mx-6 flex gap-2 overflow-x-auto px-6 [scrollbar-width:none] sm:-mx-10 sm:px-10 lg:sticky lg:top-[calc(var(--nav-offset)+24px)] lg:mx-0 lg:flex-col lg:gap-0 lg:overflow-visible lg:border-t lg:border-line lg:px-0"
         >
           {tocLinks.map((l) =>
             l.active ? (
@@ -63,7 +63,7 @@ export default function Technology() {
           destinataires peuvent les lire. Même en cas d’intrusion sur nos serveurs, les contenus restent illisibles.
         </p>
 
-        <div id="p2p" className="mb-14 sm:mb-20 grid scroll-mt-6 grid-cols-[repeat(auto-fit,minmax(min(240px,100%),1fr))] gap-4">
+        <div id="p2p" className="mb-14 sm:mb-20 grid scroll-mt-[calc(var(--nav-offset)+24px)] grid-cols-[repeat(auto-fit,minmax(min(240px,100%),1fr))] gap-4">
           {e2eeCards.map((c) => (
             <div key={c.title} className={`${card} min-h-[166px]`}>
               <h3 className="m-0 mb-3.5 text-lg font-medium">{c.title}</h3>
@@ -74,7 +74,7 @@ export default function Technology() {
 
         <h2
           id="hebergement"
-          className="m-0 mb-8 scroll-mt-6 font-display text-[32px] font-semibold tracking-[-0.02em]"
+          className="m-0 mb-8 scroll-mt-[calc(var(--nav-offset)+24px)] font-display text-[32px] font-semibold tracking-[-0.02em]"
         >
           Où sont vos données ?
         </h2>

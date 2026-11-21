@@ -14,7 +14,7 @@ export default function Hero() {
       // Pleine largeur pour que les traits aillent d'un bord à l'autre, comme ceux de l'en-tête.
       // Au-delà de 1440 px, le contenu reste dans une grille de 1440 px centrée : la marge de
       // chaque côté vaut 50cqw - 720px (cqw = largeur de la section, sans la barre de défilement).
-      className="@container flex min-h-[calc(100svh-75px)] scroll-mt-4 flex-wrap border-b border-line"
+      className="@container flex min-h-[calc(100svh-75px)] scroll-mt-[calc(var(--nav-offset)+16px)] flex-wrap border-b border-line"
     >
       {/* Partenaires */}
       <div

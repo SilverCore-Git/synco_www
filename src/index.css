@@ -28,6 +28,19 @@
   --color-ink: #0f1412;
 }
 
+/* Hauteur de la barre fixée en haut de l'écran pendant le défilement : la nav principale sur mobile
+   (sticky, 74 px + 1 px de bordure), la nav compacte sur ordinateur (Header.tsx).
+   Les ancres (scroll-mt) et les éléments sticky s'en décalent pour ne pas passer dessous. */
+:root {
+  --nav-offset: 75px;
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --nav-offset: 52px;
+  }
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;

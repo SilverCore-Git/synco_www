@@ -51,14 +51,18 @@ export default function Presentation() {
       const sec = sectionRef.current;
       const stage = stageRef.current;
       if (!sec || !stage) return;
+      // Une barre de nav occupe le haut de l'écran dès que la scène est sticky (nav fixe sur mobile,
+      // nav compacte sur ordinateur) : tout se cale dans la hauteur restante, sous elle.
+      const nav = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--nav-offset')) || 0;
       const vh = window.innerHeight;
+      const avail = vh - nav;
       // Sous lg, la scène reste fixée en haut au-dessus du texte : elle ne doit pas dépasser la moitié
       // de l'écran (téléphone à l'horizontale), sinon le texte qui défile dessous n'est jamais visible.
       const oneColumn = !window.matchMedia(DESKTOP_QUERY).matches;
-      const maxH = (oneColumn ? vh * 0.5 : vh - 32) - 24;
+      const maxH = (oneColumn ? avail * 0.5 : avail - 32) - 24;
       const scale = Math.max(0.2, Math.min(stage.clientWidth / SCREEN_W, maxH / SCREEN_H));
       const stageH = SCREEN_H * scale + 24;
-      const top = Math.max(16, Math.round((Math.min(vh, 1000) - stageH) / 2));
+      const top = nav + Math.max(16, Math.round((Math.min(avail, 1000) - stageH) / 2));
       // Le sticky descend la scène dès l'arrivée (top > position naturelle sous le header) :
       // le premier texte reçoit ce même retrait pour démarrer au niveau du haut du mock-up.
       const secTop = sec.getBoundingClientRect().top + window.scrollY;
@@ -68,7 +72,7 @@ export default function Presentation() {
       // l'écran à mi-étape et laissait la colonne vide jusqu'au texte 02. Pas de sticky si le texte
       // ne tient pas sous la scène (téléphone à l'horizontale).
       const headH = firstTextRef.current?.offsetHeight ?? 0;
-      const pin = oneColumn ? stage.offsetHeight + 24 : top + 12;
+      const pin = oneColumn ? nav + stage.offsetHeight + 24 : top + 12;
       const headTop = pin + headH <= vh - 16 ? pin : 0;
       // Dernier bloc : son texte devient sticky, aligné sur le haut du mock-up (même règle que le
       // premier bloc : 12 px = py-3 de la scène), et le bloc reçoit sous lui un espace (tailPad) tel

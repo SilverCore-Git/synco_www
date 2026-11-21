@@ -15,7 +15,7 @@ export default function Pricing() {
     }`;
 
   return (
-    <section id="tarif" className="mx-auto box-border max-w-[1440px] scroll-mt-4 px-6 pt-12 pb-16 sm:px-16 sm:pt-16 sm:pb-24">
+    <section id="tarif" className="mx-auto box-border max-w-[1440px] scroll-mt-[calc(var(--nav-offset)+16px)] px-6 pt-12 pb-16 sm:px-16 sm:pt-16 sm:pb-24">
       <h2 className="m-0 mb-8 font-display text-[40px] sm:mb-10 sm:text-5xl font-bold tracking-[-0.03em]">Tarif</h2>
 
       <div className="flex flex-wrap items-start gap-8 xl:gap-10">

@@ -8,7 +8,7 @@ export default function Faq() {
   return (
     <section
       id="faq"
-      className="mx-auto box-border flex max-w-[1440px] scroll-mt-4 flex-wrap gap-y-8 px-6 pt-12 pb-20 sm:px-16 sm:pt-16 sm:pb-[120px]"
+      className="mx-auto box-border flex max-w-[1440px] scroll-mt-[calc(var(--nav-offset)+16px)] flex-wrap gap-y-8 px-6 pt-12 pb-20 sm:px-16 sm:pt-16 sm:pb-[120px]"
     >
       <div className="max-w-[357px] flex-[1_1_293px]">
         <h2 className="m-0 font-display text-[40px] leading-none sm:text-5xl font-bold tracking-[-0.03em]">Questions</h2>
