@@ -47,13 +47,8 @@ export default function Presentation() {
       const scale = Math.max(0.2, Math.min(stage.clientWidth / SCREEN_W, maxH / SCREEN_H));
       const stageH = SCREEN_H * scale + 24;
       const top = Math.max(16, Math.round((Math.min(vh, 1000) - stageH) / 2));
-      let p: number;
-      if (vh > 1500) {
-        p = 7;
-      } else {
-        const bh = firstBlockRef.current?.offsetHeight ?? vh;
-        p = (vh * 0.55 - sec.getBoundingClientRect().top) / Math.max(1, bh);
-      }
+      const bh = firstBlockRef.current?.offsetHeight ?? vh;
+      let p = (vh * 0.55 - sec.getBoundingClientRect().top) / Math.max(1, bh);
       p = Math.max(-1, Math.min(7, Math.round(p * 200) / 200));
       setView((s) =>
         p !== s.p || Math.abs(scale - s.scale) > 0.001 || top !== s.top ? { p, scale, top } : s,
