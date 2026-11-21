@@ -6,6 +6,9 @@
 /* Écran peu haut (portable 1366×768…) : variante `short:` pour resserrer les mises en page plein écran. */
 @custom-variant short (@media (max-height: 820px));
 
+/* Appareil sans survol (mobile, tablette) : variante `touch:`, complément de `hover:` (qui exige `hover: hover`). */
+@custom-variant touch (@media (hover: none));
+
 /* Design tokens — repris du design Artifacts « Synco — Landing page · Dark » */
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
