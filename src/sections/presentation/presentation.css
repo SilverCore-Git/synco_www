@@ -286,9 +286,11 @@ html{scroll-behavior:smooth}
 
 /* animation au scroll : prioritaire sur les styles des mock-ups */
 .screen .sx.sx-fade{opacity:clamp(0, var(--v) * 1000, 1)}
-.screen .sx.sx-up{opacity:clamp(0, var(--v) * 1000, 1);transform:translateY(calc((1 - var(--v)) * 26px))}
-.screen .sx.sx-left{opacity:clamp(0, var(--v) * 1000, 1);transform:translateX(calc((1 - var(--v)) * -26px))}
-.screen .sx.sx-pop{opacity:clamp(0, var(--v) * 1000, 1);transform:scale(calc(.4 + .6 * var(--v)))}
+/* Le déplacement ne suit que l'entrée (--k) : en sortie, l'élément reste en place et s'efface
+   progressivement (1 - --o). Glisser en restant opaque le faisait passer sur ses voisins. */
+.screen .sx.sx-up{opacity:calc(clamp(0, var(--k) * 1000, 1) * (1 - var(--o)));transform:translateY(calc((1 - var(--k)) * 26px))}
+.screen .sx.sx-left{opacity:calc(clamp(0, var(--k) * 1000, 1) * (1 - var(--o)));transform:translateX(calc((1 - var(--k)) * -26px))}
+.screen .sx.sx-pop{opacity:calc(clamp(0, var(--k) * 1000, 1) * (1 - var(--o)));transform:scale(calc(.4 + .6 * var(--k)))}
 .screen .sx.sx-gw{width:calc(var(--v) * var(--w));min-width:0;flex:none;overflow:hidden}
 .screen .sx.sx-gh{max-height:calc(var(--v) * var(--h));overflow:hidden}
 .screen .sx.sx-bar{transform:scaleX(var(--v));transform-origin:left center}
