@@ -74,6 +74,8 @@ export default function Presentation() {
       style={{ '--p': view.p } as Vars}
       className="mx-auto box-border flex max-w-[1440px] flex-wrap items-start gap-x-14 px-4 pb-[min(18vh,160px)] sm:px-8"
     >
+      <h1 className="sr-only">Présentation de Synco</h1>
+
       {/* Scène : l'application qui se construit */}
       <div
         ref={stageRef}
