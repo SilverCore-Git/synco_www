@@ -30,7 +30,8 @@ export default function Presentation() {
   const sectionRef = useRef<HTMLElement>(null);
   const stageRef = useRef<HTMLDivElement>(null);
   const firstBlockRef = useRef<HTMLDivElement>(null);
-  const [view, setView] = useState({ p: -1, scale: 0.62, top: 24, lead: 0 });
+  const lastTextRef = useRef<HTMLDivElement>(null);
+  const [view, setView] = useState({ p: -1, scale: 0.62, top: 24, lead: 0, tailTop: 0, tailPad: 0 });
 
   useEffect(() => {
     let raf = 0;
@@ -51,12 +52,26 @@ export default function Presentation() {
       // le premier texte reçoit ce même retrait pour démarrer au niveau du haut du mock-up.
       const secTop = sec.getBoundingClientRect().top + window.scrollY;
       const lead = oneColumn ? 0 : Math.max(0, Math.round(top - secTop));
+      // Dernier bloc : son texte devient sticky, aligné sur le haut du mock-up (même règle que le
+      // premier bloc : 12 px = py-3 de la scène), et le bloc reçoit sous lui un espace (tailPad) tel
+      // que texte et scène se décrochent au même moment. Sans ça, le texte continuait de monter
+      // pendant que la scène restait fixe, puis repartait avec elle, trop haut.
+      const textH = lastTextRef.current?.offsetHeight ?? 0;
+      const room = Math.round(stageH - 12 - textH);
+      const tail = !oneColumn && room >= 40;
+      const tailTop = tail ? top + 12 : 0;
+      const tailPad = tail ? room : 0;
       const bh = firstBlockRef.current?.offsetHeight ?? vh;
       let p = (vh * 0.55 - sec.getBoundingClientRect().top) / Math.max(1, bh);
       p = Math.max(-1, Math.min(7, Math.round(p * 200) / 200));
       setView((s) =>
-        p !== s.p || Math.abs(scale - s.scale) > 0.001 || top !== s.top || lead !== s.lead
-          ? { p, scale, top, lead }
+        p !== s.p ||
+        Math.abs(scale - s.scale) > 0.001 ||
+        top !== s.top ||
+        lead !== s.lead ||
+        tailTop !== s.tailTop ||
+        tailPad !== s.tailPad
+          ? { p, scale, top, lead, tailTop, tailPad }
           : s,
       );
     };
@@ -115,26 +130,34 @@ export default function Presentation() {
           // retrait = décalage du sticky (view.lead) + py-3 de la scène.
           const align = first ? 'justify-start pt-6 pb-10 lg:pt-3' : 'justify-center py-10';
           if (first && view.lead > 0) vars.paddingTop = view.lead + 12;
+          const tail = last && view.tailPad > 0;
+          if (tail) vars.paddingBottom = view.tailPad;
           return (
             <div
               key={s.kicker}
               ref={first ? firstBlockRef : undefined}
-              className={`scrolly-block sx sx-up box-border flex flex-col gap-3.5 sm:gap-[18px] ${align}`}
+              className={`scrolly-block sx sx-up box-border flex flex-col ${align}`}
               style={vars}
             >
-              <p className="m-0 font-mono text-[13px] text-accent">{s.kicker}</p>
-              <h2 className="m-0 font-display text-[30px] leading-[1.05] font-bold tracking-[-0.03em] sm:text-[44px]">{s.title}</h2>
-              <p className="m-0 text-[15px] leading-[1.65] text-[#b4b4bc] sm:text-[17px]">{s.text}</p>
-              {last && (
-                <div className="flex flex-wrap gap-3 pt-2">
-                  <Link
-                    to="/#tarif"
-                    className="inline-flex min-h-12 items-center bg-accent px-[22px] text-[15px] font-semibold text-ink hover:text-ink hover:brightness-110"
-                  >
-                    Voir les tarifs
-                  </Link>
-                </div>
-              )}
+              <div
+                ref={last ? lastTextRef : undefined}
+                className={`flex flex-col gap-3.5 sm:gap-[18px] ${tail ? 'sticky' : ''}`}
+                style={tail ? { top: view.tailTop } : undefined}
+              >
+                <p className="m-0 font-mono text-[13px] text-accent">{s.kicker}</p>
+                <h2 className="m-0 font-display text-[30px] leading-[1.05] font-bold tracking-[-0.03em] sm:text-[44px]">{s.title}</h2>
+                <p className="m-0 text-[15px] leading-[1.65] text-[#b4b4bc] sm:text-[17px]">{s.text}</p>
+                {last && (
+                  <div className="flex flex-wrap gap-3 pt-2">
+                    <Link
+                      to="/#tarif"
+                      className="inline-flex min-h-12 items-center bg-accent px-[22px] text-[15px] font-semibold text-ink hover:text-ink hover:brightness-110"
+                    >
+                      Voir les tarifs
+                    </Link>
+                  </div>
+                )}
+              </div>
             </div>
           );
         })}
