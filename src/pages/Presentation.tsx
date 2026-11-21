@@ -100,14 +100,18 @@ export default function Presentation() {
       {/* Sous lg (1024 px) : une seule colonne, le texte défile sous la scène. */}
       <div className="w-full min-w-0 max-w-[440px] lg:w-auto lg:flex-[1_1_300px]">
         {steps.map((s, i) => {
+          const first = i === 0;
           const last = i === steps.length - 1;
           const vars: Vars = { '--s': i - 0.3, '--d': 0.25 };
           if (!last) vars['--e'] = i + 0.82;
+          // Premier bloc : texte en haut, au niveau du haut du mock-up, pour être lu dès l'arrivée
+          // (centré dans un bloc de 150vh, il tombait en bas de l'écran).
+          const align = first ? 'justify-start pt-6 pb-10 lg:pt-3' : 'justify-center py-10';
           return (
             <div
               key={s.kicker}
-              ref={i === 0 ? firstBlockRef : undefined}
-              className="scrolly-block sx sx-up box-border flex flex-col justify-center gap-3.5 py-10 sm:gap-[18px]"
+              ref={first ? firstBlockRef : undefined}
+              className={`scrolly-block sx sx-up box-border flex flex-col gap-3.5 sm:gap-[18px] ${align}`}
               style={vars}
             >
               <p className="m-0 font-mono text-[13px] text-accent">{s.kicker}</p>
