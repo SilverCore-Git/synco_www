@@ -20,13 +20,13 @@ export default function Hero() {
       <div
         aria-label="Partenaires"
         // Sous lg : pleine largeur, sous le titre (jamais en colonne étroite à droite).
-        // Au-delà de 1440 px : 360 px + la marge gauche, que les cases absorbent.
+        // Au-delà de 1440 px : 360 px + la marge gauche ; les logos sont centrés sur toute la case.
         className="order-2 grid min-w-[240px] flex-[1_0_100%] grid-cols-3 lg:flex-[1_0_25%] border-t border-line lg:order-none lg:grid-cols-1 lg:grid-rows-[repeat(3,minmax(0,1fr))] lg:border-t-0 lg:border-r min-[1440px]:grow-0 min-[1440px]:basis-[calc(50cqw-360px)]"
       >
         {partners.map((p, i) => (
           <div
             key={i}
-            className="flex min-h-[96px] items-center justify-center border-line text-xs text-subtle not-last:border-r lg:not-last:border-r-0 lg:not-last:border-b min-[1440px]:pl-[calc(50cqw-720px)]"
+            className="flex min-h-[96px] items-center justify-center border-line text-xs text-subtle not-last:border-r lg:not-last:border-r-0 lg:not-last:border-b"
           >
             {p}
           </div>
