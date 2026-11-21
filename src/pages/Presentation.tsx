@@ -51,14 +51,16 @@ export default function Presentation() {
       const sec = sectionRef.current;
       const stage = stageRef.current;
       if (!sec || !stage) return;
-      // Une barre de nav occupe le haut de l'écran dès que la scène est sticky (nav fixe sur mobile,
-      // nav compacte sur ordinateur) : tout se cale dans la hauteur restante, sous elle.
-      const nav = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--nav-offset')) || 0;
       const vh = window.innerHeight;
-      const avail = vh - nav;
       // Sous lg, la scène reste fixée en haut au-dessus du texte : elle ne doit pas dépasser la moitié
       // de l'écran (téléphone à l'horizontale), sinon le texte qui défile dessous n'est jamais visible.
       const oneColumn = !window.matchMedia(DESKTOP_QUERY).matches;
+      // Sur mobile, la nav fixe occupe le haut de l'écran : tout se cale dans la hauteur restante,
+      // sous elle. Sur ordinateur, la nav défile et la nav compacte n'est pas affichée sur cette page.
+      const nav = oneColumn
+        ? parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--nav-offset')) || 0
+        : 0;
+      const avail = vh - nav;
       const maxH = (oneColumn ? avail * 0.5 : avail - 32) - 24;
       const scale = Math.max(0.2, Math.min(stage.clientWidth / SCREEN_W, maxH / SCREEN_H));
       const stageH = SCREEN_H * scale + 24;

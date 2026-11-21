@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { links, mainNav } from '../data/site';
 import ContactLink from './ContactLink';
@@ -9,17 +9,35 @@ export default function Header() {
   const [open, setOpen] = useState(false);
   const close = () => setOpen(false);
   const { pathname, hash } = useLocation();
-  const headerRef = useRef<HTMLElement>(null);
-  const [mini, setMini] = useState(false);
+  const [pastHero, setPastHero] = useState(false);
+  const [scrollingUp, setScrollingUp] = useState(false);
+  const mini = pastHero && scrollingUp;
 
-  // Nav compacte (ordinateur) : visible dès que la nav principale a entièrement quitté l'écran.
+  // Nav compacte (ordinateur, accueil seulement) : une fois l'hero (#accueil) passé, elle descend
+  // quand on remonte et se cache quand on redescend. Désactivée sur les autres pages.
   useEffect(() => {
-    const el = headerRef.current;
-    if (!el) return;
-    const io = new IntersectionObserver(([entry]) => setMini(!entry.isIntersecting));
-    io.observe(el);
-    return () => io.disconnect();
-  }, []);
+    setPastHero(false);
+    setScrollingUp(false);
+    const hero = pathname === '/' ? document.getElementById('accueil') : null;
+    if (!hero) return;
+    const io = new IntersectionObserver(([entry]) =>
+      setPastHero(!entry.isIntersecting && entry.boundingClientRect.top < 0),
+    );
+    io.observe(hero);
+    // Sens du défilement, avec un seuil pour ignorer les petits à-coups (trackpad, inertie).
+    let last = window.scrollY;
+    const onScroll = () => {
+      const y = window.scrollY;
+      if (Math.abs(y - last) < 8) return;
+      setScrollingUp(y < last);
+      last = y;
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => {
+      io.disconnect();
+      window.removeEventListener('scroll', onScroll);
+    };
+  }, [pathname]);
 
   // Le menu se ferme à chaque navigation (lien, bouton retour du navigateur…).
   useEffect(() => setOpen(false), [pathname, hash]);
@@ -42,7 +60,7 @@ export default function Header() {
   return (
     <>
     {/* Sur mobile, la nav reste fixée en haut ; sur ordinateur, elle défile et la nav compacte prend le relais. */}
-    <header ref={headerRef} className="sticky top-0 z-50 shrink-0 border-b border-line bg-bg lg:relative">
+    <header className="sticky top-0 z-50 shrink-0 border-b border-line bg-bg lg:relative">
       <nav
         aria-label="Navigation principale"
         className="relative z-10 flex min-h-[74px] w-full items-stretch justify-between bg-bg"
@@ -122,12 +140,12 @@ export default function Header() {
 }
 
 /**
- * Nav compacte, sur ordinateur seulement : languette centrée, fixée en haut, avec les seuls liens.
+ * Nav compacte, sur ordinateur et sur l'accueil seulement : languette centrée, fixée en haut,
+ * avec les seuls liens. Après l'hero, elle descend quand on remonte la page.
  * Sa hauteur est --nav-offset (index.css), dont les ancres et les éléments sticky se décalent.
  */
 function MiniNav({ visible }: { visible: boolean }) {
-  const { pathname } = useLocation();
-  const active = useActiveSection(pathname === '/' && visible);
+  const active = useActiveSection(visible);
 
   return (
     <nav
