@@ -25,10 +25,10 @@ export default function Faq() {
                 aria-expanded={open}
                 aria-controls={panelId}
                 onClick={() => setOpenIndex(open ? -1 : i)}
-                className="flex min-h-11 items-center justify-between gap-6 border-0 bg-transparent p-0 text-left text-lg font-medium text-fg"
+                className="group flex min-h-11 items-center justify-between gap-6 border-0 bg-transparent p-0 text-left font-display text-lg font-medium text-fg transition-colors duration-150 hover:text-accent motion-reduce:transition-none"
               >
                 {item.q}
-                <span aria-hidden="true" className="w-6 text-center text-xl text-muted">
+                <span aria-hidden="true" className="w-6 text-center text-xl text-muted transition-colors duration-150 group-hover:text-accent motion-reduce:transition-none">
                   {open ? '−' : '+'}
                 </span>
               </button>
