@@ -30,7 +30,7 @@ export default function Presentation() {
   const sectionRef = useRef<HTMLElement>(null);
   const stageRef = useRef<HTMLDivElement>(null);
   const firstBlockRef = useRef<HTMLDivElement>(null);
-  const [view, setView] = useState({ p: -1, scale: 0.62, top: 24 });
+  const [view, setView] = useState({ p: -1, scale: 0.62, top: 24, lead: 0 });
 
   useEffect(() => {
     let raf = 0;
@@ -47,11 +47,17 @@ export default function Presentation() {
       const scale = Math.max(0.2, Math.min(stage.clientWidth / SCREEN_W, maxH / SCREEN_H));
       const stageH = SCREEN_H * scale + 24;
       const top = Math.max(16, Math.round((Math.min(vh, 1000) - stageH) / 2));
+      // Le sticky descend la scène dès l'arrivée (top > position naturelle sous le header) :
+      // le premier texte reçoit ce même retrait pour démarrer au niveau du haut du mock-up.
+      const secTop = sec.getBoundingClientRect().top + window.scrollY;
+      const lead = oneColumn ? 0 : Math.max(0, Math.round(top - secTop));
       const bh = firstBlockRef.current?.offsetHeight ?? vh;
       let p = (vh * 0.55 - sec.getBoundingClientRect().top) / Math.max(1, bh);
       p = Math.max(-1, Math.min(7, Math.round(p * 200) / 200));
       setView((s) =>
-        p !== s.p || Math.abs(scale - s.scale) > 0.001 || top !== s.top ? { p, scale, top } : s,
+        p !== s.p || Math.abs(scale - s.scale) > 0.001 || top !== s.top || lead !== s.lead
+          ? { p, scale, top, lead }
+          : s,
       );
     };
     const schedule = () => {
@@ -105,8 +111,10 @@ export default function Presentation() {
           const vars: Vars = { '--s': i - 0.3, '--d': 0.25 };
           if (!last) vars['--e'] = i + 0.82;
           // Premier bloc : texte en haut, au niveau du haut du mock-up, pour être lu dès l'arrivée
-          // (centré dans un bloc de 150vh, il tombait en bas de l'écran).
+          // (centré dans un bloc de 150vh, il tombait en bas de l'écran). En deux colonnes, son
+          // retrait = décalage du sticky (view.lead) + py-3 de la scène.
           const align = first ? 'justify-start pt-6 pb-10 lg:pt-3' : 'justify-center py-10';
+          if (first && view.lead > 0) vars.paddingTop = view.lead + 12;
           return (
             <div
               key={s.kicker}
