@@ -42,3 +42,15 @@ public/brand/   logo, favicon, bannière
 - Les prix se modifient à un seul endroit : `src/lib/pricing.ts` (utilisés par la page Tarif
   et le configurateur).
 - En production, le serveur doit renvoyer `index.html` pour toutes les routes (fallback SPA).
+
+## Docker
+
+`Dockerfile` construit le site avec Bun puis le sert avec nginx (`nginx.conf` : fallback SPA,
+cache long sur `/assets/`). Le workflow `.github/workflows/docker.yml` pousse l'image
+`ghcr.io/silvercore-git/synco-www` à chaque push sur `main` ou tag `v*` (secrets `GHCR_USER`
+et `GHCR_TOKEN` requis).
+
+```bash
+docker build -t synco-www .
+docker run -p 8080:80 synco-www   # http://localhost:8080
+```
