@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { footer, links } from '../data/site';
 import { DiscordIcon, GithubIcon, InstagramIcon } from './icons';
 
@@ -34,7 +35,11 @@ export default function Footer() {
               <div key={col.title} className="flex flex-col gap-3.5 text-[13px]">
                 <h4 className="mb-1.5 text-accent font-display text-base font-bold">{col.title}</h4>
                 {col.items.map((item) =>
-                  item.href ? (
+                  item.href?.startsWith('/') ? (
+                    <Link key={item.label} to={item.href}>
+                      {item.label}
+                    </Link>
+                  ) : item.href ? (
                     <a
                       key={item.label}
                       href={item.href}

@@ -36,8 +36,14 @@ export const footer = {
       ],
     },
     {
-      title: 'Contact',
-      items: [{ label: '[E-mail]' }, { label: '[Téléphone]' }],
+      title: 'Plan du site',
+      items: [
+        { label: 'Accueil', href: '/#accueil' },
+        { label: 'Présentation', href: '/presentation' },
+        { label: 'Tarif', href: '/#tarif' },
+        { label: 'FAQ', href: '/#faq' },
+        { label: 'Configurateur', href: '/configurateur' },
+      ],
     },
     {
       title: 'Nous sommes',
