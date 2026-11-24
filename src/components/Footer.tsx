@@ -35,7 +35,11 @@ export default function Footer() {
                 <h4 className="mb-1.5 text-accent font-display text-base font-bold">{col.title}</h4>
                 {col.items.map((item) =>
                   item.href ? (
-                    <a key={item.label} href={item.href}>
+                    <a
+                      key={item.label}
+                      href={item.href}
+                      {...(item.href.startsWith('http') && { target: '_blank', rel: 'noopener noreferrer' })}
+                    >
                       {item.label}
                     </a>
                   ) : (
