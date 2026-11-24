@@ -29,20 +29,13 @@ export const footer = {
   tagline: '[Phrase de présentation de Synco]',
   columns: [
     {
-      title: 'Légal',
-      items: [
-        { label: 'Confidentialité', href: '#confidentialite' },
-        { label: 'Mentions légales', href: '#mentions-legales' },
-      ],
-    },
-    {
       title: 'Plan du site',
       items: [
         { label: 'Accueil', href: '/#accueil' },
         { label: 'Présentation', href: '/presentation' },
         { label: 'Tarif', href: '/#tarif' },
-        { label: 'FAQ', href: '/#faq' },
         { label: 'Configurateur', href: '/configurateur' },
+        { label: 'FAQ', href: '/#faq' },
       ],
     },
     {
@@ -50,6 +43,13 @@ export const footer = {
       items: [
         { label: 'Silvercore', href: 'https://u.silvercore.fr/q/syncosilvercore' },
         { label: 'Silvertransfert', href: 'https://u.silvercore.fr/q/syncosilvertransfert' },
+      ],
+    },
+    {
+      title: 'Légal',
+      items: [
+        { label: 'Confidentialité', href: '#confidentialite' },
+        { label: 'Mentions légales', href: '#mentions-legales' },
       ],
     },
   ] as { title: string; items: { label: string; href?: string }[] }[],
