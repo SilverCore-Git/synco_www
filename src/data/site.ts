@@ -16,7 +16,7 @@ export const links = {
  * Les liens restent affichés mais grisés et non cliquables. Passer à `true` pour les réactiver.
  * La page reste accessible en tapant directement l'adresse /contact.
  */
-export const CONTACT_ENABLED = false;
+export const CONTACT_ENABLED = true;
 
 export const contact = {
   /** Adresse affichée sur la page Contact (lien mailto et bouton « Copier l'adresse »). */
