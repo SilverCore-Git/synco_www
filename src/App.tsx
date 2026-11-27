@@ -3,6 +3,7 @@ import Layout from './components/Layout';
 import Home from './pages/Home';
 import Presentation from './pages/Presentation';
 import Configurateur from './pages/Configurateur';
+import Contact from './pages/Contact';
 
 export default function App() {
   return (
@@ -10,6 +11,7 @@ export default function App() {
       <Route element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="presentation" element={<Presentation />} />
+        <Route path="contact" element={<Contact />} />
         <Route path="*" element={<Home />} />
       </Route>
       {/* Le configurateur occupe tout l'écran : il a son propre en-tête, sans footer. */}

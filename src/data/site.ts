@@ -12,17 +12,34 @@ export const links = {
 };
 
 /**
- * Partie « Contact » : action désactivée temporairement (pas encore active).
+ * Page Contact (/contact) : liens désactivés temporairement (pas encore active).
  * Les liens restent affichés mais grisés et non cliquables. Passer à `true` pour les réactiver.
+ * La page reste accessible en tapant directement l'adresse /contact.
  */
 export const CONTACT_ENABLED = false;
+
+export const contact = {
+  /** Adresse affichée sur la page Contact (lien mailto et bouton « Copier l'adresse »). */
+  email: '[E-mail]',
+  /**
+   * URL qui reçoit le formulaire (POST JSON : name, email, topic, message).
+   * Vide : rien n'est envoyé, la page affiche seulement l'écran de confirmation (comme le design).
+   */
+  formEndpoint: '',
+  topics: ['Demande de devis', 'Question sur Synco ou ses offres', 'Autre demande'],
+  steps: [
+    'Vous remplissez le formulaire',
+    'Nous analysons votre demande',
+    'Réponse par e-mail (adresse transmise dans le formulaire)',
+  ],
+};
 
 export const mainNav = [
   { label: 'Accueil', to: '/#accueil' },
   { label: 'Présentation', to: '/presentation' },
   { label: 'Tarif', to: '/#tarif' },
   { label: 'FAQ', to: '/#faq' },
-  { label: 'Contact', to: '/#contact' },
+  { label: 'Contact', to: '/contact' },
 ];
 
 export const footer = {

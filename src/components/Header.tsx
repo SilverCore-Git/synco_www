@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
-import { links, mainNav } from '../data/site';
+import { CONTACT_ENABLED, links, mainNav } from '../data/site';
 import ContactLink from './ContactLink';
 
 const navText = 'font-display text-xl font-medium';
@@ -217,7 +217,8 @@ function NavItem({
   const cls = compact
     ? 'font-display text-lg font-medium whitespace-nowrap py-1.5'
     : `${navText} py-3 ${block ? 'border-b border-line' : ''}`;
-  if (to === '/#contact') {
+  // Contact désactivé : lien grisé non cliquable. Activé, c'est une page comme les autres.
+  if (to === '/contact' && !CONTACT_ENABLED) {
     return <ContactLink className={cls}>{label}</ContactLink>;
   }
   if (isPage) {

@@ -10,7 +10,7 @@ const socials = [
 
 export default function Footer() {
   return (
-    <footer id="contact" className="border-t border-line bg-bg-deep text-fg">
+    <footer className="border-t border-line bg-bg-deep text-fg">
       <div className="mx-auto max-w-[1440px] px-6 pt-14 pb-10 sm:px-12 sm:pt-[72px] xl:px-28">
         <div className="mb-14 flex flex-wrap justify-between gap-12 sm:mb-24">
           <div className="flex max-w-[420px] flex-[1_1_320px] flex-col gap-3">
