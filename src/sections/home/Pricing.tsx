@@ -77,9 +77,8 @@ export default function Pricing() {
             name="Dédié"
             price="Sur devis"
             description="Pour du sur-mesure et un accompagnement."
-            cta={
-              PRICING_ENABLED ? <ContactLink className={ctaClass}>Nous contacter</ContactLink> : <UnavailableCta />
-            }
+            // Toujours actif, même quand PRICING_ENABLED est à false (seul CONTACT_ENABLED le désactive).
+            cta={<ContactLink className={ctaClass}>Nous contacter</ContactLink>}
           />
         </div>
       </div>
